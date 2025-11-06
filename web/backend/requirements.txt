@@ -1,7 +1,8 @@
 fastapi==0.115.5
-uvicorn[standard]==0.32.0
+uvicorn==0.30.6
 python-multipart==0.0.9
-pydantic==2.9.2
-numpy
-pillow
-tensorflow==2.10.1
+Pillow==10.3.0
+numpy==1.26.4
+tensorflow==2.15.0
+pydantic==2.12.4
+swagger-ui-bundle==1.1.0

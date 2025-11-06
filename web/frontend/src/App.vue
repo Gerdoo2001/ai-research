@@ -7,10 +7,13 @@
 
       <!-- Upload + Prediction Panel -->
       <div class="panel">
-        <h2>AI Lung Analyzer</h2>
+        <h2>AI Lung Analyzer By Gerald</h2>
         <p>Upload a chest X-ray image to detect signs of Pneumonia.</p>
 
+        <!-- File Upload -->
         <FileUpload
+          v-if="!previewUrl"
+          ref="uploader"
           name="file"
           accept="image/*"
           :maxFileSize="2000000"
@@ -27,19 +30,29 @@
           </template>
         </FileUpload>
 
+        <!-- Image Preview -->
         <div v-if="previewUrl" class="preview mt-3">
           <img :src="previewUrl" alt="Preview" />
         </div>
 
+        <!-- Loading Bar -->
         <div v-if="loading" class="mt-3">
           <ProgressBar mode="indeterminate" style="height: 8px;" />
           <p class="mt-2 text-sm text-blue-200">Analyzing image...</p>
         </div>
 
-        <div v-if="result" class="result mt-4">
+        <!-- Result -->
+        <div v-if="result && !loading" class="result mt-4">
           <h3>Prediction Result</h3>
           <p><b>Label:</b> {{ result.label }}</p>
           <p><b>Confidence:</b> {{ (result.probability * 100).toFixed(2) }}%</p>
+
+          <Button 
+            label="Try Another Image" 
+            icon="pi pi-refresh" 
+            class="p-button-rounded p-button-info mt-3"
+            @click="resetAll"
+          />
         </div>
       </div>
     </div>
@@ -54,6 +67,7 @@ const toast = useToast();
 const previewUrl = ref(null);
 const result = ref(null);
 const loading = ref(false);
+const uploader = ref(null);
 
 const onUpload = async (event) => {
   const file = event.files[0];
@@ -71,23 +85,29 @@ const onUpload = async (event) => {
       body: formData,
     });
 
-    if (!res.ok) {
-      throw new Error("Prediction failed");
-    }
+    if (!res.ok) throw new Error("Prediction failed");
 
     const data = await res.json();
     result.value = data;
+
     toast.add({
       severity: "success",
       summary: "Prediction Complete",
       detail: `${data.label} (${(data.probability * 100).toFixed(2)}%)`,
-      life: 4000,
+      life: 3000,
     });
   } catch (e) {
     toast.add({ severity: "error", summary: "Error", detail: e.message, life: 3000 });
   } finally {
     loading.value = false;
   }
+};
+
+const resetAll = () => {
+  previewUrl.value = null;
+  result.value = null;
+  loading.value = false;
+  if (uploader.value) uploader.value.clear();
 };
 </script>
 

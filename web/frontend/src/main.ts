@@ -25,11 +25,13 @@ import Toast from "primevue/toast";
 import FileUpload from "primevue/fileupload";
 import ProgressBar from "primevue/progressbar";
 import Badge from "primevue/badge";
+import Dialog from "primevue/dialog";
 
 app.component("Button", Button);
 app.component("Toast", Toast);
 app.component("FileUpload", FileUpload);
 app.component("ProgressBar", ProgressBar);
 app.component("Badge", Badge);
+app.component("Dialog", Dialog); 
 
 app.mount("#app");

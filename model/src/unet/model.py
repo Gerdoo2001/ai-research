@@ -1,77 +1,68 @@
-#  If you want to get the detailed code, please contact lwf@haut.edu.cn
-import os
-import numpy as np
-import pandas as pd
-import cv2
-import matplotlib.pyplot as plt
-%matplotlib inline
-from sklearn.model_selection import train_test_split
-from pathlib import Path
-import ast
-from tqdm import tqdm_notebook, tqdm
-from tensorflow import keras
-from tensorflow.keras.models import Model
-from tensorflow.keras.layers import *
-from tensorflow.keras.optimizers import Adam
-from tensorflow.keras.regularizers import l2
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
-import tensorflow.keras.backend as K
-from tensorflow.keras.callbacks import  CSVLogger, ModelCheckpoint, LearningRateScheduler, EarlyStopping, ReduceLROnPlateau
-from tensorflow.keras.losses import binary_crossentropy
-from tensorflow.keras.models import *
-from tensorflow.keras.layers import *
-from tensorflow.keras.optimizers import *
-from tensorflow.keras import backend as keras
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
-from tensorflow.keras.callbacks import ModelCheckpoint, LearningRateScheduler
+# src/model/unet/model.py
+import tensorflow as tf
+from tensorflow.keras import layers, Model
+from tensorflow.keras.applications import EfficientNetB4
 
+# ================================
+# DICE METRICS
+# ================================
 def dice(y_true, y_pred):
-    y_true_f = keras.flatten(y_true)
-    y_pred_f = keras.flatten(y_pred)
-    intersection = keras.sum(y_true_f * y_pred_f)
-    return (2. * intersection+1 ) / (keras.sum(y_true_f) + keras.sum(y_pred_f)+1 )
+    y_true_f = tf.keras.backend.flatten(y_true)
+    y_pred_f = tf.keras.backend.flatten(y_pred)
+    intersection = tf.keras.backend.sum(y_true_f * y_pred_f)
+    return (2. * intersection + 1) / (tf.keras.backend.sum(y_true_f) + tf.keras.backend.sum(y_pred_f) + 1)
 
 def dice_loss(y_true, y_pred):
-    return 1-dice(y_true, y_pred)
+    return 1 - dice(y_true, y_pred)
 
-from tensorflow.keras.applications.efficientnet import EfficientNetB4
-backbone = EfficientNetB4(weights='imagenet',
-                            include_top=False,
-                            input_shape=(256,256,3))
-backbone.layers[326].output,backbone.layers[149].output,backbone.layers[90].output,backbone.layers[31].output
+# ================================
+# U-NET MODEL WITH EfficientNetB4 BACKBONE
+# ================================
+def U_Net(input_shape=(256, 256, 3), dropout_rate=0.25):
+    """U-Net with EfficientNetB4 encoder backbone"""
+    base_model = EfficientNetB4(
+        weights='imagenet',
+        include_top=False,
+        input_shape=input_shape
+    )
 
-........
+    # Skip connections (same layers referenced in original code)
+    skip_connections = [
+        base_model.get_layer('block2a_expand_activation').output,
+        base_model.get_layer('block3a_expand_activation').output,
+        base_model.get_layer('block4a_expand_activation').output,
+        base_model.get_layer('block6a_expand_activation').output
+    ]
 
-K.clear_session()
-img_size = 256
-model = U_Net(input_shape=(img_size,img_size,3),dropout_rate=0.25)
+    x = base_model.output
 
-from tensorflow.keras.callbacks import ModelCheckpoint, LearningRateScheduler, EarlyStopping, ReduceLROnPlateau
-weight_path="{}_weights_ROI.best.hdf5".format('quan-HAUT_xia-jsrt-sanweixia_effi_')
+    # Decoder
+    for skip in reversed(skip_connections):
+        x = layers.Conv2DTranspose(256, 2, strides=2, padding='same')(x)
+        x = layers.Concatenate()([x, skip])
+        x = layers.Conv2D(256, 3, activation='relu', padding='same')(x)
+        x = layers.Dropout(dropout_rate)(x)
 
-checkpoint = ModelCheckpoint(weight_path, monitor='val_dice', verbose=1,
-                             save_best_only=True, mode='max', save_weights_only = True)
+    outputs = layers.Conv2D(1, 1, activation='sigmoid')(x)
 
-reduceLROnPlat = ReduceLROnPlateau(monitor='val_dice', factor=0.5,
-                                   patience=3,
-                                   verbose=1, mode='max', epsilon=0.0001, cooldown=2, min_lr=1e-7)
-early = EarlyStopping(monitor="val_dice",
-                      mode="max",
-                      patience=8) # probably needs to be more patient, but kaggle time is limited
-callbacks_list = [checkpoint, early, reduceLROnPlat]
+    model = Model(inputs=base_model.input, outputs=outputs)
+    return model
 
-from IPython.display import clear_output
-from tensorflow.keras.optimizers import Adam
-from sklearn.model_selection import train_test_split
+# ================================
+# COMPILE FUNCTION
+# ================================
+def compile_model(model, lr=2e-4):
+    model.compile(
+        optimizer=tf.keras.optimizers.Adam(learning_rate=lr),
+        loss=dice_loss,
+        metrics=[dice, 'binary_accuracy']
+    )
+    return model
 
-model.compile(optimizer=Adam(lr=2e-4),
-              loss=[dice_loss],
-           metrics = [dice, 'binary_accuracy'])
-
-#x_vol.shape,x_seg.shape,y_vol.shape,y_seg.shape
-loss_history = model.fit(x = train_vol,
-                       y = train_seg,
-                         batch_size = 16,
-                  epochs = 100,
-                  validation_data =(validation_vol,validation_seg),
-                  callbacks=callbacks_list)
+# ================================
+# MAIN CHECK
+# ================================
+if __name__ == "__main__":
+    model = U_Net()
+    model = compile_model(model)
+    model.summary()

@@ -11,19 +11,12 @@ DST_ROOT = BASE_DIR / "model" / "augmented_data" / "train"
 
 CATEGORIES = ["NORMAL", "PNEUMONIA"]
 
-
 # ==========================================
 # UTILITIES
 # ==========================================
-def ensure_dir(p: Path):
-    """Create directory if it doesn’t exist."""
-    p.mkdir(parents=True, exist_ok=True)
-
-
-def flip_horizontal(img):
-    """Flip image horizontally."""
-    return cv2.flip(img, 1)
-
+def ensure_dir(path: Path):
+    """Ensure directory exists."""
+    path.mkdir(parents=True, exist_ok=True)
 
 def apply_clahe(img):
     """Apply CLAHE enhancement to improve local contrast."""
@@ -34,52 +27,54 @@ def apply_clahe(img):
     merged = cv2.merge((cl, a, b))
     return cv2.cvtColor(merged, cv2.COLOR_LAB2BGR)
 
+def flip_horizontal(img):
+    """Flip image horizontally."""
+    return cv2.flip(img, 1)
 
 # ==========================================
 # MAIN AUGMENTATION LOGIC
 # ==========================================
 def augment_images():
-    for cat in CATEGORIES:
-        src = SRC_ROOT / cat
-        dst = DST_ROOT / cat
-        ensure_dir(dst)
+    total = 0
+    for category in CATEGORIES:
+        src_folder = SRC_ROOT / category
+        dst_folder = DST_ROOT / category
+        ensure_dir(dst_folder)
 
-        print(f"Processing {cat} images...")
-        if not src.exists():
-            print(f"⚠️  Missing folder: {src}")
+        if not src_folder.exists():
+            print(f"⚠️ Missing folder: {src_folder}")
             continue
 
-        for name in os.listdir(src):
-            if not name.lower().endswith((".jpg", ".png", ".jpeg")):
+        print(f"\n🔄 Processing category: {category}")
+
+        for file in os.listdir(src_folder):
+            if not file.lower().endswith((".jpg", ".jpeg", ".png")):
                 continue
 
-            path = str(src / name)
-            img = cv2.imread(path)
+            img_path = src_folder / file
+            img = cv2.imread(str(img_path))
             if img is None:
+                print(f"⚠️ Skipped invalid image: {file}")
                 continue
 
-            base = Path(name).stem
+            base = Path(file).stem
 
-            # 1️⃣ CLAHE enhancement
+            # 1️⃣ CLAHE version
             clahe_img = apply_clahe(img)
-            clahe_path = dst / f"{base}_clahe.jpg"
-            cv2.imwrite(str(clahe_path), clahe_img)
+            clahe_out = dst_folder / f"{base}_clahe.jpg"
+            cv2.imwrite(str(clahe_out), clahe_img)
 
-            # 2️⃣ Horizontal flip (after CLAHE)
-            flipped = flip_horizontal(clahe_img)
-            flip_path = dst / f"{base}_flip.jpg"
-            cv2.imwrite(str(flip_path), flipped)
+            # 2️⃣ Flipped CLAHE version
+            flipped_img = flip_horizontal(clahe_img)
+            flip_out = dst_folder / f"{base}_clahe_flip.jpg"
+            cv2.imwrite(str(flip_out), flipped_img)
 
-            # 3️⃣ (Future) Lung segmentation
-            # ------------------------------------------------
-            # from your future implementation:
-            # segmented = segment_lungs(your_model, clahe_img)
-            # seg_path = dst / f"{base}_seg.jpg"
-            # cv2.imwrite(str(seg_path), segmented)
-            # ------------------------------------------------
+            total += 2
 
-    print(f"\n✅ Augmentation complete. Results saved to: {DST_ROOT}")
+        print(f"✅ Done: {category} → saved in {dst_folder}")
 
+    print(f"\n✨ Augmentation complete! Total new images: {total}")
+    print(f"📁 Saved to: {DST_ROOT}")
 
 # ==========================================
 # ENTRY POINT
