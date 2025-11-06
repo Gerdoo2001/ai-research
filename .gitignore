@@ -1,0 +1,7 @@
+# Ignore all Python virtual environments
+venv/
+.venv/
+*/venv/
+*/.venv/
+**/venv/
+**/.venv/
