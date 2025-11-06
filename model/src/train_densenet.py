@@ -1,4 +1,15 @@
+"""
+Train DenseNet121 for Pneumonia Classification
+Author: John Mark
+
+Description:
+    Loads augmented dataset (original + flipped + CLAHE)
+    Trains a binary classifier: NORMAL vs PNEUMONIA
+    Saves model as densenet121_pneumonia.h5 (or .keras if .h5 fails)
+"""
+
 import os
+import gc
 from pathlib import Path
 import tensorflow as tf
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
@@ -21,12 +32,13 @@ LEARNING_RATE = 1e-4
 # ==============================
 BASE_DIR = Path(__file__).resolve().parents[2]  # -> ai-research/
 TRAIN_DIR = BASE_DIR / "model" / "augmented_data" / "train"
-MODEL_SAVE_PATH = BASE_DIR / "model" / "outputs" / "densenet121_pneumonia.h5"
-HISTORY_PLOT_PATH = BASE_DIR / "model" / "outputs" / "training_history.png"
+OUTPUT_DIR = BASE_DIR / "model" / "outputs"
+MODEL_SAVE_PATH = OUTPUT_DIR / "densenet121_pneumonia.h5"
+MODEL_SAFE_PATH = OUTPUT_DIR / "densenet121_pneumonia_safe.h5"
+KERAS_SAVE_PATH = OUTPUT_DIR / "densenet121_pneumonia.keras"
+HISTORY_PLOT_PATH = OUTPUT_DIR / "training_history.png"
 
-# Ensure output directories exist
-MODEL_SAVE_PATH.parent.mkdir(parents=True, exist_ok=True)
-HISTORY_PLOT_PATH.parent.mkdir(parents=True, exist_ok=True)
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 # ==============================
 # DATASET LOADING
@@ -101,11 +113,27 @@ history = model.fit(
 )
 
 # ==============================
-# SAVE MODEL
+# SAVE MODEL (Safe Save)
 # ==============================
 print(f"💾 Saving trained model to {MODEL_SAVE_PATH} ...")
-model.save(MODEL_SAVE_PATH)
-print("✅ Model saved successfully!")
+try:
+    model.save(MODEL_SAVE_PATH, save_format="h5")
+    print(f"✅ Model saved successfully at: {MODEL_SAVE_PATH}")
+except Exception as e:
+    print(f"⚠️ H5 save failed: {e}")
+    try:
+        print(f"💾 Retrying save to {MODEL_SAFE_PATH} ...")
+        model.save(MODEL_SAFE_PATH, save_format="h5")
+        print(f"✅ Backup H5 model saved at: {MODEL_SAFE_PATH}")
+    except Exception as e2:
+        print(f"⚠️ Backup H5 failed too: {e2}")
+        print(f"💾 Saving instead as native .keras format...")
+        model.save(KERAS_SAVE_PATH)
+        print(f"✅ Model saved as .keras: {KERAS_SAVE_PATH}")
+
+# Free memory
+del model
+gc.collect()
 
 # ==============================
 # PLOT TRAINING HISTORY

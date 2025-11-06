@@ -2,6 +2,7 @@ import os
 import numpy as np
 from PIL import Image
 import tensorflow as tf
+from pathlib import Path
 
 # ==============================
 # CONFIGURATION
@@ -10,9 +11,7 @@ IMG_SIZE = 224
 
 # Compute absolute base directory (repo root)
 # backend -> web -> ai-research
-BASE_DIR = os.path.abspath(
-    os.path.join(os.path.dirname(__file__), "../../..")  # up three levels
-)
+BASE_DIR = Path(__file__).resolve().parents[2]  # -> ai-research/
 MODEL_PATH = os.path.join(BASE_DIR, "model", "outputs", "densenet121_pneumonia.h5")
 
 _model = None

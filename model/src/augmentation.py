@@ -1,15 +1,3 @@
-"""
-Image Augmentation Script
-Author: John Mark
-
-Description:
-    Performs image augmentations for chest X-ray dataset:
-      • Horizontal flip
-      • CLAHE (Contrast Limited Adaptive Histogram Equalization)
-    Saves augmented copies to: model/augmented_data/train
-    Lung segmentation section is left commented for future integration.
-"""
-
 import os
 import cv2
 from pathlib import Path
