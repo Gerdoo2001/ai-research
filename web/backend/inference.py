@@ -12,7 +12,7 @@ IMG_SIZE = 224
 
 # Compute absolute base directory (repo root)
 BASE_DIR = Path(__file__).resolve().parents[2]  # -> ai-research/
-MODEL_PATH = os.path.join(BASE_DIR, "model", "outputs", "densenet121_pneumonia.h5")
+MODEL_PATH = os.path.join(BASE_DIR, "model", "outputs", "densenet201", "densenet201_pneumonia.h5")
 
 _model = None
 
@@ -78,7 +78,7 @@ def preprocess_image(pil_img: Image.Image) -> np.ndarray:
 # ==============================
 # PREDICT FUNCTION
 # ==============================
-def predict(pil_img: Image.Image, threshold: float = 0.2):
+def predict(pil_img: Image.Image, threshold: float = 0.5):
     """Predict pneumonia from chest X-ray."""
     model = load_model()
     x = preprocess_image(pil_img)
