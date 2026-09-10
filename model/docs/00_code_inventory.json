@@ -1,0 +1,896 @@
+{
+  "audit_scripts": [
+    {
+      "bytes": 7895,
+      "line_count": 197,
+      "modified_at": "2026-07-16T17:02:58+08:00",
+      "path": "model/scripts/inventory_repository.py",
+      "sha256": "dd41647d765c7ec84adab96437132fd4aad0a6c8d43ac78ae18136102bf22a4e",
+      "suffix": ".py"
+    },
+    {
+      "bytes": 6274,
+      "line_count": 186,
+      "modified_at": "2026-07-16T17:02:58+08:00",
+      "path": "model/scripts/snapshot_environment.py",
+      "sha256": "3f5cf46b86758d485e125ec2808829aef7ad4c43ffe653f9abbb99adf9d590cb",
+      "suffix": ".py"
+    }
+  ],
+  "dependency_files": [
+    {
+      "bytes": 540,
+      "line_count": 28,
+      "modified_at": "2025-12-18T12:20:33+08:00",
+      "path": "model/requirements.txt",
+      "sha256": "66bdea6dcc6e9acb4290dde2c1c1e37540e523b7e0e33bc92bceea820c2bd802",
+      "suffix": ".txt"
+    },
+    {
+      "bytes": 1356,
+      "line_count": 71,
+      "modified_at": "2025-12-18T14:54:15+08:00",
+      "path": "requirements.working.txt",
+      "sha256": "c651520d7e42ecd689d03af0c032eb9cf8107cc8f5f158aa86f23ba799705d6e",
+      "suffix": ".txt"
+    }
+  ],
+  "directory_summaries": [
+    {
+      "bytes": 31776,
+      "file_count": 15,
+      "path": "model/src",
+      "suffix_counts": {
+        ".py": 15
+      }
+    },
+    {
+      "bytes": 2483915296,
+      "file_count": 17591,
+      "path": "model/datasets",
+      "suffix_counts": {
+        ".ds_store": 8,
+        ".jpeg": 17568,
+        "<none>": 15
+      }
+    },
+    {
+      "bytes": 1836240664,
+      "file_count": 2389,
+      "path": "model/augmented_data",
+      "suffix_counts": {
+        ".jpg": 2389
+      }
+    },
+    {
+      "bytes": 312898210,
+      "file_count": 27,
+      "path": "model/outputs",
+      "suffix_counts": {
+        ".h5": 5,
+        ".hdf5": 2,
+        ".png": 17,
+        ".txt": 3
+      }
+    },
+    {
+      "bytes": 14169,
+      "file_count": 2,
+      "path": "model/scripts",
+      "suffix_counts": {
+        ".py": 2
+      }
+    }
+  ],
+  "generated_at": "2026-07-16T17:03:06+08:00",
+  "legacy_hdf5_summaries": [
+    {
+      "final_layer": {
+        "activation": "sigmoid",
+        "class_name": "Dense",
+        "filters": null,
+        "name": "dense",
+        "units": 1
+      },
+      "layer_count": 430,
+      "model_class": "Functional",
+      "model_name": "model",
+      "path": "model/outputs/1/densenet121_pneumonia.h5",
+      "root_attributes": [
+        "backend",
+        "keras_version",
+        "model_config",
+        "training_config"
+      ],
+      "root_groups": [
+        "model_weights",
+        "optimizer_weights"
+      ],
+      "training_config": {
+        "loss": "binary_crossentropy",
+        "metrics": [
+          [
+            {
+              "class_name": "MeanMetricWrapper",
+              "config": {
+                "dtype": "float32",
+                "fn": "binary_accuracy",
+                "name": "accuracy"
+              }
+            }
+          ]
+        ],
+        "optimizer_class": "Adam"
+      }
+    },
+    {
+      "final_layer": {
+        "activation": "sigmoid",
+        "class_name": "Dense",
+        "filters": null,
+        "name": "dense",
+        "units": 1
+      },
+      "layer_count": 430,
+      "model_class": "Functional",
+      "model_name": "model",
+      "path": "model/outputs/2/densenet121_pneumonia.h5",
+      "root_attributes": [
+        "backend",
+        "keras_version",
+        "model_config",
+        "training_config"
+      ],
+      "root_groups": [
+        "model_weights",
+        "optimizer_weights"
+      ],
+      "training_config": {
+        "loss": "binary_crossentropy",
+        "metrics": [
+          [
+            {
+              "class_name": "MeanMetricWrapper",
+              "config": {
+                "dtype": "float32",
+                "fn": "binary_accuracy",
+                "name": "accuracy"
+              }
+            }
+          ]
+        ],
+        "optimizer_class": "Adam"
+      }
+    },
+    {
+      "path": "model/outputs/cxr_reg_weights.best.hdf5",
+      "root_attributes": [
+        "backend",
+        "keras_version",
+        "layer_names"
+      ],
+      "root_groups": [
+        "concatenate_1",
+        "concatenate_2",
+        "concatenate_3",
+        "concatenate_4",
+        "conv2d_1",
+        "conv2d_10",
+        "conv2d_11",
+        "conv2d_12",
+        "conv2d_13",
+        "conv2d_14",
+        "conv2d_15",
+        "conv2d_16",
+        "conv2d_17",
+        "conv2d_18",
+        "conv2d_19",
+        "conv2d_2",
+        "conv2d_3",
+        "conv2d_4",
+        "conv2d_5",
+        "conv2d_6",
+        "conv2d_7",
+        "conv2d_8",
+        "conv2d_9",
+        "conv2d_transpose_1",
+        "conv2d_transpose_2",
+        "conv2d_transpose_3",
+        "conv2d_transpose_4",
+        "input_1",
+        "max_pooling2d_1",
+        "max_pooling2d_2",
+        "max_pooling2d_3",
+        "max_pooling2d_4"
+      ]
+    },
+    {
+      "final_layer": {
+        "activation": "sigmoid",
+        "class_name": "Dense",
+        "filters": null,
+        "name": "dense",
+        "units": 1
+      },
+      "layer_count": 430,
+      "model_class": "Functional",
+      "model_name": "model",
+      "path": "model/outputs/densenet121/densenet121_pneumonia.h5",
+      "root_attributes": [
+        "backend",
+        "keras_version",
+        "model_config",
+        "training_config"
+      ],
+      "root_groups": [
+        "model_weights",
+        "optimizer_weights"
+      ],
+      "training_config": {
+        "loss": "binary_crossentropy",
+        "metrics": [
+          [
+            {
+              "class_name": "MeanMetricWrapper",
+              "config": {
+                "dtype": "float32",
+                "fn": "binary_accuracy",
+                "name": "accuracy"
+              }
+            },
+            {
+              "class_name": "Precision",
+              "config": {
+                "class_id": null,
+                "dtype": "float32",
+                "name": "precision",
+                "thresholds": null,
+                "top_k": null
+              }
+            },
+            {
+              "class_name": "Recall",
+              "config": {
+                "class_id": null,
+                "dtype": "float32",
+                "name": "recall",
+                "thresholds": null,
+                "top_k": null
+              }
+            },
+            {
+              "class_name": "AUC",
+              "config": {
+                "curve": "ROC",
+                "dtype": "float32",
+                "from_logits": false,
+                "label_weights": null,
+                "multi_label": false,
+                "name": "auc",
+                "num_labels": null,
+                "num_thresholds": 200,
+                "summation_method": "interpolation"
+              }
+            }
+          ]
+        ],
+        "optimizer_class": "Adam"
+      }
+    },
+    {
+      "final_layer": {
+        "activation": "sigmoid",
+        "class_name": "Dense",
+        "filters": null,
+        "name": "dense_1",
+        "units": 1
+      },
+      "layer_count": 598,
+      "model_class": "Functional",
+      "model_name": "model_1",
+      "path": "model/outputs/densenet169/densenet169_pneumonia.h5",
+      "root_attributes": [
+        "backend",
+        "keras_version",
+        "model_config",
+        "training_config"
+      ],
+      "root_groups": [
+        "model_weights",
+        "optimizer_weights"
+      ],
+      "training_config": {
+        "loss": "binary_crossentropy",
+        "metrics": [
+          [
+            {
+              "class_name": "MeanMetricWrapper",
+              "config": {
+                "dtype": "float32",
+                "fn": "binary_accuracy",
+                "name": "accuracy"
+              }
+            },
+            {
+              "class_name": "Precision",
+              "config": {
+                "class_id": null,
+                "dtype": "float32",
+                "name": "precision_1",
+                "thresholds": null,
+                "top_k": null
+              }
+            },
+            {
+              "class_name": "Recall",
+              "config": {
+                "class_id": null,
+                "dtype": "float32",
+                "name": "recall_1",
+                "thresholds": null,
+                "top_k": null
+              }
+            },
+            {
+              "class_name": "AUC",
+              "config": {
+                "curve": "ROC",
+                "dtype": "float32",
+                "from_logits": false,
+                "label_weights": null,
+                "multi_label": false,
+                "name": "auc_1",
+                "num_labels": null,
+                "num_thresholds": 200,
+                "summation_method": "interpolation"
+              }
+            }
+          ]
+        ],
+        "optimizer_class": "Adam"
+      }
+    },
+    {
+      "final_layer": {
+        "activation": "sigmoid",
+        "class_name": "Dense",
+        "filters": null,
+        "name": "dense_2",
+        "units": 1
+      },
+      "layer_count": 710,
+      "model_class": "Functional",
+      "model_name": "model_2",
+      "path": "model/outputs/densenet201/densenet201_pneumonia.h5",
+      "root_attributes": [
+        "backend",
+        "keras_version",
+        "model_config",
+        "training_config"
+      ],
+      "root_groups": [
+        "model_weights",
+        "optimizer_weights"
+      ],
+      "training_config": {
+        "loss": "loss",
+        "metrics": [
+          [
+            {
+              "class_name": "MeanMetricWrapper",
+              "config": {
+                "dtype": "float32",
+                "fn": "binary_accuracy",
+                "name": "accuracy"
+              }
+            },
+            {
+              "class_name": "Precision",
+              "config": {
+                "class_id": null,
+                "dtype": "float32",
+                "name": "precision",
+                "thresholds": null,
+                "top_k": null
+              }
+            },
+            {
+              "class_name": "Recall",
+              "config": {
+                "class_id": null,
+                "dtype": "float32",
+                "name": "recall",
+                "thresholds": null,
+                "top_k": null
+              }
+            },
+            {
+              "class_name": "AUC",
+              "config": {
+                "curve": "ROC",
+                "dtype": "float32",
+                "from_logits": false,
+                "label_weights": null,
+                "multi_label": false,
+                "name": "auc",
+                "num_labels": null,
+                "num_thresholds": 200,
+                "summation_method": "interpolation"
+              }
+            }
+          ]
+        ],
+        "optimizer_class": "Adam"
+      }
+    },
+    {
+      "final_layer": {
+        "activation": "sigmoid",
+        "class_name": "Conv2D",
+        "filters": 1,
+        "name": "conv2d_22",
+        "units": null
+      },
+      "layer_count": 35,
+      "model_class": "Model",
+      "model_name": "model_1",
+      "path": "model/outputs/trained_model.hdf5",
+      "root_attributes": [
+        "backend",
+        "keras_version",
+        "model_config",
+        "training_config"
+      ],
+      "root_groups": [
+        "model_weights",
+        "optimizer_weights"
+      ],
+      "training_config": {
+        "loss": "binary_crossentropy",
+        "metrics": [
+          "accuracy"
+        ],
+        "optimizer_class": "Adam"
+      }
+    }
+  ],
+  "legacy_output_artifacts": [
+    {
+      "bytes": 29339752,
+      "modified_at": "2025-12-18T11:17:07+08:00",
+      "path": "model/outputs/1/densenet121_pneumonia.h5",
+      "sha256": "76610a121703235cc84b84de27a8583bbdd3323ffee845fad2a5d9eed09bd7cd",
+      "suffix": ".h5"
+    },
+    {
+      "bytes": 53508,
+      "modified_at": "2025-12-18T11:16:49+08:00",
+      "path": "model/outputs/1/training_history.png",
+      "sha256": "7f3a350c774ca0064513cbfae569e8f99e321dffd511166c5dfb573162d1f3a6",
+      "suffix": ".png"
+    },
+    {
+      "bytes": 29339752,
+      "modified_at": "2025-12-18T11:17:09+08:00",
+      "path": "model/outputs/2/densenet121_pneumonia.h5",
+      "sha256": "8cde3bbbcf78c4f7a9391581ef115e27934e422ae15dbc28e40ca499dbe4813a",
+      "suffix": ".h5"
+    },
+    {
+      "bytes": 58031,
+      "modified_at": "2025-12-18T11:16:47+08:00",
+      "path": "model/outputs/2/training_history.png",
+      "sha256": "48d163f21cc4def42cdee5a7699ac068bcea26eebb55a48468d625551ae30b55",
+      "suffix": ".png"
+    },
+    {
+      "bytes": 31119136,
+      "modified_at": "2025-12-18T00:21:26+08:00",
+      "path": "model/outputs/cxr_reg_weights.best.hdf5",
+      "sha256": "7bf4468a2d585b1781c41e4f4588ff2887826c681c3e77125378b7e4bb1dfaaf",
+      "suffix": ".hdf5"
+    },
+    {
+      "bytes": 334,
+      "line_count": 8,
+      "modified_at": "2025-12-18T11:16:45+08:00",
+      "path": "model/outputs/densenet121/classification_report.txt",
+      "sha256": "7a9fc4b9ddf67f35fa1c9071134e34aa3b85590f96d3ce7b1eceb8a0eb210030",
+      "suffix": ".txt"
+    },
+    {
+      "bytes": 19228,
+      "modified_at": "2025-12-18T11:16:51+08:00",
+      "path": "model/outputs/densenet121/classification_report_heatmap.png",
+      "sha256": "8c0bc083010ecc0b4e45daa7fdcbe1731f9677aefa9cc9a293137d8c6e8627bb",
+      "suffix": ".png"
+    },
+    {
+      "bytes": 21505,
+      "modified_at": "2025-12-18T11:16:50+08:00",
+      "path": "model/outputs/densenet121/confusion_matrix.png",
+      "sha256": "bc78acf0389bf5e8b8861a9a7b214304a31d4030b61ea607af27e7bb0f172c4c",
+      "suffix": ".png"
+    },
+    {
+      "bytes": 29339656,
+      "modified_at": "2025-12-18T11:17:06+08:00",
+      "path": "model/outputs/densenet121/densenet121_pneumonia.h5",
+      "sha256": "3a58e7d9b9c7c6d05df6627547cdd0c34793f06247c8100e0127e7aa82bdc03a",
+      "suffix": ".h5"
+    },
+    {
+      "bytes": 15163,
+      "modified_at": "2025-12-18T11:16:51+08:00",
+      "path": "model/outputs/densenet121/precision_recall_f1_bars.png",
+      "sha256": "b7d159b87f256b553c65bea9b459bec3996ea280622236f50db3cbf52ab071a0",
+      "suffix": ".png"
+    },
+    {
+      "bytes": 25250,
+      "modified_at": "2025-12-18T11:16:50+08:00",
+      "path": "model/outputs/densenet121/roc_curve.png",
+      "sha256": "11976c338d15fd3ae705bc1d63262b62965f4483223cd3209fda056bec290c94",
+      "suffix": ".png"
+    },
+    {
+      "bytes": 38712,
+      "modified_at": "2025-12-18T11:16:49+08:00",
+      "path": "model/outputs/densenet121/training_history.png",
+      "sha256": "dc4fdd8cc1a2a321c4cf020fb17c4223f5b0fb91d2478e1c34eaff6f27c0a224",
+      "suffix": ".png"
+    },
+    {
+      "bytes": 334,
+      "line_count": 8,
+      "modified_at": "2025-12-18T11:16:45+08:00",
+      "path": "model/outputs/densenet169/classification_report.txt",
+      "sha256": "35bc03fcd1e03dcf156601a5636d39af67f05201b81ff06d8cf7b8ecc2344beb",
+      "suffix": ".txt"
+    },
+    {
+      "bytes": 20228,
+      "modified_at": "2025-12-18T11:16:50+08:00",
+      "path": "model/outputs/densenet169/classification_report_heatmap.png",
+      "sha256": "70a86113805cfc2c28250d2f0e2341bf39f82dbf120102aef534b2de6b496585",
+      "suffix": ".png"
+    },
+    {
+      "bytes": 21914,
+      "modified_at": "2025-12-18T11:16:50+08:00",
+      "path": "model/outputs/densenet169/confusion_matrix.png",
+      "sha256": "7c41eccb1df1fd5cf870f5817b5d679a284c963e297b90f144d7be3d48631b4c",
+      "suffix": ".png"
+    },
+    {
+      "bytes": 52233936,
+      "modified_at": "2025-12-18T11:17:14+08:00",
+      "path": "model/outputs/densenet169/densenet169_pneumonia.h5",
+      "sha256": "9373686bd5794df57d2d826600508ddf53632176ccbdfc7949b1853eeff876db",
+      "suffix": ".h5"
+    },
+    {
+      "bytes": 15257,
+      "modified_at": "2025-12-18T11:16:51+08:00",
+      "path": "model/outputs/densenet169/precision_recall_f1_bars.png",
+      "sha256": "0698cc5ceb034455fadc8acd7baab5551e4d042875218183ab1bbfedd685c2e4",
+      "suffix": ".png"
+    },
+    {
+      "bytes": 25604,
+      "modified_at": "2025-12-18T11:16:49+08:00",
+      "path": "model/outputs/densenet169/roc_curve.png",
+      "sha256": "6f0c6140fc40fa6762328b065236f4de522e6040c470d995760e4bd8e003f8dd",
+      "suffix": ".png"
+    },
+    {
+      "bytes": 54401,
+      "modified_at": "2025-12-18T11:16:48+08:00",
+      "path": "model/outputs/densenet169/training_history.png",
+      "sha256": "2c1ec028ef688461f313654328ca4d04ed5814d30570c048495000adeed5dd95",
+      "suffix": ".png"
+    },
+    {
+      "bytes": 334,
+      "line_count": 8,
+      "modified_at": "2025-12-18T11:16:45+08:00",
+      "path": "model/outputs/densenet201/classification_report.txt",
+      "sha256": "69ea4ed560d530d6b635ec835a1580c6ca0c2d0b3c9abfcfcb0a2871aabfb701",
+      "suffix": ".txt"
+    },
+    {
+      "bytes": 19805,
+      "modified_at": "2025-12-18T11:16:50+08:00",
+      "path": "model/outputs/densenet201/classification_report_heatmap.png",
+      "sha256": "0b5b54da7b1b1c4cb09d96bceae42cd9231e0b0dddc8fa41f6642998861dca7c",
+      "suffix": ".png"
+    },
+    {
+      "bytes": 21926,
+      "modified_at": "2025-12-18T11:16:50+08:00",
+      "path": "model/outputs/densenet201/confusion_matrix.png",
+      "sha256": "b0054ad821880fd19369a8c5546468fd080e37feeece9565c718b2b93d33a29a",
+      "suffix": ".png"
+    },
+    {
+      "bytes": 75254464,
+      "modified_at": "2025-11-26T13:11:17+08:00",
+      "path": "model/outputs/densenet201/densenet201_pneumonia.h5",
+      "sha256": "fa19063ea77402a881841ff19f14bde1fc97879bbdada0437bfbfd2e4ff49df1",
+      "suffix": ".h5"
+    },
+    {
+      "bytes": 15265,
+      "modified_at": "2025-12-18T11:16:51+08:00",
+      "path": "model/outputs/densenet201/precision_recall_f1_bars.png",
+      "sha256": "9382f01573d6170c69c1f3a2764be5213585ba55299266381390346205df2907",
+      "suffix": ".png"
+    },
+    {
+      "bytes": 25516,
+      "modified_at": "2025-12-18T11:16:49+08:00",
+      "path": "model/outputs/densenet201/roc_curve.png",
+      "sha256": "b09b707e89a8d9b1bc52b14ca59ae0d9d1f45e6a564bc327f1cf45705accb7f5",
+      "suffix": ".png"
+    },
+    {
+      "bytes": 54391,
+      "modified_at": "2025-12-18T11:16:48+08:00",
+      "path": "model/outputs/densenet201/training_history.png",
+      "sha256": "ea486e70e00955719bb5c07204ab1ddcae8561541e34dafe189f276bc31e3363",
+      "suffix": ".png"
+    },
+    {
+      "bytes": 65764808,
+      "modified_at": "2025-12-18T00:34:49+08:00",
+      "path": "model/outputs/trained_model.hdf5",
+      "sha256": "9406564a140aef8ecf6c6acf20a3b9477d416a3da84e9f6e324c6dec1072c021",
+      "suffix": ".hdf5"
+    }
+  ],
+  "legacy_source_files": [
+    {
+      "bytes": 5222,
+      "line_count": 157,
+      "modified_at": "2025-12-18T12:50:46+08:00",
+      "path": "model/src/app.py",
+      "sha256": "6465c61026a9a1837668e98e3d8b111472f1c6ba8f374bfd212ccc7a709cdce2",
+      "suffix": ".py"
+    },
+    {
+      "bytes": 2717,
+      "line_count": 83,
+      "modified_at": "2025-12-18T11:16:45+08:00",
+      "path": "model/src/augmentation.py",
+      "sha256": "8b4783838b63e733d51d9150d51012b192e9cc95e3fca7fac76e28fa4758d65c",
+      "suffix": ".py"
+    },
+    {
+      "bytes": 0,
+      "line_count": 0,
+      "modified_at": "2025-12-18T11:16:45+08:00",
+      "path": "model/src/evaluate.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "suffix": ".py"
+    },
+    {
+      "bytes": 639,
+      "line_count": 21,
+      "modified_at": "2025-12-18T11:16:45+08:00",
+      "path": "model/src/model.py",
+      "sha256": "802da203ef19d75c3b09a0ac8e2ebe5e5943aab9203af92edc289e1cb8b6551c",
+      "suffix": ".py"
+    },
+    {
+      "bytes": 949,
+      "line_count": 24,
+      "modified_at": "2025-12-18T11:16:45+08:00",
+      "path": "model/src/train.py",
+      "sha256": "0b76f3b7dc3210a2983fc816ac861e4deeacff2b270018f92d635d490f4db91b",
+      "suffix": ".py"
+    },
+    {
+      "bytes": 7881,
+      "line_count": 236,
+      "modified_at": "2025-12-18T11:16:45+08:00",
+      "path": "model/src/train_densenet.py",
+      "sha256": "b92562f2cec2539cdf33d390021336a89ff82b0d9af59d2959409c72ca9f7b29",
+      "suffix": ".py"
+    },
+    {
+      "bytes": 2784,
+      "line_count": 78,
+      "modified_at": "2025-12-18T11:16:45+08:00",
+      "path": "model/src/unet/best_threshold.py",
+      "sha256": "8a4f4dd43b82440ef941f56ba0126151068524f67f5124d230920c76b5588f17",
+      "suffix": ".py"
+    },
+    {
+      "bytes": 2741,
+      "line_count": 86,
+      "modified_at": "2025-12-18T11:16:45+08:00",
+      "path": "model/src/unet/data_generator.py",
+      "sha256": "61d494b2e61d9a52d11030965fbf51a982e945da26e2224f3cadede018080196",
+      "suffix": ".py"
+    },
+    {
+      "bytes": 0,
+      "line_count": 0,
+      "modified_at": "2025-12-18T11:16:45+08:00",
+      "path": "model/src/unet/data_loader.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "suffix": ".py"
+    },
+    {
+      "bytes": 1029,
+      "line_count": 23,
+      "modified_at": "2025-12-18T11:16:45+08:00",
+      "path": "model/src/unet/date_augment.py",
+      "sha256": "f8deb5b6d0e929e19ec5ffedcb9fcea07d817810163c895a21fb56c214d2a734",
+      "suffix": ".py"
+    },
+    {
+      "bytes": 1063,
+      "line_count": 33,
+      "modified_at": "2025-12-18T11:16:45+08:00",
+      "path": "model/src/unet/evaluate.py",
+      "sha256": "329160b7d9e6914e3b5f997d36c60037e8886390c05e55054f7e9263b9f631df",
+      "suffix": ".py"
+    },
+    {
+      "bytes": 2508,
+      "line_count": 93,
+      "modified_at": "2025-12-18T11:16:45+08:00",
+      "path": "model/src/unet/five_metric.py",
+      "sha256": "8110d0117732748cb20bf9a78f65bd204f3a9fe234d1c176d0a47ff47df19db9",
+      "suffix": ".py"
+    },
+    {
+      "bytes": 2308,
+      "line_count": 68,
+      "modified_at": "2025-12-18T11:16:45+08:00",
+      "path": "model/src/unet/model.py",
+      "sha256": "e897090def8eba335e1423e1e5e9fccd2bc643c10a2b7c0071de68ad595466ce",
+      "suffix": ".py"
+    },
+    {
+      "bytes": 1935,
+      "line_count": 56,
+      "modified_at": "2025-12-18T11:16:45+08:00",
+      "path": "model/src/unet/train_unet.py",
+      "sha256": "10f2f09208eb1c1bbfbdfb223948b0748895b1aa070b7b18a54532cdc1984603",
+      "suffix": ".py"
+    },
+    {
+      "bytes": 0,
+      "line_count": 0,
+      "modified_at": "2025-12-18T11:16:45+08:00",
+      "path": "model/src/utils.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "suffix": ".py"
+    }
+  ],
+  "legacy_term_search": {
+    "automated_grading": [],
+    "clahe": [
+      {
+        "line": 21,
+        "path": "model/src/augmentation.py",
+        "text": "def apply_clahe(img):"
+      },
+      {
+        "line": 22,
+        "path": "model/src/augmentation.py",
+        "text": "\"\"\"Apply CLAHE enhancement to improve local contrast.\"\"\""
+      },
+      {
+        "line": 25,
+        "path": "model/src/augmentation.py",
+        "text": "clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))"
+      },
+      {
+        "line": 26,
+        "path": "model/src/augmentation.py",
+        "text": "cl = clahe.apply(l)"
+      },
+      {
+        "line": 62,
+        "path": "model/src/augmentation.py",
+        "text": "# 1\ufe0f\u20e3 CLAHE version"
+      },
+      {
+        "line": 63,
+        "path": "model/src/augmentation.py",
+        "text": "clahe_img = apply_clahe(img)"
+      },
+      {
+        "line": 64,
+        "path": "model/src/augmentation.py",
+        "text": "clahe_out = dst_folder / f\"{base}_clahe.jpg\""
+      },
+      {
+        "line": 65,
+        "path": "model/src/augmentation.py",
+        "text": "cv2.imwrite(str(clahe_out), clahe_img)"
+      },
+      {
+        "line": 67,
+        "path": "model/src/augmentation.py",
+        "text": "# 2\ufe0f\u20e3 Flipped CLAHE version"
+      },
+      {
+        "line": 68,
+        "path": "model/src/augmentation.py",
+        "text": "flipped_img = flip_horizontal(clahe_img)"
+      },
+      {
+        "line": 69,
+        "path": "model/src/augmentation.py",
+        "text": "flip_out = dst_folder / f\"{base}_clahe_flip.jpg\""
+      },
+      {
+        "line": 8,
+        "path": "model/src/unet/date_augment.py",
+        "text": "albumentations.CLAHE(clip_limit=4.0, tile_grid_size=(4, 4), p=0.9),"
+      },
+      {
+        "line": 21,
+        "path": "web/backend/inference.py",
+        "text": "# CLAHE ENHANCEMENT"
+      },
+      {
+        "line": 23,
+        "path": "web/backend/inference.py",
+        "text": "def apply_clahe(np_img: np.ndarray) -> np.ndarray:"
+      },
+      {
+        "line": 24,
+        "path": "web/backend/inference.py",
+        "text": "\"\"\"Apply CLAHE to improve local contrast before prediction.\"\"\""
+      },
+      {
+        "line": 29,
+        "path": "web/backend/inference.py",
+        "text": "# Apply CLAHE to the L-channel (brightness)"
+      },
+      {
+        "line": 30,
+        "path": "web/backend/inference.py",
+        "text": "clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))"
+      },
+      {
+        "line": 31,
+        "path": "web/backend/inference.py",
+        "text": "cl = clahe.apply(l)"
+      },
+      {
+        "line": 59,
+        "path": "web/backend/inference.py",
+        "text": "Convert PIL image \u2192 NumPy RGB \u2192 apply CLAHE \u2192 resize \u2192 normalize."
+      },
+      {
+        "line": 64,
+        "path": "web/backend/inference.py",
+        "text": "# Apply CLAHE enhancement"
+      },
+      {
+        "line": 65,
+        "path": "web/backend/inference.py",
+        "text": "img = apply_clahe(img)"
+      }
+    ],
+    "film": [],
+    "grading_of_chest": [],
+    "histogram_equalization": [],
+    "pca": [],
+    "pseudo_coloring": [],
+    "resnet": [],
+    "sas_tuning": [],
+    "yolo": []
+  },
+  "model_root": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model",
+  "repository_root": "C:\\Users\\JOHN MARK\\Code\\ai-research-main",
+  "schema_version": 1,
+  "scope_note": "Source images are summarized here and are inventoried per image in Phase 2 manifests. Generated documentation/results are excluded to avoid self-referential hashes.",
+  "status": "complete"
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "experiment_id": "FT-009B-HIERARCHICAL-S42",
+  "frozen_at": "2026-08-12T08:32:39+08:00",
+  "status_at_freeze": "design_frozen_training_pending_contracts",
+  "research_question": "Does a matched two-stage DenseNet-201 hierarchy improve final three-class validation performance by separating Normal/Pneumonia recognition from Viral/Bacterial etiology?",
+  "locked_test_accessed": false,
+  "stage1_config": "model/configs/fine_tuning/ft009b_stage1_normal_pneumonia_s42.json",
+  "stage2_config": "model/configs/fine_tuning/ft009b_stage2_viral_bacterial_s42.json",
+  "stage1_training_scope": "All locked-manifest training rows; Normal=0 and Viral/Bacterial together=Pneumonia=1.",
+  "stage2_training_scope": "Only locked-manifest Viral and Bacterial training rows; Normal rows are excluded from Stage 2 optimization.",
+  "combined_validation_scope": "All 874 locked-validation rows. Both stages infer every row so soft probabilities can be composed without hard-routing bias.",
+  "probability_rule": {
+    "normal": "P_stage1(Normal)",
+    "viral": "P_stage1(Pneumonia) * P_stage2(Viral | Pneumonia)",
+    "bacterial": "P_stage1(Pneumonia) * P_stage2(Bacterial | Pneumonia)",
+    "normalization": "The three products must already sum to one within absolute tolerance 0.000001; post-hoc renormalization is prohibited."
+  },
+  "isolation_rule": "The two stages differ only in task_mode, class_names, and run_id. Architecture, initialization source, preprocessing, augmentation, optimizer, scheduler, loss, resolution, batch size, epoch budget, seed, and manifests are matched.",
+  "seed42_advancement_gate": {
+    "type": "project_defined_not_published_clinical_standard",
+    "primary": "combined validation macro F1 must be at least FT-REF plus 0.005 absolute",
+    "macro_f1_minimum": 0.8579359483533887,
+    "balanced_accuracy_minimum": 0.8454641464468929,
+    "viral_recall_minimum": 0.6233183856502242,
+    "normal_recall_minimum": 0.9731223628691983,
+    "purpose": "Authorize seeds 123 and 2026 only; passing does not authorize locked-test access."
+  },
+  "final_claim_gate": {
+    "required_seeds": [
+      42,
+      123,
+      2026
+    ],
+    "mean_macro_f1_must_exceed_ft004": 0.8530516857750923,
+    "mean_balanced_accuracy_must_not_be_below_ft004": 0.8492846583463107,
+    "mean_viral_recall_must_not_be_below_ft004": 0.6651718983557549,
+    "purpose": "Only a completed multi-seed comparison may support a best-confirmed-system claim."
+  },
+  "benchmarks": {
+    "ft_ref_seed42_macro_f1": 0.8529359483533887,
+    "ft_ref_seed42_balanced_accuracy": 0.8454641464468929,
+    "ft_ref_seed42_viral_recall": 0.6233183856502242,
+    "ft_ref_seed42_normal_recall": 0.9831223628691983,
+    "ft004_seed42_ensemble_macro_f1": 0.8695276080781809,
+    "ft004_three_seed_mean_macro_f1": 0.8530516857750923
+  },
+  "failure_behavior": [
+    "Do not evaluate the hierarchy if either stage lacks a completed best checkpoint.",
+    "Fail on configuration drift, checkpoint hash mismatch, non-finite probabilities, probability rows that do not sum to one, or validation-path misalignment.",
+    "Do not substitute the locked test for validation and do not generate locked-test predictions.",
+    "If the seed-42 advancement gate fails, stop FT-009B without seeds 123 or 2026."
+  ],
+  "reference_basis": [
+    "https://doi.org/10.1016/j.compeleceng.2022.108402",
+    "https://doi.org/10.1002/ppul.25229",
+    "https://pubmed.ncbi.nlm.nih.gov/34648114/"
+  ]
+}

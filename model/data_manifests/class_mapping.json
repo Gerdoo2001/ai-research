@@ -1,0 +1,25 @@
+{
+  "class_order": [
+    "Normal",
+    "Viral",
+    "Bacterial"
+  ],
+  "index_to_name": {
+    "0": "Normal",
+    "1": "Viral",
+    "2": "Bacterial"
+  },
+  "label_derivation": {
+    "Bacterial": "canonical folder PNEUMONIA and filename token _bacteria_",
+    "Normal": "canonical folder NORMAL",
+    "Viral": "canonical folder PNEUMONIA and filename token _virus_"
+  },
+  "name_to_index": {
+    "Bacterial": 2,
+    "Normal": 0,
+    "Viral": 1
+  },
+  "num_classes": 3,
+  "schema_version": 1,
+  "task_mode": "multiclass"
+}

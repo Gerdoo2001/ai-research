@@ -1,0 +1,246 @@
+{
+  "schema_version": 1,
+  "selection_id": "FINAL-VALIDATION-SELECTED-FT004-ENSEMBLE-S42",
+  "split": "validation",
+  "validation_seed_view": 42,
+  "locked_test_accessed": false,
+  "method": "Grad-CAM for the ensemble-predicted class at DenseNet-201 features.norm5; member maps normalized independently and their mean displayed descriptively",
+  "examples": "highest-confidence correct and highest-confidence error for each true class",
+  "interpretation_boundary": "Qualitative attention evidence only. Grad-CAM is not a lung mask, causal explanation, localization ground truth, or clinical validation.",
+  "records": [
+    {
+      "case_type": "correct",
+      "sample_id": "validation_00236",
+      "relative_path": "train/NORMAL/NORMAL2-IM-1345-0001.jpeg",
+      "true_class": "Normal",
+      "ensemble_predicted_class": "Normal",
+      "ensemble_confidence": 0.9998372395833334,
+      "target_class_for_gradcam": "Normal",
+      "member_predictions": [
+        {
+          "run_id": "staged_densenet201_pseudo_color_then_histogram_equalization_then_clahe_s42",
+          "preprocessing": "VIRIDIS -> Global Histogram Equalization (GE) -> CLAHE",
+          "probabilities": {
+            "Normal": 0.9996380805969238,
+            "Viral": 8.674587661516853e-06,
+            "Bacterial": 0.00035322888288646936
+          }
+        },
+        {
+          "run_id": "staged_densenet201_pseudo_color_then_histogram_equalization_s42",
+          "preprocessing": "VIRIDIS -> Global Histogram Equalization (GE)",
+          "probabilities": {
+            "Normal": 0.9999030828475952,
+            "Viral": 6.801897689001635e-05,
+            "Bacterial": 2.884926834667567e-05
+          }
+        },
+        {
+          "run_id": "ablation_densenet201_histogram_equalization_s42",
+          "preprocessing": "Global Histogram Equalization (GE)",
+          "probabilities": {
+            "Normal": 0.9998691082000732,
+            "Viral": 4.436511153471656e-05,
+            "Bacterial": 8.654168050270528e-05
+          }
+        }
+      ],
+      "output_path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\final_ft004_ensemble\\gradcam\\01_correct_normal_train-normal-normal2-im-1345-0001-jpeg.png"
+    },
+    {
+      "case_type": "error",
+      "sample_id": "validation_00017",
+      "relative_path": "test/NORMAL/NORMAL2-IM-0201-0001.jpeg",
+      "true_class": "Normal",
+      "ensemble_predicted_class": "Viral",
+      "ensemble_confidence": 0.9103190104166666,
+      "target_class_for_gradcam": "Viral",
+      "member_predictions": [
+        {
+          "run_id": "staged_densenet201_pseudo_color_then_histogram_equalization_then_clahe_s42",
+          "preprocessing": "VIRIDIS -> Global Histogram Equalization (GE) -> CLAHE",
+          "probabilities": {
+            "Normal": 0.029844358563423157,
+            "Viral": 0.9370779991149902,
+            "Bacterial": 0.03307764604687691
+          }
+        },
+        {
+          "run_id": "staged_densenet201_pseudo_color_then_histogram_equalization_s42",
+          "preprocessing": "VIRIDIS -> Global Histogram Equalization (GE)",
+          "probabilities": {
+            "Normal": 0.03018028847873211,
+            "Viral": 0.9451550245285034,
+            "Bacterial": 0.02466467209160328
+          }
+        },
+        {
+          "run_id": "ablation_densenet201_histogram_equalization_s42",
+          "preprocessing": "Global Histogram Equalization (GE)",
+          "probabilities": {
+            "Normal": 0.09308705478906631,
+            "Viral": 0.8484933376312256,
+            "Bacterial": 0.058419596403837204
+          }
+        }
+      ],
+      "output_path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\final_ft004_ensemble\\gradcam\\02_error_normal_test-normal-normal2-im-0201-0001-jpeg.png"
+    },
+    {
+      "case_type": "correct",
+      "sample_id": "validation_00312",
+      "relative_path": "train/PNEUMONIA/person1411_virus_2415.jpeg",
+      "true_class": "Viral",
+      "ensemble_predicted_class": "Viral",
+      "ensemble_confidence": 0.97900390625,
+      "target_class_for_gradcam": "Viral",
+      "member_predictions": [
+        {
+          "run_id": "staged_densenet201_pseudo_color_then_histogram_equalization_then_clahe_s42",
+          "preprocessing": "VIRIDIS -> Global Histogram Equalization (GE) -> CLAHE",
+          "probabilities": {
+            "Normal": 0.0002232483384432271,
+            "Viral": 0.9741722345352173,
+            "Bacterial": 0.0256044901907444
+          }
+        },
+        {
+          "run_id": "staged_densenet201_pseudo_color_then_histogram_equalization_s42",
+          "preprocessing": "VIRIDIS -> Global Histogram Equalization (GE)",
+          "probabilities": {
+            "Normal": 0.00012140941544203088,
+            "Viral": 0.9903537034988403,
+            "Bacterial": 0.009524892084300518
+          }
+        },
+        {
+          "run_id": "ablation_densenet201_histogram_equalization_s42",
+          "preprocessing": "Global Histogram Equalization (GE)",
+          "probabilities": {
+            "Normal": 0.0004735366383101791,
+            "Viral": 0.9728686809539795,
+            "Bacterial": 0.026657752692699432
+          }
+        }
+      ],
+      "output_path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\final_ft004_ensemble\\gradcam\\03_correct_viral_train-pneumonia-person1411-virus-2415-jpeg.png"
+    },
+    {
+      "case_type": "error",
+      "sample_id": "validation_00319",
+      "relative_path": "train/PNEUMONIA/person1455_virus_2492.jpeg",
+      "true_class": "Viral",
+      "ensemble_predicted_class": "Bacterial",
+      "ensemble_confidence": 1.0,
+      "target_class_for_gradcam": "Bacterial",
+      "member_predictions": [
+        {
+          "run_id": "staged_densenet201_pseudo_color_then_histogram_equalization_then_clahe_s42",
+          "preprocessing": "VIRIDIS -> Global Histogram Equalization (GE) -> CLAHE",
+          "probabilities": {
+            "Normal": 1.3890881689349044e-07,
+            "Viral": 0.00013275817036628723,
+            "Bacterial": 0.9998670816421509
+          }
+        },
+        {
+          "run_id": "staged_densenet201_pseudo_color_then_histogram_equalization_s42",
+          "preprocessing": "VIRIDIS -> Global Histogram Equalization (GE)",
+          "probabilities": {
+            "Normal": 3.304549288287578e-13,
+            "Viral": 0.00014691631076857448,
+            "Bacterial": 0.9998530149459839
+          }
+        },
+        {
+          "run_id": "ablation_densenet201_histogram_equalization_s42",
+          "preprocessing": "Global Histogram Equalization (GE)",
+          "probabilities": {
+            "Normal": 9.164360936786409e-10,
+            "Viral": 0.00015924485342111439,
+            "Bacterial": 0.9998407363891602
+          }
+        }
+      ],
+      "output_path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\final_ft004_ensemble\\gradcam\\04_error_viral_train-pneumonia-person1455-virus-2492-jpeg.png"
+    },
+    {
+      "case_type": "correct",
+      "sample_id": "validation_00475",
+      "relative_path": "test/PNEUMONIA/person109_bacteria_528.jpeg",
+      "true_class": "Bacterial",
+      "ensemble_predicted_class": "Bacterial",
+      "ensemble_confidence": 1.0,
+      "target_class_for_gradcam": "Bacterial",
+      "member_predictions": [
+        {
+          "run_id": "staged_densenet201_pseudo_color_then_histogram_equalization_then_clahe_s42",
+          "preprocessing": "VIRIDIS -> Global Histogram Equalization (GE) -> CLAHE",
+          "probabilities": {
+            "Normal": 8.103649695723192e-12,
+            "Viral": 4.503905074670911e-06,
+            "Bacterial": 0.9999954700469971
+          }
+        },
+        {
+          "run_id": "staged_densenet201_pseudo_color_then_histogram_equalization_s42",
+          "preprocessing": "VIRIDIS -> Global Histogram Equalization (GE)",
+          "probabilities": {
+            "Normal": 1.012403007397259e-22,
+            "Viral": 0.00016656807565595955,
+            "Bacterial": 0.999833345413208
+          }
+        },
+        {
+          "run_id": "ablation_densenet201_histogram_equalization_s42",
+          "preprocessing": "Global Histogram Equalization (GE)",
+          "probabilities": {
+            "Normal": 3.856735561728902e-17,
+            "Viral": 0.00022589722357224673,
+            "Bacterial": 0.999774158000946
+          }
+        }
+      ],
+      "output_path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\final_ft004_ensemble\\gradcam\\05_correct_bacterial_test-pneumonia-person109-bacteria-528-jpeg.png"
+    },
+    {
+      "case_type": "error",
+      "sample_id": "validation_00574",
+      "relative_path": "train/PNEUMONIA/person1549_bacteria_4050.jpeg",
+      "true_class": "Bacterial",
+      "ensemble_predicted_class": "Viral",
+      "ensemble_confidence": 0.9435221354166666,
+      "target_class_for_gradcam": "Viral",
+      "member_predictions": [
+        {
+          "run_id": "staged_densenet201_pseudo_color_then_histogram_equalization_then_clahe_s42",
+          "preprocessing": "VIRIDIS -> Global Histogram Equalization (GE) -> CLAHE",
+          "probabilities": {
+            "Normal": 0.002354054944589734,
+            "Viral": 0.9142329096794128,
+            "Bacterial": 0.0834130048751831
+          }
+        },
+        {
+          "run_id": "staged_densenet201_pseudo_color_then_histogram_equalization_s42",
+          "preprocessing": "VIRIDIS -> Global Histogram Equalization (GE)",
+          "probabilities": {
+            "Normal": 0.0007200854597613215,
+            "Viral": 0.9892526268959045,
+            "Bacterial": 0.010027249343693256
+          }
+        },
+        {
+          "run_id": "ablation_densenet201_histogram_equalization_s42",
+          "preprocessing": "Global Histogram Equalization (GE)",
+          "probabilities": {
+            "Normal": 0.022903870791196823,
+            "Viral": 0.92741459608078,
+            "Bacterial": 0.04968152567744255
+          }
+        }
+      ],
+      "output_path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\final_ft004_ensemble\\gradcam\\06_error_bacterial_train-pneumonia-person1549-bacteria-4050-jpeg.png"
+    }
+  ]
+}

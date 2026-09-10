@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "experiment_id": "FT-010A-LABEL-SMOOTHING-MULTISEED",
+  "purpose": "Confirm the repeatability of the validation-selected DenseNet-201 label-smoothing configuration without accessing the locked test.",
+  "selection_split": "validation",
+  "locked_test_accessed": false,
+  "reference": {
+    "seed": 42,
+    "run_id": "fine_tuning_densenet201_viridis_ge_clahe_label_smoothing005_s42"
+  },
+  "target_configs": [
+    "model/configs/fine_tuning/densenet201_viridis_ge_clahe_label_smoothing005_s123.json",
+    "model/configs/fine_tuning/densenet201_viridis_ge_clahe_label_smoothing005_s2026.json"
+  ],
+  "fixed_configuration": {
+    "architecture": "densenet201",
+    "preprocessing": "VIRIDIS -> Global Histogram Equalization (GE) -> CLAHE",
+    "input_size": 224,
+    "batch_size": 8,
+    "optimizer": "AdamW",
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0001,
+    "loss": "balanced class-weighted cross-entropy",
+    "label_smoothing": 0.05,
+    "maximum_epochs": 12,
+    "early_stopping_patience": 4,
+    "augmentation": "horizontal flip p=0.5 and rotation +/-5 degrees, training only"
+  },
+  "changed_variable": "random seed only",
+  "seeds": [42, 123, 2026],
+  "primary_analysis": "mean and sample standard deviation of validation macro F1 across all three seeds",
+  "secondary_metrics": [
+    "accuracy",
+    "balanced accuracy",
+    "Normal recall",
+    "Viral recall",
+    "Bacterial recall"
+  ],
+  "interpretation_boundary": "This is development-set confirmation. The previously opened locked test must not be reused to select or compare these runs."
+}

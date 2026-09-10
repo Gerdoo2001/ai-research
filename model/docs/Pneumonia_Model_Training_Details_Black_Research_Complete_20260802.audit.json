@@ -1,0 +1,31 @@
+{
+  "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\docs\\Pneumonia_Model_Training_Details_Black_Research_Complete_20260802.docx",
+  "paragraphs": 198,
+  "tables": 35,
+  "sections": 1,
+  "headings": 43,
+  "table_geometry_errors": [],
+  "zip_test": "ok",
+  "disallowed_visible_colors": [],
+  "page_setup": {
+    "width_in": 8.5,
+    "height_in": 11.0,
+    "margins_in": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  "pass": true,
+  "requested_output": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\docs\\Pneumonia_Model_Training_Details_Black_Research_Complete_20260802.docx",
+  "saved_output": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\docs\\Pneumonia_Model_Training_Details_Black_Research_Complete_20260802.docx",
+  "research_complete_gate": "passed",
+  "baseline_count": 8,
+  "ablation_count": 9,
+  "tuning_trial_rows": 12,
+  "robustness_count": 3,
+  "test_status": "locked_test_evaluated",
+  "reference_count": 25,
+  "visual_render_verified": false
+}

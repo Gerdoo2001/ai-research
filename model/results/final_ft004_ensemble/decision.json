@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-13T14:13:14+08:00",
+  "chosen_system": "FT-004 three-member probability ensemble",
+  "frozen_selection_path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\final_ft004_ensemble\\frozen_selection.json",
+  "decision_rule": "highest fully three-seed-confirmed mean validation macro F1",
+  "ft004_mean_macro_f1": 0.8530516857750923,
+  "ft010_mean_macro_f1": 0.8502934479862297,
+  "original_mean_macro_f1": 0.8416798414804673,
+  "selection_statement": "FT-004 is chosen because it has the highest mean validation macro F1 among the finalists that completed the same three-seed confirmation. Statistical uncertainty is reported separately and the selection is not represented as independent clinical validation.",
+  "locked_test_accessed": false
+}

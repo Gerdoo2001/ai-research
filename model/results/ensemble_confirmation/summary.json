@@ -1,0 +1,357 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-11T05:58:31+08:00",
+  "experiment_id": "FT-004-ENS-CONFIRMATION",
+  "task": "three-class validation probability ensemble",
+  "class_order": [
+    "Normal",
+    "Viral",
+    "Bacterial"
+  ],
+  "method": "equal arithmetic mean; frozen three-member definition",
+  "member_preprocessing": [
+    "VIRIDIS -> GE -> CLAHE",
+    "VIRIDIS -> GE",
+    "GE"
+  ],
+  "seeds": [
+    42,
+    123,
+    2026
+  ],
+  "locked_test_accessed": false,
+  "per_seed": [
+    {
+      "seed": 42,
+      "members": [
+        {
+          "run_id": "staged_densenet201_pseudo_color_then_histogram_equalization_then_clahe_s42",
+          "predictions_sha256": "10c2cd4466049389ee51f495e8c0c7176616ae7ac03a38b4174edc3307491007",
+          "macro_f1": 0.8529359483533887,
+          "accuracy": 0.8661327231121282,
+          "balanced_accuracy": 0.8454641464468929,
+          "viral_recall": 0.6233183856502242
+        },
+        {
+          "run_id": "staged_densenet201_pseudo_color_then_histogram_equalization_s42",
+          "predictions_sha256": "3682a1bf8a1bc45e37880494eb5263d5a06c3f2887051a426e80087808746dbb",
+          "macro_f1": 0.8458998408903646,
+          "accuracy": 0.8478260869565217,
+          "balanced_accuracy": 0.8500869777280161,
+          "viral_recall": 0.7488789237668162
+        },
+        {
+          "run_id": "ablation_densenet201_histogram_equalization_s42",
+          "predictions_sha256": "06304ca52f0d1889d8e085dba70508d0f624e8d484ec5055d007e090ca8236a0",
+          "macro_f1": 0.844714031735541,
+          "accuracy": 0.8535469107551488,
+          "balanced_accuracy": 0.8428140016637786,
+          "viral_recall": 0.6636771300448431
+        }
+      ],
+      "metrics": {
+        "accuracy": 0.8775743707093822,
+        "balanced_accuracy": 0.8659287522107771,
+        "macro_precision": 0.875476966247617,
+        "macro_recall": 0.8659287522107771,
+        "macro_f1": 0.8695276080781809,
+        "weighted_f1": 0.8752423443554607,
+        "matthews_correlation_coefficient": 0.8071734972224409,
+        "cohen_kappa": 0.8061807125788341,
+        "log_loss": 0.36833681900793525,
+        "brier_score": 0.19840197445771898,
+        "expected_calibration_error": 0.038325710075376634,
+        "confusion_matrix": [
+          [
+            233,
+            4,
+            0
+          ],
+          [
+            8,
+            157,
+            58
+          ],
+          [
+            1,
+            36,
+            377
+          ]
+        ],
+        "per_class": {
+          "Normal": {
+            "precision": 0.9628099173553719,
+            "recall": 0.9831223628691983,
+            "specificity": 0.9858712715855573,
+            "f1": 0.9728601252609603,
+            "support": 237,
+            "roc_auc": 0.9991124005590551,
+            "pr_auc": 0.9976910176520798
+          },
+          "Viral": {
+            "precision": 0.7969543147208121,
+            "recall": 0.7040358744394619,
+            "specificity": 0.9385560675883257,
+            "f1": 0.7476190476190476,
+            "support": 223,
+            "roc_auc": 0.8979355665309665,
+            "pr_auc": 0.7828283427575125
+          },
+          "Bacterial": {
+            "precision": 0.8666666666666667,
+            "recall": 0.9106280193236715,
+            "specificity": 0.8739130434782608,
+            "f1": 0.8881036513545347,
+            "support": 414,
+            "roc_auc": 0.9419029615626969,
+            "pr_auc": 0.904319897055851
+          }
+        },
+        "roc_auc_ovr_macro": 0.9463169762175728,
+        "pr_auc_macro": 0.8949464191551478,
+        "seed": 42,
+        "split": "validation",
+        "ensemble_method": "equal arithmetic mean of three class-probability vectors",
+        "locked_test_accessed": false
+      },
+      "predictions_path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\ensemble_confirmation\\ensemble_predictions_s42.csv"
+    },
+    {
+      "seed": 123,
+      "members": [
+        {
+          "run_id": "robustness_densenet201_pseudo_color_then_histogram_equalization_then_clahe_s123",
+          "predictions_sha256": "f77a618d5460b9fee7914a51fe7d27604480be83331daa355e2ae6139b443c5b",
+          "macro_f1": 0.835703375109226,
+          "accuracy": 0.8432494279176201,
+          "balanced_accuracy": 0.8374598737476985,
+          "viral_recall": 0.6681614349775785
+        },
+        {
+          "run_id": "confirmation_densenet201_viridis_ge_s123",
+          "predictions_sha256": "77d14782a64991d89137ec7558c2ed9244a688f3b7602fe576772ec6b8fbf7a5",
+          "macro_f1": 0.8388716297760754,
+          "accuracy": 0.8489702517162472,
+          "balanced_accuracy": 0.8354556977564398,
+          "viral_recall": 0.6367713004484304
+        },
+        {
+          "run_id": "confirmation_densenet201_ge_s123",
+          "predictions_sha256": "d53ee1a10bbb00d797991072fc85b3d7cc7295415c5b36926fe694bba6d1bbc8",
+          "macro_f1": 0.8366182095700467,
+          "accuracy": 0.8455377574370709,
+          "balanced_accuracy": 0.8325272205874193,
+          "viral_recall": 0.6412556053811659
+        }
+      ],
+      "metrics": {
+        "accuracy": 0.8524027459954233,
+        "balanced_accuracy": 0.8392503873573295,
+        "macro_precision": 0.8490613125720256,
+        "macro_recall": 0.8392503873573295,
+        "macro_f1": 0.8423261955724793,
+        "weighted_f1": 0.8488024831581698,
+        "matthews_correlation_coefficient": 0.7674106095010093,
+        "cohen_kappa": 0.7659390278080529,
+        "log_loss": 0.3541240331014977,
+        "brier_score": 0.21368489395947302,
+        "expected_calibration_error": 0.020894524373369708,
+        "confusion_matrix": [
+          [
+            233,
+            4,
+            0
+          ],
+          [
+            8,
+            144,
+            71
+          ],
+          [
+            4,
+            42,
+            368
+          ]
+        ],
+        "per_class": {
+          "Normal": {
+            "precision": 0.9510204081632653,
+            "recall": 0.9831223628691983,
+            "specificity": 0.9811616954474097,
+            "f1": 0.966804979253112,
+            "support": 237,
+            "roc_auc": 0.9992515019639794,
+            "pr_auc": 0.9980286078634925
+          },
+          "Viral": {
+            "precision": 0.7578947368421053,
+            "recall": 0.6457399103139013,
+            "specificity": 0.9293394777265745,
+            "f1": 0.6973365617433414,
+            "support": 223,
+            "roc_auc": 0.9013315148133606,
+            "pr_auc": 0.7835948811863491
+          },
+          "Bacterial": {
+            "precision": 0.8382687927107062,
+            "recall": 0.8888888888888888,
+            "specificity": 0.8456521739130435,
+            "f1": 0.8628370457209847,
+            "support": 414,
+            "roc_auc": 0.9326769586221383,
+            "pr_auc": 0.8992337884835393
+          }
+        },
+        "roc_auc_ovr_macro": 0.9444199917998262,
+        "pr_auc_macro": 0.8936190925111269,
+        "seed": 123,
+        "split": "validation",
+        "ensemble_method": "equal arithmetic mean of three class-probability vectors",
+        "locked_test_accessed": false
+      },
+      "predictions_path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\ensemble_confirmation\\ensemble_predictions_s123.csv"
+    },
+    {
+      "seed": 2026,
+      "members": [
+        {
+          "run_id": "robustness_densenet201_pseudo_color_then_histogram_equalization_then_clahe_s2026",
+          "predictions_sha256": "80e3d3e30ef5c9eec3a4673d99b654f596e3662fcfcdf409c39f03702004bc4d",
+          "macro_f1": 0.8364002009787871,
+          "accuracy": 0.8466819221967964,
+          "balanced_accuracy": 0.8350480253619761,
+          "viral_recall": 0.6367713004484304
+        },
+        {
+          "run_id": "confirmation_densenet201_viridis_ge_s2026",
+          "predictions_sha256": "c472b692f6008945ea2181949c0a3466c339002cbf47dd66a68e276f2b55cc9e",
+          "macro_f1": 0.8322590153579824,
+          "accuracy": 0.8398169336384439,
+          "balanced_accuracy": 0.8279884374602667,
+          "viral_recall": 0.6457399103139013
+        },
+        {
+          "run_id": "confirmation_densenet201_ge_s2026",
+          "predictions_sha256": "4aab9298bd3616113f6cf550b99921d3e31c8ff69ba46d028e100dc154d314d0",
+          "macro_f1": 0.8355114189876733,
+          "accuracy": 0.8455377574370709,
+          "balanced_accuracy": 0.8325272205874193,
+          "viral_recall": 0.6412556053811659
+        }
+      ],
+      "metrics": {
+        "accuracy": 0.8581235697940504,
+        "balanced_accuracy": 0.8426748354708256,
+        "macro_precision": 0.8563935333628298,
+        "macro_recall": 0.8426748354708256,
+        "macro_f1": 0.8473012536746166,
+        "weighted_f1": 0.8543765456523088,
+        "matthews_correlation_coefficient": 0.7764233770383144,
+        "cohen_kappa": 0.7744943205345085,
+        "log_loss": 0.3687173001520483,
+        "brier_score": 0.21186231645453316,
+        "expected_calibration_error": 0.03847517691995674,
+        "confusion_matrix": [
+          [
+            232,
+            4,
+            1
+          ],
+          [
+            9,
+            144,
+            70
+          ],
+          [
+            1,
+            39,
+            374
+          ]
+        ],
+        "per_class": {
+          "Normal": {
+            "precision": 0.9586776859504132,
+            "recall": 0.9789029535864979,
+            "specificity": 0.9843014128728415,
+            "f1": 0.9686847599164927,
+            "support": 237,
+            "roc_auc": 0.9990527856712305,
+            "pr_auc": 0.9974131118580905
+          },
+          "Viral": {
+            "precision": 0.7700534759358288,
+            "recall": 0.6457399103139013,
+            "specificity": 0.9339477726574501,
+            "f1": 0.7024390243902439,
+            "support": 223,
+            "roc_auc": 0.8958415132290439,
+            "pr_auc": 0.7619679484091302
+          },
+          "Bacterial": {
+            "precision": 0.8404494382022472,
+            "recall": 0.9033816425120773,
+            "specificity": 0.8456521739130435,
+            "f1": 0.8707799767171129,
+            "support": 414,
+            "roc_auc": 0.933086536441924,
+            "pr_auc": 0.8903449715292282
+          }
+        },
+        "roc_auc_ovr_macro": 0.9426602784473994,
+        "pr_auc_macro": 0.8832420105988162,
+        "seed": 2026,
+        "split": "validation",
+        "ensemble_method": "equal arithmetic mean of three class-probability vectors",
+        "locked_test_accessed": false
+      },
+      "predictions_path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\ensemble_confirmation\\ensemble_predictions_s2026.csv"
+    }
+  ],
+  "aggregate": {
+    "macro_f1": {
+      "mean": 0.8530516857750923,
+      "sample_std": 0.014483777566055388,
+      "minimum": 0.8423261955724793,
+      "maximum": 0.8695276080781809,
+      "values_by_seed": {
+        "42": 0.8695276080781809,
+        "123": 0.8423261955724793,
+        "2026": 0.8473012536746166
+      }
+    },
+    "accuracy": {
+      "mean": 0.8627002288329519,
+      "sample_std": 0.013195151710149662,
+      "minimum": 0.8524027459954233,
+      "maximum": 0.8775743707093822,
+      "values_by_seed": {
+        "42": 0.8775743707093822,
+        "123": 0.8524027459954233,
+        "2026": 0.8581235697940504
+      }
+    },
+    "balanced_accuracy": {
+      "mean": 0.8492846583463107,
+      "sample_std": 0.014515547066762006,
+      "minimum": 0.8392503873573295,
+      "maximum": 0.8659287522107771,
+      "values_by_seed": {
+        "42": 0.8659287522107771,
+        "123": 0.8392503873573295,
+        "2026": 0.8426748354708256
+      }
+    },
+    "viral_recall": {
+      "mean": 0.6651718983557549,
+      "sample_std": 0.03365719058056118,
+      "minimum": 0.6457399103139013,
+      "maximum": 0.7040358744394619,
+      "values_by_seed": {
+        "42": 0.7040358744394619,
+        "123": 0.6457399103139013,
+        "2026": 0.6457399103139013
+      }
+    }
+  },
+  "interpretation": "Validation confirmation only. The locked test remains prohibited until the ensemble membership and selection rule are formally frozen."
+}

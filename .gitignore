@@ -5,3 +5,24 @@ venv/
 */.venv/
 **/venv/
 **/.venv/
+.research_cache/
+
+# Python runtime caches
+__pycache__/
+*.py[cod]
+*.tmp
+
+# Microsoft Office temporary lock files
+~$*
+
+# Training outputs and checkpoints are backed up in Google Drive.
+# Selected reproducibility records are force-added explicitly when needed.
+model/results/
+
+# Generated document previews and local QA renders
+model/docs/_latest_journal_work/render_*/
+model/docs/_latest_journal_work/*.docx
+model/docs/_latest_journal_work/*.pdf
+model/docs/_latest_journal_work/*.json
+model/docs/_second_batch_word_work/*.docx
+model/docs/_second_batch_word_work/*.json

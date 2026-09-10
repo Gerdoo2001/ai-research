@@ -1,0 +1,13 @@
+﻿candidate,comparator,metric,difference_percentage_points,ci95_lower_percentage_points,ci95_upper_percentage_points,bootstrap_probability_above_zero,interpretation
+FT-004 ensemble,Original VIRIDIS -> GE -> CLAHE,macro_f1,1.137184429462501,0.15478349880832465,2.1261127360496097,0.9883,95% paired bootstrap interval excludes zero
+FT-004 ensemble,Original VIRIDIS -> GE -> CLAHE,accuracy,1.067887109077037,0.15255530129671957,1.9832189168573544,0.9877,95% paired bootstrap interval excludes zero
+FT-004 ensemble,Original VIRIDIS -> GE -> CLAHE,balanced_accuracy,0.9960643160788263,0.02683271973761892,1.9590723957008547,0.9785,95% paired bootstrap interval excludes zero
+FT-004 ensemble,Original VIRIDIS -> GE -> CLAHE,viral_recall,2.2421524663677084,-0.1494768310911776,4.6337817638266054,0.9658,95% paired bootstrap interval includes zero
+FT-004 ensemble,FT-010 label smoothing,macro_f1,0.27582377888625276,-0.833014502314904,1.3690264742425207,0.6959,95% paired bootstrap interval includes zero
+FT-004 ensemble,FT-010 label smoothing,accuracy,0.41952707856597327,-0.5720823798627039,1.4111365369946727,0.7851,95% paired bootstrap interval includes zero
+FT-004 ensemble,FT-010 label smoothing,balanced_accuracy,0.4272592553592469,-0.6437643368981381,1.4791524091777968,0.7885,95% paired bootstrap interval includes zero
+FT-004 ensemble,FT-010 label smoothing,viral_recall,0.5979073243647215,-2.092675635276542,3.2884902840059738,0.6584,95% paired bootstrap interval includes zero
+FT-004 ensemble seed 42,FT-009B hierarchical seed 42,macro_f1,1.6829146951578111,-0.36326980234550527,3.763630495324027,0.9434,95% paired bootstrap interval includes zero
+FT-004 ensemble seed 42,FT-009B hierarchical seed 42,accuracy,2.4027459954233388,0.4576659038901587,4.34782608695653,0.9923,95% paired bootstrap interval excludes zero
+FT-004 ensemble seed 42,FT-009B hierarchical seed 42,balanced_accuracy,0.9322443910082745,-1.1404677510569605,3.033108208593335,0.8096,95% paired bootstrap interval includes zero
+FT-004 ensemble seed 42,FT-009B hierarchical seed 42,viral_recall,-4.932735426008961,-10.313901345291487,0.8968609865470767,0.0362,95% paired bootstrap interval includes zero

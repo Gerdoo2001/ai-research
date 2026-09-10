@@ -1,0 +1,65 @@
+{
+  "accuracy": 0.8775743707093822,
+  "balanced_accuracy": 0.8659287522107771,
+  "macro_precision": 0.875476966247617,
+  "macro_recall": 0.8659287522107771,
+  "macro_f1": 0.8695276080781809,
+  "weighted_f1": 0.8752423443554607,
+  "matthews_correlation_coefficient": 0.8071734972224409,
+  "cohen_kappa": 0.8061807125788341,
+  "log_loss": 0.36833681900793525,
+  "brier_score": 0.19840197445771898,
+  "expected_calibration_error": 0.038325710075376634,
+  "confusion_matrix": [
+    [
+      233,
+      4,
+      0
+    ],
+    [
+      8,
+      157,
+      58
+    ],
+    [
+      1,
+      36,
+      377
+    ]
+  ],
+  "per_class": {
+    "Normal": {
+      "precision": 0.9628099173553719,
+      "recall": 0.9831223628691983,
+      "specificity": 0.9858712715855573,
+      "f1": 0.9728601252609603,
+      "support": 237,
+      "roc_auc": 0.9991124005590551,
+      "pr_auc": 0.9976910176520798
+    },
+    "Viral": {
+      "precision": 0.7969543147208121,
+      "recall": 0.7040358744394619,
+      "specificity": 0.9385560675883257,
+      "f1": 0.7476190476190476,
+      "support": 223,
+      "roc_auc": 0.8979355665309665,
+      "pr_auc": 0.7828283427575125
+    },
+    "Bacterial": {
+      "precision": 0.8666666666666667,
+      "recall": 0.9106280193236715,
+      "specificity": 0.8739130434782608,
+      "f1": 0.8881036513545347,
+      "support": 414,
+      "roc_auc": 0.9419029615626969,
+      "pr_auc": 0.904319897055851
+    }
+  },
+  "roc_auc_ovr_macro": 0.9463169762175728,
+  "pr_auc_macro": 0.8949464191551478,
+  "seed": 42,
+  "split": "validation",
+  "ensemble_method": "equal arithmetic mean of three class-probability vectors",
+  "locked_test_accessed": false
+}

@@ -1,0 +1,26 @@
+{
+  "source": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\docs\\Pneumonia_Three_Class_Classification_Full_Journal_20260809.docx",
+  "source_sha256": "1f9d3181e7eb330476a768774f0884e3da38ea7e5fb6fe85baec56fafb5f2403",
+  "source_unchanged": true,
+  "output": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\docs\\Pneumonia_Three_Class_Classification_Full_Journal_20260810.docx",
+  "output_sha256": "46a4454e029030eb04d66c96d678dd1618c1658265c402c14969d27f87fd4d1a",
+  "sections": 1,
+  "portrait_letter": true,
+  "one_inch_margins": true,
+  "paragraph_count": 516,
+  "table_count": 52,
+  "inline_image_count": 16,
+  "media_hashes_preserved": true,
+  "page_field_preserved": true,
+  "required_headings_present": true,
+  "missing_required_headings": [],
+  "stale_phrases_present": [],
+  "direct_font_colors": [
+    "000000"
+  ],
+  "blue_direct_font_detected": false,
+  "dense201_mean_present": true,
+  "dense169_mean_present": true,
+  "locked_test_boundary_present": true,
+  "render_qa": "Unavailable: LibreOffice absent and Microsoft Word PDF export stalled; structural fallback used."
+}

@@ -1,0 +1,60 @@
+{
+  "canonical_excluded_count": 32,
+  "canonical_physical_valid_image_count_before_deduplication": 5856,
+  "canonical_valid_unique_image_count": 5824,
+  "derived_group_count": 2789,
+  "duplicate_report_counts": {
+    "exact_duplicate": 5888,
+    "group_leakage_original_split": 264,
+    "nested_copy_mismatch": 4,
+    "potential_near_duplicate": 16
+  },
+  "excluded_physical_file_count": 11767,
+  "exclusion_reason_counts": {
+    "macos_resource_fork_or_metadata": 5871,
+    "nested_copy_missing_or_hash_mismatch": 4,
+    "redundant_exact_duplicate_canonical": 32,
+    "unrecognized_source_layout_or_metadata": 4,
+    "verified_exact_nested_copy": 5856
+  },
+  "generated_at": "2026-07-16T17:26:40+08:00",
+  "groups_crossing_original_splits": 264,
+  "groups_with_multiple_class_labels": 979,
+  "original_split_class_counts_before_deduplication": {
+    "test/Bacterial": 242,
+    "test/Normal": 234,
+    "test/Viral": 148,
+    "train/Bacterial": 2530,
+    "train/Normal": 1341,
+    "train/Viral": 1345,
+    "val/Bacterial": 8,
+    "val/Normal": 8
+  },
+  "perceptual_hash": {
+    "algorithm": "64-bit DCT perceptual hash; 32x32 grayscale, top-left 8x8 coefficients",
+    "near_duplicate_reporting_filter": "distance<=2 OR same derived group OR same dimensions and distance<=3",
+    "near_duplicate_threshold": 4
+  },
+  "physical_role_counts": {
+    "canonical": 5856,
+    "macos_metadata": 5871,
+    "nested_copy": 5860,
+    "unrecognized": 4
+  },
+  "retained_original_split_class_counts": {
+    "test/Bacterial": 240,
+    "test/Normal": 231,
+    "test/Viral": 147,
+    "train/Bacterial": 2512,
+    "train/Normal": 1340,
+    "train/Viral": 1338,
+    "val/Bacterial": 8,
+    "val/Normal": 8
+  },
+  "schema_version": 1,
+  "source_bytes": 2483915296,
+  "source_content_inventory_hash": "4ee6dd784207a910043f62cff542a5d805c312fcddafa90ce1a058d03402f734",
+  "source_file_count": 17591,
+  "source_modified": false,
+  "source_root": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\datasets\\chest_xray"
+}

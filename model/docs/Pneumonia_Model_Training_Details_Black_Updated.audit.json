@@ -1,0 +1,32 @@
+{
+  "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\docs\\Pneumonia_Model_Training_Details_Black_Updated.docx",
+  "paragraphs": 121,
+  "tables": 26,
+  "sections": 1,
+  "headings": 34,
+  "table_geometry_errors": [],
+  "zip_test": "ok",
+  "disallowed_visible_colors": [],
+  "page_setup": {
+    "width_in": 8.5,
+    "height_in": 11.0,
+    "margins_in": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  "pass": true,
+  "completed_full_baselines": 8,
+  "completed_run_ids": [
+    "baseline_densenet121_s42",
+    "baseline_densenet169_s42",
+    "baseline_densenet201_s42",
+    "baseline_resnet50_s42",
+    "baseline_resnet101_s42",
+    "baseline_resnet152_s42",
+    "baseline_yolov5_cls_s42",
+    "baseline_yolov8_cls_s42"
+  ]
+}

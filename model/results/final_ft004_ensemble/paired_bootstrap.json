@@ -1,0 +1,233 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-13T14:13:14+08:00",
+  "analysis": "paired class-stratified nonparametric bootstrap",
+  "iterations": 10000,
+  "bootstrap_random_seed": 20260813,
+  "validation_rows": 874,
+  "class_counts": {
+    "Normal": 237,
+    "Viral": 223,
+    "Bacterial": 414
+  },
+  "locked_test_accessed": false,
+  "comparisons": [
+    {
+      "candidate": "FT-004 ensemble",
+      "comparator": "Original VIRIDIS -> GE -> CLAHE",
+      "paired_unit": "validation image; one class-stratified resample shared across all three seeds",
+      "seed_handling": "metric calculated per fixed seed and averaged across seeds 42, 123, and 2026",
+      "metrics": {
+        "macro_f1": {
+          "point_difference": 0.011371844294625011,
+          "point_difference_percentage_points": 1.137184429462501,
+          "bootstrap_mean_difference": 0.011381284346966206,
+          "bootstrap_standard_error": 0.005005585568575046,
+          "ci_95_percentile": [
+            0.0015478349880832464,
+            0.021261127360496096
+          ],
+          "ci_95_percentage_points": [
+            0.15478349880832465,
+            2.1261127360496097
+          ],
+          "bootstrap_probability_difference_above_zero": 0.9883,
+          "descriptive_interpretation": "95% paired bootstrap interval excludes zero"
+        },
+        "accuracy": {
+          "point_difference": 0.01067887109077037,
+          "point_difference_percentage_points": 1.067887109077037,
+          "bootstrap_mean_difference": 0.010685964912280703,
+          "bootstrap_standard_error": 0.004661865662376042,
+          "ci_95_percentile": [
+            0.0015255530129671957,
+            0.019832189168573544
+          ],
+          "ci_95_percentage_points": [
+            0.15255530129671957,
+            1.9832189168573544
+          ],
+          "bootstrap_probability_difference_above_zero": 0.9877,
+          "descriptive_interpretation": "95% paired bootstrap interval excludes zero"
+        },
+        "balanced_accuracy": {
+          "point_difference": 0.009960643160788263,
+          "point_difference_percentage_points": 0.9960643160788263,
+          "bootstrap_mean_difference": 0.009966229157710747,
+          "bootstrap_standard_error": 0.004891140672526396,
+          "ci_95_percentile": [
+            0.0002683271973761892,
+            0.019590723957008546
+          ],
+          "ci_95_percentage_points": [
+            0.02683271973761892,
+            1.9590723957008547
+          ],
+          "bootstrap_probability_difference_above_zero": 0.9785,
+          "descriptive_interpretation": "95% paired bootstrap interval excludes zero"
+        },
+        "viral_recall": {
+          "point_difference": 0.022421524663677084,
+          "point_difference_percentage_points": 2.2421524663677084,
+          "bootstrap_mean_difference": 0.022407922272047836,
+          "bootstrap_standard_error": 0.012139010807134578,
+          "ci_95_percentile": [
+            -0.001494768310911776,
+            0.046337817638266054
+          ],
+          "ci_95_percentage_points": [
+            -0.1494768310911776,
+            4.6337817638266054
+          ],
+          "bootstrap_probability_difference_above_zero": 0.9658,
+          "descriptive_interpretation": "95% paired bootstrap interval includes zero"
+        }
+      }
+    },
+    {
+      "candidate": "FT-004 ensemble",
+      "comparator": "FT-010 label smoothing",
+      "paired_unit": "validation image; one class-stratified resample shared across all three seeds",
+      "seed_handling": "metric calculated per fixed seed and averaged across seeds 42, 123, and 2026",
+      "metrics": {
+        "macro_f1": {
+          "point_difference": 0.0027582377888625276,
+          "point_difference_percentage_points": 0.27582377888625276,
+          "bootstrap_mean_difference": 0.002750113776032481,
+          "bootstrap_standard_error": 0.005576321816835078,
+          "ci_95_percentile": [
+            -0.00833014502314904,
+            0.013690264742425207
+          ],
+          "ci_95_percentage_points": [
+            -0.833014502314904,
+            1.3690264742425207
+          ],
+          "bootstrap_probability_difference_above_zero": 0.6959,
+          "descriptive_interpretation": "95% paired bootstrap interval includes zero"
+        },
+        "accuracy": {
+          "point_difference": 0.004195270785659733,
+          "point_difference_percentage_points": 0.41952707856597327,
+          "bootstrap_mean_difference": 0.004182913806254768,
+          "bootstrap_standard_error": 0.005110962747463052,
+          "ci_95_percentile": [
+            -0.005720823798627039,
+            0.014111365369946727
+          ],
+          "ci_95_percentage_points": [
+            -0.5720823798627039,
+            1.4111365369946727
+          ],
+          "bootstrap_probability_difference_above_zero": 0.7851,
+          "descriptive_interpretation": "95% paired bootstrap interval includes zero"
+        },
+        "balanced_accuracy": {
+          "point_difference": 0.004272592553592469,
+          "point_difference_percentage_points": 0.4272592553592469,
+          "bootstrap_mean_difference": 0.004253067672307325,
+          "bootstrap_standard_error": 0.005397579099884037,
+          "ci_95_percentile": [
+            -0.00643764336898138,
+            0.014791524091777968
+          ],
+          "ci_95_percentage_points": [
+            -0.6437643368981381,
+            1.4791524091777968
+          ],
+          "bootstrap_probability_difference_above_zero": 0.7885,
+          "descriptive_interpretation": "95% paired bootstrap interval includes zero"
+        },
+        "viral_recall": {
+          "point_difference": 0.005979073243647215,
+          "point_difference_percentage_points": 0.5979073243647215,
+          "bootstrap_mean_difference": 0.005925859491778774,
+          "bootstrap_standard_error": 0.013851939809025104,
+          "ci_95_percentile": [
+            -0.02092675635276542,
+            0.03288490284005974
+          ],
+          "ci_95_percentage_points": [
+            -2.092675635276542,
+            3.2884902840059738
+          ],
+          "bootstrap_probability_difference_above_zero": 0.6584,
+          "descriptive_interpretation": "95% paired bootstrap interval includes zero"
+        }
+      }
+    },
+    {
+      "candidate": "FT-004 ensemble seed 42",
+      "comparator": "FT-009B hierarchical seed 42",
+      "paired_unit": "validation image, class-stratified paired bootstrap",
+      "seed_handling": "seed 42 only; exploratory because FT-009B lacks three-seed confirmation",
+      "metrics": {
+        "macro_f1": {
+          "point_difference": 0.01682914695157811,
+          "point_difference_percentage_points": 1.6829146951578111,
+          "bootstrap_mean_difference": 0.016876286989689765,
+          "bootstrap_standard_error": 0.010618136409307427,
+          "ci_95_percentile": [
+            -0.0036326980234550527,
+            0.037636304953240274
+          ],
+          "ci_95_percentage_points": [
+            -0.36326980234550527,
+            3.763630495324027
+          ],
+          "bootstrap_probability_difference_above_zero": 0.9434,
+          "descriptive_interpretation": "95% paired bootstrap interval includes zero"
+        },
+        "accuracy": {
+          "point_difference": 0.024027459954233388,
+          "point_difference_percentage_points": 2.4027459954233388,
+          "bootstrap_mean_difference": 0.024055720823798626,
+          "bootstrap_standard_error": 0.010029279529886125,
+          "ci_95_percentile": [
+            0.004576659038901587,
+            0.0434782608695653
+          ],
+          "ci_95_percentage_points": [
+            0.4576659038901587,
+            4.34782608695653
+          ],
+          "bootstrap_probability_difference_above_zero": 0.9923,
+          "descriptive_interpretation": "95% paired bootstrap interval excludes zero"
+        },
+        "balanced_accuracy": {
+          "point_difference": 0.009322443910082745,
+          "point_difference_percentage_points": 0.9322443910082745,
+          "bootstrap_mean_difference": 0.009420186387635936,
+          "bootstrap_standard_error": 0.010756835584495241,
+          "ci_95_percentile": [
+            -0.011404677510569604,
+            0.03033108208593335
+          ],
+          "ci_95_percentage_points": [
+            -1.1404677510569605,
+            3.033108208593335
+          ],
+          "bootstrap_probability_difference_above_zero": 0.8096,
+          "descriptive_interpretation": "95% paired bootstrap interval includes zero"
+        },
+        "viral_recall": {
+          "point_difference": -0.049327354260089606,
+          "point_difference_percentage_points": -4.932735426008961,
+          "bootstrap_mean_difference": -0.0489219730941704,
+          "bootstrap_standard_error": 0.028588593040907346,
+          "ci_95_percentile": [
+            -0.10313901345291487,
+            0.008968609865470767
+          ],
+          "ci_95_percentage_points": [
+            -10.313901345291487,
+            0.8968609865470767
+          ],
+          "bootstrap_probability_difference_above_zero": 0.0362,
+          "descriptive_interpretation": "95% paired bootstrap interval includes zero"
+        }
+      }
+    }
+  ],
+  "interpretation_boundary": "These intervals quantify validation-sample uncertainty under the fixed observed seeds. They do not create an independent test result and three seeds are too few for a strong population-level random-seed inference."
+}

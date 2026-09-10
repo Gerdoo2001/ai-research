@@ -1,0 +1,22 @@
+# Current Status
+
+- **Current phase:** Final validation selection and reproducibility freeze completed
+- **Chosen model:** FT-004 three-member DenseNet-201 probability ensemble
+- **Deployable member count:** 3, using the original predeclared seed-42 checkpoints
+- **Member preprocessing:** VIRIDIS -> GE -> CLAHE; VIRIDIS -> GE; GE
+- **Inference rule:** Equal arithmetic mean of the three Normal/Viral/Bacterial probability vectors, followed by argmax
+- **Three-seed confirmation:** Completed at seeds 42, 123, and 2026
+- **Chosen-system validation result:** Mean macro F1 85.305%; mean accuracy 86.270%; mean balanced accuracy 84.928%; mean Viral recall 66.517%
+- **Improvement over original VIRIDIS -> GE -> CLAHE pipeline:** +1.137 macro-F1 points and +1.068 accuracy points
+- **Paired bootstrap:** 10,000 class-stratified resamples; macro-F1 improvement over the original pipeline 95% CI +0.155 to +2.126 points
+- **FT-010 status:** Completed 3/3 seeds; mean macro F1 85.029%; retained as the simpler single-network alternative
+- **FT-009B status:** Completed at seed 42; macro F1 85.270% and Viral recall 75.336%; retained as the higher-Viral-recall alternative
+- **Executable inference:** `model/src/multiclass/inference.py::FT004EnsemblePredictor`
+- **Frozen selection:** `model/results/final_ft004_ensemble/frozen_selection.json`
+- **Statistical comparison:** `model/results/final_ft004_ensemble/paired_bootstrap.json`
+- **Interpretability:** Six ensemble Grad-CAM panels plus audit record under `model/results/final_ft004_ensemble/gradcam`
+- **Verification:** 24 ensemble and core regression contracts passed; real three-checkpoint image inference passed
+- **Active training:** None
+- **Locked-test boundary:** No new model receives the earlier DenseNet-201 + GE locked-test score; FT-004 requires genuinely independent external evaluation
+- **Intended use:** Research comparison and prototype demonstration only; not clinical diagnosis
+- **Last updated:** 2026-08-13T14:45:00+08:00

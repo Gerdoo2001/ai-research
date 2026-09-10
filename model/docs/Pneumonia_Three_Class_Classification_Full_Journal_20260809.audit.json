@@ -1,0 +1,40 @@
+{
+  "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\docs\\Pneumonia_Three_Class_Classification_Full_Journal_20260809.docx",
+  "sha256": "1f9d3181e7eb330476a768774f0884e3da38ea7e5fb6fe85baec56fafb5f2403",
+  "bytes": 6796256,
+  "zip_test": "ok",
+  "package_parts": 36,
+  "paragraphs": 348,
+  "tables": 50,
+  "inline_images": 16,
+  "sections": 1,
+  "visible_text_colors": [
+    "000000"
+  ],
+  "all_text_black": true,
+  "densenet201_order_rows": 16,
+  "resnet50_order_rows": 16,
+  "winner_transfer_rows": 8,
+  "reference_rows": 25,
+  "top_two_run_ids": [
+    "staged_densenet201_pseudo_color_then_histogram_equalization_then_clahe_s42",
+    "staged_densenet169_pseudo_color_then_histogram_equalization_then_clahe_s42"
+  ],
+  "expected_top_two_run_ids": [
+    "staged_densenet201_pseudo_color_then_histogram_equalization_then_clahe_s42",
+    "staged_densenet169_pseudo_color_then_histogram_equalization_then_clahe_s42"
+  ],
+  "top_two_match_expected": true,
+  "locked_test_claim": "Only the earlier DenseNet-201 + GE frozen model has a locked-test result; the current validation winner has not been tested.",
+  "word_rendered_pages": 50,
+  "visual_qa": "passed; all 50 final pages reviewed across the final and immediately preceding equivalent render, with changed pages rechecked at original resolution",
+  "black_only_chrome": true,
+  "scientific_color_exception": "VIRIDIS example images retain algorithmic pseudo-color because color is the tested transformation; document chrome, text, tables, and analytical plots are black/grayscale.",
+  "accessibility_counts": {
+    "high": 0,
+    "medium": 0,
+    "low": 10
+  },
+  "all_images_have_alt_text": true,
+  "ranking_alias_deduplication": "Exact validation-outcome aliases with the same architecture, preprocessing, and seed are shown once."
+}

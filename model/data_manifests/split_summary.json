@@ -1,0 +1,65 @@
+{
+  "assigned_exact_hash_leakage_count": 0,
+  "assigned_group_leakage_count": 0,
+  "canonical_image_count": 5824,
+  "class_order": [
+    "Normal",
+    "Viral",
+    "Bacterial"
+  ],
+  "manifest_hashes": {
+    "all_images_manifest.csv": "07cba9e6b9c3e9d0152fd13663c7467ab3f6e94f4752d350e50edd7122646b51",
+    "class_mapping.json": "4378d8f47704c3401c0c12d470b2b74a4004ec9049ed7fab8d80cc4777575e02",
+    "test_manifest.csv": "a91a1af8306f72e01b2c95b8003458dc578d3369966230ebcdb960f98f5268a7",
+    "train_manifest.csv": "96bf458d0a214df7a61c2449a0624a0790e7f10fce067ebd073c01c253dd9c7e",
+    "val_manifest.csv": "bd23b46f554752459b588728722fb606a980a8415a510f21a2ab671fd334049e"
+  },
+  "manifest_version": "three_class_seed42_3b815cf769c8",
+  "manifest_version_hash": "3b815cf769c85658a04748da5eb2e15b981b89d9c9b77a404e90fe23473d2774",
+  "official_test_decision_reason": "Not preserved because 264 derived groups cross the original folder splits; all canonical images were reassigned without consulting image content or test metrics.",
+  "official_test_preserved": false,
+  "original_cross_split_group_count": 264,
+  "schema_version": 1,
+  "seed": 42,
+  "selection_policy": {
+    "test": "locked until final selected configuration",
+    "training": "fit model parameters and learned preprocessing only",
+    "validation": "architecture, preprocessing, threshold, and hyperparameter selection"
+  },
+  "source_content_inventory_hash": "4ee6dd784207a910043f62cff542a5d805c312fcddafa90ce1a058d03402f734",
+  "source_modified": false,
+  "source_root": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\datasets\\chest_xray",
+  "split_algorithm": "deterministic greedy multi-label group assignment with eight local-improvement passes; groups are derived conservatively from filename patient/image identifiers and exact-hash groups are unioned",
+  "split_counts": {
+    "test": {
+      "Bacterial": 414,
+      "Normal": 237,
+      "Viral": 223
+    },
+    "train": {
+      "Bacterial": 1932,
+      "Normal": 1105,
+      "Viral": 1039
+    },
+    "val": {
+      "Bacterial": 414,
+      "Normal": 237,
+      "Viral": 223
+    }
+  },
+  "split_group_counts": {
+    "test": 235,
+    "train": 2326,
+    "val": 228
+  },
+  "split_ratios": {
+    "test": 0.15,
+    "train": 0.7,
+    "val": 0.15
+  },
+  "split_total_counts": {
+    "test": 874,
+    "train": 4076,
+    "val": 874
+  }
+}

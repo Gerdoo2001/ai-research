@@ -1,0 +1,13 @@
+{
+  "generated_at": "2026-08-03T13:54:55+08:00",
+  "requested_docx_path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\docs\\Pneumonia_Three_Class_Classification_Final_Report.docx",
+  "docx_path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\docs\\Pneumonia_Three_Class_Classification_Final_Report.docx",
+  "docx_size_bytes": 2596181,
+  "zip_integrity_error": null,
+  "package_entry_count": 32,
+  "embedded_media_count": 13,
+  "heading_1_count": 2,
+  "section_heading_count": 36,
+  "visual_render_verified": false,
+  "visual_render_limitation": "LibreOffice unavailable and unattended Word COM rendering previously hung"
+}
