@@ -1,0 +1,6 @@
+{
+  "timestamp_utc": "2026-10-13T05:49:56.714+00:00",
+  "event": "simulated_smoke_trigger_scheduled",
+  "reason": "gpu_temperature",
+  "trigger_poll": 6
+}

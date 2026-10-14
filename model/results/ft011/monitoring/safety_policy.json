@@ -1,0 +1,26 @@
+{
+  "policy": {
+    "gpu_warning_c": 80.0,
+    "gpu_pause_c": 84.0,
+    "gpu_critical_c": 92.0,
+    "gpu_resume_c": 75.0,
+    "hardware_target_c": 87.0,
+    "hardware_slowdown_c": 97.0,
+    "hardware_shutdown_c": 100.0,
+    "continuous_cooling_seconds": 120.0,
+    "heartbeat_max_age_seconds": 6.0,
+    "sample_interval_seconds": 2.0,
+    "ram_warning_available_bytes": 2147483648,
+    "ram_pause_available_bytes": 1073741824,
+    "ram_resume_available_bytes": 2147483648,
+    "vram_warning_fraction": 0.95,
+    "vram_pause_fraction": 0.98,
+    "vram_resume_fraction": 0.92,
+    "checkpoint_copies_reserved": 2,
+    "disk_additional_reserve_bytes": 1073741824
+  },
+  "checkpoint_bytes": 268435456,
+  "disk_reserve_bytes": 1610612736,
+  "derivation": "Warning target-7C; pause target-3C; critical min(slowdown-5C,shutdown-8C); resume target-12C. Conservative project margins, not manufacturer temperature guarantees.",
+  "cpu_temperature": "Unavailable is explicit and optional; GPU thermal telemetry is required."
+}

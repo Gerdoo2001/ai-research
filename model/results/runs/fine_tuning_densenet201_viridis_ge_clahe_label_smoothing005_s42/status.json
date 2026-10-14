@@ -1,0 +1,18 @@
+{
+  "best_checkpoint": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\runs\\fine_tuning_densenet201_viridis_ge_clahe_label_smoothing005_s42\\best_checkpoint.pt",
+  "best_epoch": 10,
+  "best_validation_macro_f1": 0.8563107953930739,
+  "config_hash": "d39fa041fab58fa14fbd1b3f96c53def36b1c4d04bbf5c03af22533dca4f2245",
+  "created_at": "2026-08-11T16:10:36+08:00",
+  "current_epoch": 12,
+  "failure_reason": null,
+  "finished_at": "2026-08-11T18:19:17+08:00",
+  "last_checkpoint": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\runs\\fine_tuning_densenet201_viridis_ge_clahe_label_smoothing005_s42\\last_checkpoint.pt",
+  "manifest_hash": "3b815cf769c85658a04748da5eb2e15b981b89d9c9b77a404e90fe23473d2774",
+  "resume_command": ".venv\\Scripts\\python.exe model\\scripts\\train_multiclass.py --config \"C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\runs\\fine_tuning_densenet201_viridis_ge_clahe_label_smoothing005_s42\\config.json\" --resume",
+  "run_id": "fine_tuning_densenet201_viridis_ge_clahe_label_smoothing005_s42",
+  "started_at": "2026-08-11T16:10:36+08:00",
+  "status": "completed",
+  "total_epochs": 12,
+  "updated_at": "2026-08-11T18:19:17+08:00"
+}

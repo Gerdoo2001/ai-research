@@ -1,0 +1,35 @@
+{
+  "timestamp_utc": "2026-10-13T05:50:02.021+00:00",
+  "event": "simulated_smoke_trigger_applied",
+  "reason": "gpu_temperature",
+  "simulated_reading": {
+    "timestamp_utc": "2026-10-13T05:50:01.144+00:00",
+    "monotonic_time": 5174885.062,
+    "errors": [],
+    "gpu_name": "NVIDIA GeForce RTX 2050",
+    "gpu_temperature_c": 84.0,
+    "gpu_target_c": 87.0,
+    "gpu_slowdown_c": 97.0,
+    "gpu_shutdown_c": 100.0,
+    "gpu_utilization_percent": 14.0,
+    "gpu_vram_used_bytes": 1119879168,
+    "gpu_vram_total_bytes": 4294967296,
+    "gpu_thermal_throttling": false,
+    "gpu_thermal_reason_values": [
+      "Not Active",
+      "Not Active"
+    ],
+    "gpu_power_watts": null,
+    "gpu_driver_version": "576.28",
+    "cpu_temperature_c": null,
+    "cpu_temperature_status": "unavailable: no verified package/core temperature sensor",
+    "cpu_utilization_percent": 25.835475578406168,
+    "ram_total_bytes": 16868974592,
+    "ram_available_bytes": 2367000576,
+    "ac_connected": true,
+    "battery_percent": 64,
+    "disk_free_bytes": 16299593728,
+    "disk_total_bytes": 489254023168,
+    "sample_completed_utc": "2026-10-13T05:50:01.334+00:00"
+  }
+}

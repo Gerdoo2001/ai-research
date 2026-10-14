@@ -1,0 +1,8 @@
+{
+  "analysis_path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\ft011\\analysis\\20261013T070414529276Z",
+  "decision": "retain FT-004",
+  "next_step": "independent evaluation of the frozen system",
+  "status": "terminal_decision",
+  "tuning_phase_closed": true,
+  "updated_at": "2026-10-13T15:04:15+08:00"
+}

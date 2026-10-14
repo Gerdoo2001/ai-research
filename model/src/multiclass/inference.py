@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+from dataclasses import replace
 from pathlib import Path
 from typing import Iterable
 
@@ -48,16 +49,40 @@ def average_member_probabilities(
 
 
 class MulticlassPredictor:
-    def __init__(self, checkpoint_path: str | Path, device: str = "cuda") -> None:
+    def __init__(
+        self,
+        checkpoint_path: str | Path,
+        device: str = "cuda",
+        *,
+        configuration_hash_paths: dict[str, str] | None = None,
+    ) -> None:
         import torch
 
         self.checkpoint_path = Path(checkpoint_path)
         checkpoint = torch.load(self.checkpoint_path, map_location="cpu", weights_only=False)
         self.config = ExperimentConfig(**checkpoint["config"])
-        if checkpoint.get("config_hash") != self.config.config_hash:
+        hash_payload = self.config.hash_payload()
+        if configuration_hash_paths is not None:
+            if set(configuration_hash_paths) != {"manifest_dir", "results_dir"} or any(
+                not isinstance(value, str) or not value for value in configuration_hash_paths.values()
+            ):
+                raise ValueError("portable configuration hash paths require the two original path strings")
+            # Historical configuration hashes include absolute research paths.
+            # Preserve their original strings solely for integrity verification;
+            # inference does not access either manifest or training-results path.
+            hash_payload.update(configuration_hash_paths)
+        encoded = json.dumps(hash_payload, sort_keys=True, separators=(",", ":")).encode("utf-8")
+        self.configuration_hash = hashlib.sha256(encoded).hexdigest()
+        if checkpoint.get("config_hash") != self.configuration_hash:
             raise RuntimeError("checkpoint configuration hash does not match its embedded configuration")
         self.device = torch.device(device if device != "cuda" or torch.cuda.is_available() else "cpu")
-        self.model, self.model_metadata = build_model(self.config)
+        # Every trained parameter and buffer is supplied below. Constructing the
+        # architecture without ImageNet weights avoids an unnecessary download.
+        architecture_config = replace(self.config, weights="none")
+        self.model, self.model_metadata = build_model(architecture_config)
+        self.model_metadata = replace(
+            self.model_metadata, weight_source=f"trained_checkpoint::{self.checkpoint_path.name}"
+        )
         self.model.load_state_dict(checkpoint["model_state_dict"])
         self.model.to(self.device).eval()
         self.transform = build_transform(self.config, training=False)
@@ -77,7 +102,7 @@ class MulticlassPredictor:
             "confidence": float(probabilities[predicted_index]),
             "class_mapping": mapping,
             "task_mode": self.config.task_mode,
-            "configuration_hash": self.config.config_hash,
+            "configuration_hash": self.configuration_hash,
         }
 
 
@@ -113,14 +138,19 @@ class FT004EnsemblePredictor:
         self.members: list[tuple[dict, MulticlassPredictor]] = []
         for member in sorted(selection["members"], key=lambda item: item["member_order"]):
             checkpoint_path = Path(member["checkpoint_path"])
+            if not checkpoint_path.is_absolute():
+                checkpoint_path = self.selection_path.parent / checkpoint_path
             if not checkpoint_path.is_file():
                 raise FileNotFoundError(f"missing frozen FT-004 checkpoint: {checkpoint_path}")
             if _sha256(checkpoint_path) != member["checkpoint_sha256"]:
                 raise RuntimeError(f"FT-004 checkpoint hash mismatch: {member['run_id']}")
-            predictor = MulticlassPredictor(checkpoint_path, device=device)
+            predictor = MulticlassPredictor(
+                checkpoint_path, device=device,
+                configuration_hash_paths=member.get("configuration_hash_paths"),
+            )
             if tuple(predictor.config.resolved_class_names) != self.class_names:
                 raise RuntimeError(f"FT-004 member class order mismatch: {member['run_id']}")
-            if predictor.config.config_hash != member["configuration_hash_recorded"]:
+            if predictor.configuration_hash != member["configuration_hash_recorded"]:
                 raise RuntimeError(f"FT-004 configuration hash mismatch: {member['run_id']}")
             self.members.append((member, predictor))
 

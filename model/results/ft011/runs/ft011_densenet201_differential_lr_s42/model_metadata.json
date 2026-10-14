@@ -1,0 +1,7 @@
+{
+  "architecture": "densenet201",
+  "num_classes": 3,
+  "parameter_count": 18098691,
+  "trainable_parameter_count": 18098691,
+  "weight_source": "torchvision::DenseNet201_Weights.DEFAULT"
+}

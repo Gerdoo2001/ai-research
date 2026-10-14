@@ -1,0 +1,168 @@
+{
+  "accuracy": 0.834096109839817,
+  "balanced_accuracy": 0.8173146418282663,
+  "best_epoch": 5,
+  "brier_score": 0.23574456643986105,
+  "cohen_kappa": 0.7358377297844888,
+  "configuration_hash": "d39fa041fab58fa14fbd1b3f96c53def36b1c4d04bbf5c03af22533dca4f2245",
+  "confusion_matrix": [
+    [
+      234,
+      2,
+      1
+    ],
+    [
+      10,
+      130,
+      83
+    ],
+    [
+      4,
+      45,
+      365
+    ]
+  ],
+  "expected_calibration_error": 0.019371154533016726,
+  "inference": {
+    "batch_size": 1,
+    "latency_ms_per_image": 21.89868506975472,
+    "measured_runs": 20,
+    "preprocessing_included": false,
+    "throughput_images_per_second": 45.66484228686159,
+    "warmup_runs": 5
+  },
+  "interruptions": [
+    {
+      "at": "2026-10-13T14:16:39+08:00",
+      "decision": {
+        "action": "pause",
+        "critical_overheat": false,
+        "disk_reserve_bytes": 1610612736,
+        "heartbeat_age_seconds": 0.17200000025331974,
+        "overheat": false,
+        "reasons": [
+          "Required monitoring unavailable: gpu_temperature_c",
+          "Required monitoring unavailable: gpu_utilization_percent",
+          "Required monitoring unavailable: gpu_vram_used_bytes",
+          "Required monitoring unavailable: gpu_vram_total_bytes",
+          "Required monitoring unavailable: gpu_thermal_throttling",
+          "Required monitoring unavailable: ram_total_bytes",
+          "Required monitoring unavailable: ram_available_bytes",
+          "Required monitoring unavailable: disk_free_bytes",
+          "Required monitoring unavailable: ac_connected",
+          "Monitoring log/sample failure: [WinError 5] Access is denied: 'C:\\\\Users\\\\JOHN MARK\\\\Code\\\\ai-research-main\\\\model\\\\results\\\\ft011\\\\monitoring\\\\telemetry_status.json.tmp' -> 'C:\\\\Users\\\\JOHN MARK\\\\Code\\\\ai-research-main\\\\model\\\\results\\\\ft011\\\\monitoring\\\\telemetry_status.json'"
+        ],
+        "warnings": []
+      },
+      "epoch": 4,
+      "hardware": {
+        "actual_overheat_events": 0,
+        "checkpoint_bytes": 268435456,
+        "complete_checkpoint_path": null,
+        "cooling_pauses": 2,
+        "cooling_started_monotonic": null,
+        "disk_reserve_bytes": 1610612736,
+        "monitoring_gaps": 0,
+        "overheat_events": 0,
+        "pause_active": true,
+        "peaks": {
+          "cpu_utilization_percent": 48.29147797447509,
+          "gpu_temperature_c": 48.0,
+          "gpu_utilization_percent": 100.0,
+          "gpu_vram_used_bytes": 1291845632,
+          "ram_used_bytes": 15360393216
+        },
+        "policy": {
+          "checkpoint_copies_reserved": 2,
+          "continuous_cooling_seconds": 120.0,
+          "disk_additional_reserve_bytes": 1073741824,
+          "gpu_critical_c": 92.0,
+          "gpu_pause_c": 84.0,
+          "gpu_resume_c": 75.0,
+          "gpu_warning_c": 80.0,
+          "hardware_shutdown_c": 100.0,
+          "hardware_slowdown_c": 97.0,
+          "hardware_target_c": 87.0,
+          "heartbeat_max_age_seconds": 6.0,
+          "ram_pause_available_bytes": 1073741824,
+          "ram_resume_available_bytes": 2147483648,
+          "ram_warning_available_bytes": 2147483648,
+          "sample_interval_seconds": 2.0,
+          "vram_pause_fraction": 0.98,
+          "vram_resume_fraction": 0.92,
+          "vram_warning_fraction": 0.95
+        },
+        "reading": {
+          "errors": [
+            "Monitoring log/sample failure: [WinError 5] Access is denied: 'C:\\\\Users\\\\JOHN MARK\\\\Code\\\\ai-research-main\\\\model\\\\results\\\\ft011\\\\monitoring\\\\telemetry_status.json.tmp' -> 'C:\\\\Users\\\\JOHN MARK\\\\Code\\\\ai-research-main\\\\model\\\\results\\\\ft011\\\\monitoring\\\\telemetry_status.json'"
+          ],
+          "monotonic_time": 5176483.312
+        },
+        "sample_sequence": 688,
+        "simulated_pause_events": 1,
+        "terminal_stop": false,
+        "thermal_throttle_samples": 0,
+        "timestamp_utc": "2026-10-13T06:16:39.575+00:00",
+        "training": {
+          "backbone_lr": 1e-05,
+          "batch": 50,
+          "classifier_lr": 0.0001,
+          "elapsed_seconds": 1462.0843368005008,
+          "epoch": 4,
+          "phase": "running:train",
+          "seed": 42,
+          "total_batches": 510
+        }
+      },
+      "phase": "train"
+    }
+  ],
+  "log_loss": 0.4065850666207584,
+  "loss": 0.40658201396601695,
+  "macro_f1": 0.8202782987500647,
+  "macro_precision": 0.8303097528625735,
+  "macro_recall": 0.8173146418282663,
+  "matthews_correlation_coefficient": 0.7386210970775753,
+  "model_file_size_bytes": 219236476,
+  "parameter_count": 18098691,
+  "peak_gpu_memory_bytes": 1112218112,
+  "per_class": {
+    "Bacterial": {
+      "f1": 0.8458864426419467,
+      "pr_auc": 0.8788841168086959,
+      "precision": 0.8129175946547884,
+      "recall": 0.8816425120772947,
+      "roc_auc": 0.9234063222012183,
+      "specificity": 0.8173913043478261,
+      "support": 414
+    },
+    "Normal": {
+      "f1": 0.9649484536082474,
+      "pr_auc": 0.9967966032113774,
+      "precision": 0.9435483870967742,
+      "recall": 0.9873417721518988,
+      "roc_auc": 0.9988010783670819,
+      "specificity": 0.978021978021978,
+      "support": 237
+    },
+    "Viral": {
+      "f1": 0.65,
+      "pr_auc": 0.7502617597325666,
+      "precision": 0.7344632768361582,
+      "recall": 0.5829596412556054,
+      "roc_auc": 0.875186846038864,
+      "specificity": 0.9278033794162827,
+      "support": 223
+    }
+  },
+  "pr_auc_macro": 0.8753141599175467,
+  "protocol_hash": "7a667b9dc65b94ecb89f38e87ef85490c44ab329d1a517b994f966ee4056cee4",
+  "roc_auc_ovr_macro": 0.9324647488690547,
+  "run_id": "ft011_densenet201_differential_lr_s42",
+  "smoke_execution_only": false,
+  "split": "validation",
+  "trainable_parameter_count": 18098691,
+  "training_duration_seconds": 4185.139188299887,
+  "wall_duration_seconds": 4310.720489740372,
+  "weighted_f1": 0.8281919573900693
+}

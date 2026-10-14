@@ -1,0 +1,966 @@
+{
+  "checkpoint_disk_estimate_bytes": 268435456,
+  "checkpoint_rule": "strictly greater validation macro F1 than incumbent + 0.0001",
+  "commands": {
+    "prepare": ".venv\\Scripts\\python.exe model\\scripts\\run_ft011.py --prepare",
+    "resume": ".venv\\Scripts\\python.exe model\\scripts\\run_ft011.py --run --resume",
+    "smoke": ".venv\\Scripts\\python.exe model\\scripts\\run_ft011.py --smoke",
+    "train": ".venv\\Scripts\\python.exe model\\scripts\\run_ft011.py --run"
+  },
+  "control_configuration": {
+    "allow_cpu_fallback": false,
+    "amp": true,
+    "architecture": "densenet201",
+    "augmentation": {
+      "horizontal_flip_probability": 0.5,
+      "rotation_degrees": 5.0,
+      "scale_max": 1.0,
+      "scale_min": 1.0,
+      "translation_fraction": 0.0
+    },
+    "batch_size": 8,
+    "class_names": [
+      "Normal",
+      "Viral",
+      "Bacterial"
+    ],
+    "class_weighting": "balanced",
+    "controlled_stop_after_epoch": null,
+    "device": "cuda",
+    "documentation_interval": 1,
+    "early_stopping_patience": 4,
+    "epochs": 12,
+    "focal_gamma": null,
+    "freeze_backbone": false,
+    "input_size": 224,
+    "label_smoothing": 0.05,
+    "learning_rate": 0.0001,
+    "loss": "cross_entropy",
+    "manifest_dir": "model/data_manifests",
+    "max_train_samples": null,
+    "max_val_samples": null,
+    "minimum_delta": 0.0001,
+    "num_workers": 0,
+    "optimizer": "adamw",
+    "preprocessing": "pseudo_color_then_histogram_equalization_then_clahe",
+    "results_dir": "model/results/runs",
+    "roi": {
+      "bbox_manifest": null,
+      "margin_fraction": null,
+      "mode": "none",
+      "segmentation_model": null,
+      "threshold": null
+    },
+    "run_id": "fine_tuning_densenet201_viridis_ge_clahe_label_smoothing005_s42",
+    "scheduler": "reduce_on_plateau",
+    "scheduler_factor": 0.5,
+    "scheduler_patience": 2,
+    "schema_version": 1,
+    "seed": 42,
+    "smoke_test": false,
+    "task_mode": "multiclass",
+    "tensorboard": true,
+    "weight_decay": 0.0001,
+    "weights": "imagenet"
+  },
+  "control_configuration_hash": "d39fa041fab58fa14fbd1b3f96c53def36b1c4d04bbf5c03af22533dca4f2245",
+  "control_learning_rate_policy": {
+    "backbone": 0.0001,
+    "classifier": 0.0001
+  },
+  "controls": {
+    "artifact_hashes": [
+      {
+        "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\data_manifests\\train_manifest.csv",
+        "sha256": "96bf458d0a214df7a61c2449a0624a0790e7f10fce067ebd073c01c253dd9c7e",
+        "size_bytes": 1480987
+      },
+      {
+        "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\data_manifests\\val_manifest.csv",
+        "sha256": "bd23b46f554752459b588728722fb606a980a8415a510f21a2ab671fd334049e",
+        "size_bytes": 314814
+      },
+      {
+        "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\data_manifests\\split_summary.json",
+        "sha256": "5b6c243168c6c028367a2223e9a9b66bcd4a8e0696e11285c63c48496b0ffd13",
+        "size_bytes": 2425
+      },
+      {
+        "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\data_manifests\\class_mapping.json",
+        "sha256": "4378d8f47704c3401c0c12d470b2b74a4004ec9049ed7fab8d80cc4777575e02",
+        "size_bytes": 543
+      },
+      {
+        "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\ensemble_confirmation\\summary.json",
+        "sha256": "a4dfaad151a3c8066613507c0af813a88462dd2ee6dfd28ed833639f6fa1e0a0",
+        "size_bytes": 12489
+      },
+      {
+        "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\runs\\fine_tuning_densenet201_viridis_ge_clahe_label_smoothing005_s42\\config.json",
+        "sha256": "9874f39062d24b33e58e2c0d3b8a5bd7af6d00a3efb4645e6a236179e8179aee",
+        "size_bytes": 1478
+      },
+      {
+        "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\runs\\fine_tuning_densenet201_viridis_ge_clahe_label_smoothing005_s42\\status.json",
+        "sha256": "0af6b651ae23ae404dd103a0eb4fca72bc98f28d75c0654cf147c24ce742f625",
+        "size_bytes": 1224
+      },
+      {
+        "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\runs\\fine_tuning_densenet201_viridis_ge_clahe_label_smoothing005_s42\\history.csv",
+        "sha256": "0c298c1f62376021bb15c789a3974fdbf787b36d8fedc811c0da4ab0554a8fbb",
+        "size_bytes": 3736
+      },
+      {
+        "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\runs\\fine_tuning_densenet201_viridis_ge_clahe_label_smoothing005_s42\\best_checkpoint.pt",
+        "sha256": "5bcca50c7cd1a51685a561617368ff9bf44287c9300eb27e6fb7fd9c996868a3",
+        "size_bytes": 219115384
+      },
+      {
+        "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\runs\\fine_tuning_densenet201_viridis_ge_clahe_label_smoothing005_s42\\metrics.json",
+        "sha256": "15922f622df86864624e60c5e3c1e3720ffe690a63c404351dfa15619fd0a710",
+        "size_bytes": 2405
+      },
+      {
+        "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\runs\\fine_tuning_densenet201_viridis_ge_clahe_label_smoothing005_s42\\predictions.csv",
+        "sha256": "b20b0e0097ef3aac0d2626a39ee6fe1dfda8a525d6c298d5a026fab7508cb150",
+        "size_bytes": 124488
+      },
+      {
+        "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\runs\\confirmation_densenet201_viridis_ge_clahe_label_smoothing005_s123\\config.json",
+        "sha256": "31a942ec393b238ee83d5be91f1171b7a46f9a1e0612f922bf1d3e6969c07400",
+        "size_bytes": 1481
+      },
+      {
+        "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\runs\\confirmation_densenet201_viridis_ge_clahe_label_smoothing005_s123\\status.json",
+        "sha256": "977d26fb87c4e9e5e4c5844f4fd13533b258fa4ad02f317e9a59b071f732cb05",
+        "size_bytes": 1231
+      },
+      {
+        "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\runs\\confirmation_densenet201_viridis_ge_clahe_label_smoothing005_s123\\history.csv",
+        "sha256": "f01874ed6193c19d6a9ee48190df099da0fe3f94b086a80bfc455468fe2bf790",
+        "size_bytes": 3174
+      },
+      {
+        "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\runs\\confirmation_densenet201_viridis_ge_clahe_label_smoothing005_s123\\best_checkpoint.pt",
+        "sha256": "72ccf80daad0ba4fc5ba1bf29cd34ed97e82050743aa8ff9effb3a4bfe98ad57",
+        "size_bytes": 219114872
+      },
+      {
+        "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\runs\\confirmation_densenet201_viridis_ge_clahe_label_smoothing005_s123\\metrics.json",
+        "sha256": "8c10498022daec4eafd743d51ebd6f3ebb19ed98260886c0cbe7abe41e2f8e7d",
+        "size_bytes": 2383
+      },
+      {
+        "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\runs\\confirmation_densenet201_viridis_ge_clahe_label_smoothing005_s123\\predictions.csv",
+        "sha256": "723547d560d7cb1ba48ef2271e07c32f61b25135b9bb929419c3d623e5142547",
+        "size_bytes": 124106
+      },
+      {
+        "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\runs\\confirmation_densenet201_viridis_ge_clahe_label_smoothing005_s2026\\config.json",
+        "sha256": "a08f661d9515a9ae979642a8e2432cf55849d9d8a0d93bfb6723ee028fcaf81b",
+        "size_bytes": 1483
+      },
+      {
+        "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\runs\\confirmation_densenet201_viridis_ge_clahe_label_smoothing005_s2026\\status.json",
+        "sha256": "d54bcf5d2bf4ff741c810ce7bdf26e9022f8bf9bb2a56810f613d375593c8ace",
+        "size_bytes": 1233
+      },
+      {
+        "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\runs\\confirmation_densenet201_viridis_ge_clahe_label_smoothing005_s2026\\history.csv",
+        "sha256": "8a230e351933f67815463a0575a404ef1b36cfb761eefe25059651a450f9d420",
+        "size_bytes": 2868
+      },
+      {
+        "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\runs\\confirmation_densenet201_viridis_ge_clahe_label_smoothing005_s2026\\best_checkpoint.pt",
+        "sha256": "c83a24e56e57f531ff2448fce5fbfdb1229dc3d58db24e5cd66e1ab632b82c64",
+        "size_bytes": 219114552
+      },
+      {
+        "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\runs\\confirmation_densenet201_viridis_ge_clahe_label_smoothing005_s2026\\metrics.json",
+        "sha256": "3c656b141848dc234396d86e42f47cba67c048e9e180326e5c0fb2f7dba3ee81",
+        "size_bytes": 2412
+      },
+      {
+        "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\runs\\confirmation_densenet201_viridis_ge_clahe_label_smoothing005_s2026\\predictions.csv",
+        "sha256": "7884189f1b74e349efbf9d5c76655febf0d301d615510ab293e78f5ef976d430",
+        "size_bytes": 124516
+      },
+      {
+        "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\ensemble_confirmation\\ensemble_predictions_s42.csv",
+        "sha256": "ba1dfb653c0093396677576e15c9e77d4dc22945f37123a0c765a8bd1d1351de",
+        "size_bytes": 120623
+      },
+      {
+        "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\ensemble_confirmation\\ensemble_predictions_s123.csv",
+        "sha256": "d4809d7f2f807177d612ce171409210d155be3adf1c2a58cda90d106690472cd",
+        "size_bytes": 120494
+      },
+      {
+        "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\ensemble_confirmation\\ensemble_predictions_s2026.csv",
+        "sha256": "2c040eb074d8c534e2cdefef5a2625b78424a7688454baa181b286dd4699614a",
+        "size_bytes": 121301
+      },
+      {
+        "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\final_ft004_ensemble\\frozen_selection.json",
+        "sha256": "bbb65ee1202b2c34490cdb1047339795e5751f2c71edf6626d1b1f235acea57b",
+        "size_bytes": 6842
+      },
+      {
+        "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\configs\\final_ft004_ensemble.json",
+        "sha256": "bbb65ee1202b2c34490cdb1047339795e5751f2c71edf6626d1b1f235acea57b",
+        "size_bytes": 6842
+      },
+      {
+        "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\runs\\staged_densenet201_pseudo_color_then_histogram_equalization_then_clahe_s42\\best_checkpoint.pt",
+        "sha256": "266c2d66841a8013a92628fd364b9b9d9ef614100f44999711e5993624385e40",
+        "size_bytes": 219114296
+      },
+      {
+        "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\runs\\staged_densenet201_pseudo_color_then_histogram_equalization_s42\\best_checkpoint.pt",
+        "sha256": "b1e1c9445ff799fb634a2e8cd795ddf05f5fef1c56aae6779b63efff3e1551c9",
+        "size_bytes": 219114296
+      },
+      {
+        "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\runs\\ablation_densenet201_histogram_equalization_s42\\best_checkpoint.pt",
+        "sha256": "b13383f573bea5ede2ae226161753f764cd8cba148a02d2f9665b7d1a079d74a",
+        "size_bytes": 219114232
+      }
+    ],
+    "bootstrap": {
+      "iterations": 10000,
+      "seed": 20261013,
+      "unit": "class-stratified split_group_id proxy clusters; whole groups retained"
+    },
+    "class_order": [
+      "Normal",
+      "Viral",
+      "Bacterial"
+    ],
+    "frozen_at": "2026-10-13T05:22:57.328461+00:00",
+    "frozen_incumbent": {
+      "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\final_ft004_ensemble\\frozen_selection.json",
+      "sha256": "bbb65ee1202b2c34490cdb1047339795e5751f2c71edf6626d1b1f235acea57b",
+      "size_bytes": 6842
+    },
+    "locked_test_accessed": false,
+    "manifest_version": "three_class_seed42_3b815cf769c8",
+    "metric_recovery": "exact metrics recomputed using original multiclass.metrics.calculate_metrics and checked against available saved metrics",
+    "replacement_gates": [
+      {
+        "basis": "FT004 three-seed arithmetic mean",
+        "metric": "macro_f1",
+        "operator": ">",
+        "threshold": 0.8530516857750923
+      },
+      {
+        "basis": "FT004 three-seed arithmetic mean",
+        "metric": "balanced_accuracy",
+        "operator": ">=",
+        "threshold": 0.8492846583463107
+      },
+      {
+        "basis": "FT004 three-seed arithmetic mean",
+        "metric": "viral_recall",
+        "operator": ">=",
+        "threshold": 0.6651718983557549
+      },
+      {
+        "basis": "FT010 three-seed arithmetic mean",
+        "metric": "normal_recall",
+        "operator": ">=",
+        "threshold": 0.9789029535864979
+      },
+      {
+        "basis": "FT010 three-seed arithmetic mean",
+        "metric": "bacterial_recall",
+        "operator": ">=",
+        "threshold": 0.8969404186795491
+      }
+    ],
+    "schema_version": 1,
+    "screening_gates": [
+      {
+        "basis": "FT010 seed42",
+        "metric": "macro_f1",
+        "operator": ">=",
+        "threshold": 0.8613107953930739
+      },
+      {
+        "basis": "FT010 seed42",
+        "metric": "balanced_accuracy",
+        "operator": ">=",
+        "threshold": 0.8507499938072187
+      },
+      {
+        "basis": "FT010 seed42",
+        "metric": "viral_recall",
+        "operator": ">=",
+        "threshold": 0.6681614349775785
+      },
+      {
+        "basis": "FT010 seed42",
+        "metric": "normal_recall",
+        "operator": ">=",
+        "threshold": 0.9831223628691983
+      },
+      {
+        "basis": "FT010 seed42",
+        "metric": "bacterial_recall",
+        "operator": ">=",
+        "threshold": 0.9009661835748792
+      }
+    ],
+    "seeds": [
+      42,
+      123,
+      2026
+    ],
+    "selection_split": "validation",
+    "systems": {
+      "FT004": {
+        "aggregate": {
+          "accuracy": {
+            "mean": 0.8627002288329519,
+            "sample_std": 0.013195151710149662,
+            "values_by_seed": {
+              "123": 0.8524027459954233,
+              "2026": 0.8581235697940504,
+              "42": 0.8775743707093822
+            }
+          },
+          "bacterial_recall": {
+            "mean": 0.9009661835748792,
+            "sample_std": 0.01106902341776778,
+            "values_by_seed": {
+              "123": 0.8888888888888888,
+              "2026": 0.9033816425120773,
+              "42": 0.9106280193236715
+            }
+          },
+          "balanced_accuracy": {
+            "mean": 0.8492846583463107,
+            "sample_std": 0.014515547066762006,
+            "values_by_seed": {
+              "123": 0.8392503873573295,
+              "2026": 0.8426748354708256,
+              "42": 0.8659287522107771
+            }
+          },
+          "macro_f1": {
+            "mean": 0.8530516857750923,
+            "sample_std": 0.014483777566055388,
+            "values_by_seed": {
+              "123": 0.8423261955724793,
+              "2026": 0.8473012536746166,
+              "42": 0.8695276080781809
+            }
+          },
+          "normal_recall": {
+            "mean": 0.9817158931082982,
+            "sample_std": 0.0024360770851882645,
+            "values_by_seed": {
+              "123": 0.9831223628691983,
+              "2026": 0.9789029535864979,
+              "42": 0.9831223628691983
+            }
+          },
+          "viral_recall": {
+            "mean": 0.6651718983557549,
+            "sample_std": 0.03365719058056118,
+            "values_by_seed": {
+              "123": 0.6457399103139013,
+              "2026": 0.6457399103139013,
+              "42": 0.7040358744394619
+            }
+          }
+        },
+        "per_seed": {
+          "123": {
+            "accuracy": 0.8524027459954233,
+            "balanced_accuracy": 0.8392503873573295,
+            "brier_score": 0.21368489395947302,
+            "cohen_kappa": 0.7659390278080529,
+            "confusion_matrix": [
+              [
+                233,
+                4,
+                0
+              ],
+              [
+                8,
+                144,
+                71
+              ],
+              [
+                4,
+                42,
+                368
+              ]
+            ],
+            "expected_calibration_error": 0.020894524373369708,
+            "log_loss": 0.3541240331014977,
+            "macro_f1": 0.8423261955724793,
+            "macro_precision": 0.8490613125720256,
+            "macro_recall": 0.8392503873573295,
+            "matthews_correlation_coefficient": 0.7674106095010093,
+            "per_class": {
+              "Bacterial": {
+                "f1": 0.8628370457209847,
+                "pr_auc": 0.8992337884835393,
+                "precision": 0.8382687927107062,
+                "recall": 0.8888888888888888,
+                "roc_auc": 0.9326769586221383,
+                "specificity": 0.8456521739130435,
+                "support": 414
+              },
+              "Normal": {
+                "f1": 0.966804979253112,
+                "pr_auc": 0.9980286078634925,
+                "precision": 0.9510204081632653,
+                "recall": 0.9831223628691983,
+                "roc_auc": 0.9992515019639794,
+                "specificity": 0.9811616954474097,
+                "support": 237
+              },
+              "Viral": {
+                "f1": 0.6973365617433414,
+                "pr_auc": 0.7835948811863491,
+                "precision": 0.7578947368421053,
+                "recall": 0.6457399103139013,
+                "roc_auc": 0.9013315148133606,
+                "specificity": 0.9293394777265745,
+                "support": 223
+              }
+            },
+            "pr_auc_macro": 0.8936190925111269,
+            "roc_auc_ovr_macro": 0.9444199917998262,
+            "weighted_f1": 0.8488024831581698
+          },
+          "2026": {
+            "accuracy": 0.8581235697940504,
+            "balanced_accuracy": 0.8426748354708256,
+            "brier_score": 0.21186231645453316,
+            "cohen_kappa": 0.7744943205345085,
+            "confusion_matrix": [
+              [
+                232,
+                4,
+                1
+              ],
+              [
+                9,
+                144,
+                70
+              ],
+              [
+                1,
+                39,
+                374
+              ]
+            ],
+            "expected_calibration_error": 0.03847517691995674,
+            "log_loss": 0.3687173001520483,
+            "macro_f1": 0.8473012536746166,
+            "macro_precision": 0.8563935333628298,
+            "macro_recall": 0.8426748354708256,
+            "matthews_correlation_coefficient": 0.7764233770383144,
+            "per_class": {
+              "Bacterial": {
+                "f1": 0.8707799767171129,
+                "pr_auc": 0.8903449715292282,
+                "precision": 0.8404494382022472,
+                "recall": 0.9033816425120773,
+                "roc_auc": 0.933086536441924,
+                "specificity": 0.8456521739130435,
+                "support": 414
+              },
+              "Normal": {
+                "f1": 0.9686847599164927,
+                "pr_auc": 0.9974131118580905,
+                "precision": 0.9586776859504132,
+                "recall": 0.9789029535864979,
+                "roc_auc": 0.9990527856712305,
+                "specificity": 0.9843014128728415,
+                "support": 237
+              },
+              "Viral": {
+                "f1": 0.7024390243902439,
+                "pr_auc": 0.7619679484091302,
+                "precision": 0.7700534759358288,
+                "recall": 0.6457399103139013,
+                "roc_auc": 0.8958415132290439,
+                "specificity": 0.9339477726574501,
+                "support": 223
+              }
+            },
+            "pr_auc_macro": 0.8832420105988162,
+            "roc_auc_ovr_macro": 0.9426602784473994,
+            "weighted_f1": 0.8543765456523088
+          },
+          "42": {
+            "accuracy": 0.8775743707093822,
+            "balanced_accuracy": 0.8659287522107771,
+            "brier_score": 0.19840197445771898,
+            "cohen_kappa": 0.8061807125788341,
+            "confusion_matrix": [
+              [
+                233,
+                4,
+                0
+              ],
+              [
+                8,
+                157,
+                58
+              ],
+              [
+                1,
+                36,
+                377
+              ]
+            ],
+            "expected_calibration_error": 0.038325710075376634,
+            "log_loss": 0.36833681900793525,
+            "macro_f1": 0.8695276080781809,
+            "macro_precision": 0.875476966247617,
+            "macro_recall": 0.8659287522107771,
+            "matthews_correlation_coefficient": 0.8071734972224409,
+            "per_class": {
+              "Bacterial": {
+                "f1": 0.8881036513545347,
+                "pr_auc": 0.904319897055851,
+                "precision": 0.8666666666666667,
+                "recall": 0.9106280193236715,
+                "roc_auc": 0.9419029615626969,
+                "specificity": 0.8739130434782608,
+                "support": 414
+              },
+              "Normal": {
+                "f1": 0.9728601252609603,
+                "pr_auc": 0.9976910176520798,
+                "precision": 0.9628099173553719,
+                "recall": 0.9831223628691983,
+                "roc_auc": 0.9991124005590551,
+                "specificity": 0.9858712715855573,
+                "support": 237
+              },
+              "Viral": {
+                "f1": 0.7476190476190476,
+                "pr_auc": 0.7828283427575125,
+                "precision": 0.7969543147208121,
+                "recall": 0.7040358744394619,
+                "roc_auc": 0.8979355665309665,
+                "specificity": 0.9385560675883257,
+                "support": 223
+              }
+            },
+            "pr_auc_macro": 0.8949464191551478,
+            "roc_auc_ovr_macro": 0.9463169762175728,
+            "weighted_f1": 0.8752423443554607
+          }
+        },
+        "predictions": {
+          "123": {
+            "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\ensemble_confirmation\\ensemble_predictions_s123.csv",
+            "sha256": "d4809d7f2f807177d612ce171409210d155be3adf1c2a58cda90d106690472cd",
+            "size_bytes": 120494
+          },
+          "2026": {
+            "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\ensemble_confirmation\\ensemble_predictions_s2026.csv",
+            "sha256": "2c040eb074d8c534e2cdefef5a2625b78424a7688454baa181b286dd4699614a",
+            "size_bytes": 121301
+          },
+          "42": {
+            "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\ensemble_confirmation\\ensemble_predictions_s42.csv",
+            "sha256": "ba1dfb653c0093396677576e15c9e77d4dc22945f37123a0c765a8bd1d1351de",
+            "size_bytes": 120623
+          }
+        }
+      },
+      "FT010": {
+        "aggregate": {
+          "accuracy": {
+            "mean": 0.8585049580472922,
+            "sample_std": 0.00515932465998044,
+            "values_by_seed": {
+              "123": 0.8535469107551488,
+              "2026": 0.8581235697940504,
+              "42": 0.8638443935926774
+            }
+          },
+          "bacterial_recall": {
+            "mean": 0.8969404186795491,
+            "sample_std": 0.011415013589982134,
+            "values_by_seed": {
+              "123": 0.8840579710144928,
+              "2026": 0.9057971014492754,
+              "42": 0.9009661835748792
+            }
+          },
+          "balanced_accuracy": {
+            "mean": 0.8450120657927183,
+            "sample_std": 0.004969226669502331,
+            "values_by_seed": {
+              "123": 0.8421243863319329,
+              "2026": 0.8421618172390031,
+              "42": 0.8507499938072187
+            }
+          },
+          "macro_f1": {
+            "mean": 0.8502934479862297,
+            "sample_std": 0.005683242588642088,
+            "values_by_seed": {
+              "123": 0.8450169793272694,
+              "2026": 0.849552569238346,
+              "42": 0.8563107953930739
+            }
+          },
+          "normal_recall": {
+            "mean": 0.9789029535864979,
+            "sample_std": 0.007308231255564858,
+            "values_by_seed": {
+              "123": 0.9831223628691983,
+              "2026": 0.9704641350210971,
+              "42": 0.9831223628691983
+            }
+          },
+          "viral_recall": {
+            "mean": 0.6591928251121076,
+            "sample_std": 0.008968609865470878,
+            "values_by_seed": {
+              "123": 0.6591928251121076,
+              "2026": 0.6502242152466368,
+              "42": 0.6681614349775785
+            }
+          }
+        },
+        "per_seed": {
+          "123": {
+            "accuracy": 0.8535469107551488,
+            "balanced_accuracy": 0.8421243863319329,
+            "brier_score": 0.21261583093867537,
+            "cohen_kappa": 0.7681414131784183,
+            "confusion_matrix": [
+              [
+                233,
+                4,
+                0
+              ],
+              [
+                7,
+                147,
+                69
+              ],
+              [
+                2,
+                46,
+                366
+              ]
+            ],
+            "expected_calibration_error": 0.021813139790997586,
+            "log_loss": 0.3651984492016839,
+            "macro_f1": 0.8450169793272694,
+            "macro_precision": 0.8501273737004049,
+            "macro_recall": 0.8421243863319329,
+            "matthews_correlation_coefficient": 0.7690873536942644,
+            "per_class": {
+              "Bacterial": {
+                "f1": 0.8621908127208481,
+                "pr_auc": 0.9022923947562952,
+                "precision": 0.8413793103448276,
+                "recall": 0.8840579710144928,
+                "roc_auc": 0.9364366729678639,
+                "specificity": 0.85,
+                "support": 414
+              },
+              "Normal": {
+                "f1": 0.9728601252609603,
+                "pr_auc": 0.9980246926161724,
+                "precision": 0.9628099173553719,
+                "recall": 0.9831223628691983,
+                "roc_auc": 0.9992250064582795,
+                "specificity": 0.9858712715855573,
+                "support": 237
+              },
+              "Viral": {
+                "f1": 0.7,
+                "pr_auc": 0.7699919524440215,
+                "precision": 0.7461928934010152,
+                "recall": 0.6591928251121076,
+                "roc_auc": 0.9070143897281175,
+                "specificity": 0.9231950844854071,
+                "support": 223
+              }
+            },
+            "pr_auc_macro": 0.8901030132721631,
+            "roc_auc_ovr_macro": 0.947558689718087,
+            "weighted_f1": 0.8508179017772067
+          },
+          "2026": {
+            "accuracy": 0.8581235697940504,
+            "balanced_accuracy": 0.8421618172390031,
+            "brier_score": 0.22445081347713666,
+            "cohen_kappa": 0.7739246526763737,
+            "confusion_matrix": [
+              [
+                230,
+                5,
+                2
+              ],
+              [
+                3,
+                145,
+                75
+              ],
+              [
+                0,
+                39,
+                375
+              ]
+            ],
+            "expected_calibration_error": 0.044538651876206925,
+            "log_loss": 0.4146228958395273,
+            "macro_f1": 0.849552569238346,
+            "macro_precision": 0.8613220828047319,
+            "macro_recall": 0.8421618172390031,
+            "matthews_correlation_coefficient": 0.7761650814612647,
+            "per_class": {
+              "Bacterial": {
+                "f1": 0.8660508083140878,
+                "pr_auc": 0.8813972143219913,
+                "precision": 0.8296460176991151,
+                "recall": 0.9057971014492754,
+                "roc_auc": 0.9206731779038018,
+                "specificity": 0.8326086956521739,
+                "support": 414
+              },
+              "Normal": {
+                "f1": 0.9787234042553191,
+                "pr_auc": 0.9979001666414348,
+                "precision": 0.9871244635193133,
+                "recall": 0.9704641350210971,
+                "roc_auc": 0.9991587676940299,
+                "specificity": 0.9952904238618524,
+                "support": 237
+              },
+              "Viral": {
+                "f1": 0.7038834951456311,
+                "pr_auc": 0.7381527920354404,
+                "precision": 0.7671957671957672,
+                "recall": 0.6502242152466368,
+                "roc_auc": 0.8743774668843379,
+                "specificity": 0.9324116743471582,
+                "support": 223
+              }
+            },
+            "pr_auc_macro": 0.8724833909996222,
+            "roc_auc_ovr_macro": 0.9314031374940566,
+            "weighted_f1": 0.8552271176979619
+          },
+          "42": {
+            "accuracy": 0.8638443935926774,
+            "balanced_accuracy": 0.8507499938072187,
+            "brier_score": 0.21995703342036557,
+            "cohen_kappa": 0.7837047573889679,
+            "confusion_matrix": [
+              [
+                233,
+                3,
+                1
+              ],
+              [
+                4,
+                149,
+                70
+              ],
+              [
+                0,
+                41,
+                373
+              ]
+            ],
+            "expected_calibration_error": 0.042459812716581835,
+            "log_loss": 0.402748586111269,
+            "macro_f1": 0.8563107953930739,
+            "macro_precision": 0.8650777261159631,
+            "macro_recall": 0.8507499938072187,
+            "matthews_correlation_coefficient": 0.7852492762795376,
+            "per_class": {
+              "Bacterial": {
+                "f1": 0.8694638694638694,
+                "pr_auc": 0.8840242958804819,
+                "precision": 0.8400900900900901,
+                "recall": 0.9009661835748792,
+                "roc_auc": 0.927916929216551,
+                "specificity": 0.8456521739130435,
+                "support": 414
+              },
+              "Normal": {
+                "f1": 0.9831223628691983,
+                "pr_auc": 0.9970221388590615,
+                "precision": 0.9831223628691983,
+                "recall": 0.9831223628691983,
+                "roc_auc": 0.9979068550497123,
+                "specificity": 0.9937205651491365,
+                "support": 237
+              },
+              "Viral": {
+                "f1": 0.7163461538461539,
+                "pr_auc": 0.7661633709965572,
+                "precision": 0.772020725388601,
+                "recall": 0.6681614349775785,
+                "roc_auc": 0.8824437050966777,
+                "specificity": 0.9324116743471582,
+                "support": 223
+              }
+            },
+            "pr_auc_macro": 0.8824032685787002,
+            "roc_auc_ovr_macro": 0.9360891631209803,
+            "weighted_f1": 0.8612165151781856
+          }
+        },
+        "predictions": {
+          "123": {
+            "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\runs\\confirmation_densenet201_viridis_ge_clahe_label_smoothing005_s123\\predictions.csv",
+            "sha256": "723547d560d7cb1ba48ef2271e07c32f61b25135b9bb929419c3d623e5142547",
+            "size_bytes": 124106
+          },
+          "2026": {
+            "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\runs\\confirmation_densenet201_viridis_ge_clahe_label_smoothing005_s2026\\predictions.csv",
+            "sha256": "7884189f1b74e349efbf9d5c76655febf0d301d615510ab293e78f5ef976d430",
+            "size_bytes": 124516
+          },
+          "42": {
+            "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\runs\\fine_tuning_densenet201_viridis_ge_clahe_label_smoothing005_s42\\predictions.csv",
+            "sha256": "b20b0e0097ef3aac0d2626a39ee6fe1dfda8a525d6c298d5a026fab7508cb150",
+            "size_bytes": 124488
+          }
+        }
+      }
+    },
+    "validation_rows": 874
+  },
+  "disk_reserve_bytes": 1610612736,
+  "experiment": "FT-011",
+  "frozen_at": "2026-10-13T13:22:57+08:00",
+  "hardware_snapshot": {
+    "ac_connected": true,
+    "battery_percent": 48,
+    "cpu_temperature_c": null,
+    "cpu_temperature_status": "unavailable: no verified package/core temperature sensor",
+    "cpu_utilization_percent": null,
+    "disk_free_bytes": 15892410368,
+    "disk_total_bytes": 489254023168,
+    "errors": [],
+    "gpu_driver_version": "576.28",
+    "gpu_name": "NVIDIA GeForce RTX 2050",
+    "gpu_power_watts": null,
+    "gpu_shutdown_c": 100.0,
+    "gpu_slowdown_c": 97.0,
+    "gpu_target_c": 87.0,
+    "gpu_temperature_c": 41.0,
+    "gpu_thermal_reason_values": [
+      "Not Active",
+      "Not Active"
+    ],
+    "gpu_thermal_throttling": false,
+    "gpu_utilization_percent": 0.0,
+    "gpu_vram_total_bytes": 4294967296,
+    "gpu_vram_used_bytes": 9437184,
+    "monotonic_time": 5173257.25,
+    "ram_available_bytes": 1857437696,
+    "ram_total_bytes": 16868974592,
+    "sample_completed_utc": "2026-10-13T05:22:53.781+00:00",
+    "timestamp_utc": "2026-10-13T05:22:53.337+00:00"
+  },
+  "learning_rate_policy": {
+    "backbone": 1e-05,
+    "classifier": 0.0001
+  },
+  "locked_test_images_accessed": false,
+  "manifest_version_hash": "3b815cf769c85658a04748da5eb2e15b981b89d9c9b77a404e90fe23473d2774",
+  "maximum_successful_candidate_runs": 3,
+  "packages": {
+    "Pillow": "10.4.0",
+    "numpy": "1.26.4",
+    "opencv-python": "4.10.0.84",
+    "pandas": "2.2.2",
+    "scikit-learn": "1.5.1",
+    "scipy": "1.14.1",
+    "torch": "2.5.1+cu121",
+    "torchvision": "0.20.1+cu121"
+  },
+  "protocol_hash": "7a667b9dc65b94ecb89f38e87ef85490c44ab329d1a517b994f966ee4056cee4",
+  "protocol_sources": [
+    "https://docs.google.com/document/d/15m0nbeDkg9mOR14nv6e6ugqWiczRaeiC5C2ijUdpRz0/edit",
+    "https://docs.google.com/document/d/1mdLbxZMtv2icHKNs-VSjpZiWb5_2lG-S/edit",
+    "https://docs.google.com/document/d/1I9-egb-SZRzbGQ-PXxM8UjvGmc_CCcsZ/edit"
+  ],
+  "provenance_limits": [
+    "Historical runs saved configurations, ImageNet identity, checkpoints and predictions, but did not save initial-state hashes or per-run source commits; current source hashes and fresh initialization hashes are recorded."
+  ],
+  "python": "3.12.6",
+  "repairs": [
+    {
+      "assignments_changed": false,
+      "reason": "Git core.autocrlf converted the working files; all original SHA256 recovered exactly",
+      "repair": "CRLF to LF in four locked CSV manifests"
+    }
+  ],
+  "safety_policy": {
+    "checkpoint_copies_reserved": 2,
+    "continuous_cooling_seconds": 120.0,
+    "disk_additional_reserve_bytes": 1073741824,
+    "gpu_critical_c": 92.0,
+    "gpu_pause_c": 84.0,
+    "gpu_resume_c": 75.0,
+    "gpu_warning_c": 80.0,
+    "hardware_shutdown_c": 100.0,
+    "hardware_slowdown_c": 97.0,
+    "hardware_target_c": 87.0,
+    "heartbeat_max_age_seconds": 6.0,
+    "ram_pause_available_bytes": 1073741824,
+    "ram_resume_available_bytes": 2147483648,
+    "ram_warning_available_bytes": 2147483648,
+    "sample_interval_seconds": 2.0,
+    "vram_pause_fraction": 0.98,
+    "vram_resume_fraction": 0.92,
+    "vram_warning_fraction": 0.95
+  },
+  "scheduler_defaults": {
+    "cooldown": 0,
+    "eps": 1e-08,
+    "factor": 0.5,
+    "min_lr": [
+      0.0,
+      0.0
+    ],
+    "mode": "max",
+    "monitored_metric": "validation macro F1",
+    "patience": 2,
+    "threshold": 0.0001,
+    "threshold_mode": "rel"
+  },
+  "seeds": [
+    42,
+    123,
+    2026
+  ],
+  "source_hashes": {
+    "model/scripts/analyze_ft011.py": "6238f83b57bcf1a997a284af73e717d8f0bddb562c6666150ec1cca5fb88ca72",
+    "model/scripts/run_ft011.py": "360f3f5949eb862e10b11436bc4b70653ec39fcb14b177e9a7c7410f54d6a407",
+    "model/src/multiclass/config.py": "6c1f1b5c45b10fefc1bda5299f7eea5a0593b556348a230acfd142ae6d4ce0be",
+    "model/src/multiclass/data.py": "010d3568d548abb7d1665efc75fa410b5044eaf347cdd20f86fdccce38145638",
+    "model/src/multiclass/evaluation.py": "727529d1ccd60f0e41175214d88ad3e07af5c04b96c5eb6e5953a0f0a1444010",
+    "model/src/multiclass/ft011_safety.py": "f4d348d86977945a9db4050ed730bc2567a72bd973adca64879d6d611b1ca57a",
+    "model/src/multiclass/ft011_training.py": "b6b9afb124a504b83f6a6c4413f8560f614e38b8c0ab6752efa376c1b63a58e3",
+    "model/src/multiclass/metrics.py": "263c6a3912b073a3461f02a3b45a7107e81e942d1b92bb2dbbb074ed0bebf37b",
+    "model/src/multiclass/models.py": "3de25c0d35349a1b732234e994a534be57316ae04670f27eeaad1496935f4298",
+    "model/src/multiclass/preprocessing.py": "b7a270ed0093426785c7bc8a6aba33ec6eaf796e6d399ddbc8a3ac68f8d84046",
+    "model/src/multiclass/trainer.py": "5f33f861bbb29d11e7b524a7b4b6b233be094e890f6384e9e5d61a900e7b59dc"
+  },
+  "status": "prepared",
+  "weight_identifier": "torchvision DenseNet201_Weights.IMAGENET1K_V1 (DEFAULT)",
+  "weights_path": "C:\\Users\\JOHN MARK\\.cache\\torch\\hub\\checkpoints\\densenet201-c1103571.pth",
+  "weights_sha256": "c1103571aad4f45d0b5b15556d92944db94c33bee68cd58babba3d76225a6401"
+}

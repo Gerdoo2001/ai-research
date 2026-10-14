@@ -1,0 +1,12 @@
+{
+  "at": "2026-10-13T13:52:09+08:00",
+  "initialization": {
+    "classifier_state_sha256": "bcdd9379b57b695784bea230bdc71119ed6865a0dd9b4c7aef70f151573b45b5",
+    "fresh_imagenet_initialization": true,
+    "model_state_sha256": "71c02f26964db716df7078e5fea68f0172265017a7e80527649adb8f98143ad9",
+    "seed": 42
+  },
+  "protocol_hash": "7a667b9dc65b94ecb89f38e87ef85490c44ab329d1a517b994f966ee4056cee4",
+  "smoke_metrics_are_execution_checks_only": true,
+  "status": "passed"
+}

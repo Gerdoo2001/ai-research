@@ -1,0 +1,6 @@
+{
+  "classifier_state_sha256": "bcdd9379b57b695784bea230bdc71119ed6865a0dd9b4c7aef70f151573b45b5",
+  "fresh_imagenet_initialization": true,
+  "model_state_sha256": "71c02f26964db716df7078e5fea68f0172265017a7e80527649adb8f98143ad9",
+  "seed": 42
+}

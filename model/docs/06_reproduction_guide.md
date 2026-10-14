@@ -188,7 +188,26 @@ To resume the full staged workflow from the currently active baseline process, u
 
 The orchestrator writes `model/results/pipeline_orchestrator_status.json` and `pipeline_orchestrator.log`, stops at the first failed gate, and records the exact stage-specific resume command. It does not bypass the validation-only placeholder resolvers or the frozen-selection test gate. To resume a later failed stage, replace `post_baseline` with the `stage` value recorded in the status JSON.
 
-## Safety Checks
+## Current frozen FT-004 publication — 13 October 2026
+
+The commands above describe earlier experimental stages, not authorization to reopen the now-closed tuning phase. FT-011 finished seed 42, failed four screening gates, and retained FT-004. No further confirmation seeds or locked-test evaluations were run for FT-011.
+
+For a fresh Windows research checkout, use Python 3.12, Git LFS, and the multiclass requirements:
+
+```powershell
+py -3.12 -m venv .venv
+.venv\Scripts\python.exe -m pip install -r model/requirements.multiclass-cu121.txt
+git lfs install
+git lfs pull --include="model/artifacts/ft004/*.pt"
+.venv\Scripts\python.exe model/scripts/package_ft004_release.py --verify-only
+.venv\Scripts\python.exe model/scripts/predict_ft004.py --synthetic --device cpu
+```
+
+The published selection resolves member files relative to `model/artifacts/ft004/selection.json`; it does not read the dataset. The synthetic check is not a validation result. For your own research image, replace `--synthetic` with `--image "C:\path\to\your_xray.jpg"`. The three original seed-42 members are averaged, and original website inference remains separate.
+
+Current FT-011 report generation uses the bundled document Python with `model/scripts/update_ft011_documents.py`. `export_research_docs_word.ps1 -RepositoryRoot "C:\path\to\ai-research-main"` exports a private read-only Microsoft Word instance to PDF on this Windows host; `render_word_export_pages.py` uses the canonical document renderer with that PDF and bundled PDFium for page QA. Earlier statements that unattended rendering was unavailable apply to the earlier reporting phase, not this October workflow. Rendering needs desktop Microsoft Word; training and inference do not.
+
+## Safety checks (all phases)
 
 - Never modify `model/datasets/chest_xray`.
 - Never load `test_manifest.csv` during selection.

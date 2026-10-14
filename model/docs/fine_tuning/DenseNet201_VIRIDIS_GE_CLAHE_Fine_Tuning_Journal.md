@@ -3,12 +3,12 @@
 ## Document status
 
 - Document type: separate fine-tuning and ROI experiment record
-- Created: 2026-08-10; finalized: 2026-08-13
-- Current status: FT-009B completed both binary models and the combined evaluation; FT-010 completed seeds 42, 123, and 2026; paired bootstrap analysis completed; FT-004 is frozen as the final validation-selected three-member research ensemble. FT-010 remains the simpler alternative and FT-009B the higher-Viral-recall alternative. No newly selected configuration has been evaluated on a genuinely independent external cohort.
+- Created: 2026-08-10; historical confirmation finalized: 2026-08-13; updated: 2026-10-13
+- Current status: FT-011 completed seed 42 and failed four of five prespecified screening gates. Its seeds 123 and 2026 were not run, FT-004 remains frozen, and this tuning phase is closed. FT-010 remains the simpler confirmed alternative and FT-009B the higher-Viral-recall alternative. No newly selected configuration has been evaluated on a genuinely independent external cohort.
 - Model-development split: locked training and validation manifests
 - Locked test status: not accessed
 - Relationship to prior documentation: extension after completion of the controlled baseline and preprocessing-order experiments; it does not replace or rewrite those results
-- Final artifact: `DenseNet201_VIRIDIS_GE_CLAHE_Fine_Tuning_Report_Final_20260813.docx`
+- Current artifact: `DenseNet201_VIRIDIS_GE_CLAHE_Fine_Tuning_Report.docx`; the dated August report remains preserved.
 
 ## Purpose
 
@@ -797,8 +797,17 @@ FT-004 is the project's **final validation-selected research model**. It is not 
 | FT-009A-ERROR-AUDIT | No training; saved outputs only | Full-image FT-REF, FT-007 and matched FT-004 seed-42 ensemble predictions | Matched seed 42 | N/A | N/A | N/A | N/A | N/A | N/A | Completed: 87.18%-93.28% of errors were Viral/Bacterial; design-only gate passed and FT-009B proceeded to separate contracts |
 | FT-009B-HIER-S42 | 224 per stage | Full-image two-stage classification; Stage 1 Normal/Pneumonia, Stage 2 Viral/Bacterial; VIRIDIS -> GE -> CLAHE | 42 | 8 per stage | Stage 1: 9; Stage 2: 5 | 85.270% combined | 85.661% | 85.355% | 75.336% | Completed; Viral recall improved but seed-42 advancement gate failed; no multi-seed advance |
 | FT-010A-LS005-MULTISEED | 224 | Full image; VIRIDIS -> GE -> CLAHE; label smoothing 0.05 | 42, 123, 2026 | 8 | 10, 6, 5 | 85.029% mean | 84.501% mean | 85.850% mean | 65.919% mean | Completed three-seed confirmation; strongest simpler single-network finalist |
+| FT-011-DIFFERENTIAL-LR | 224 | Full image; VIRIDIS -> GE -> CLAHE; backbone LR 0.00001; classifier LR 0.0001 | 42 only | 8 | 5 of 9 completed | 82.028% | 81.731% | 83.410% | 58.296% | Four screening gates failed; retain FT-004; seeds 123/2026 not run; tuning closed |
 | FINAL-FT004-ENS-S42 | 224 | Three DenseNet-201 members: VIRIDIS -> GE -> CLAHE; VIRIDIS -> GE; GE; equal probability mean | Frozen deployment seed 42; design confirmed at 42, 123, 2026 | 8 per member | Member-specific best checkpoints | 85.305% three-seed mean | 84.928% mean | 86.270% mean | 66.517% mean | **Chosen and frozen final validation-selected research model** |
 
 ## Interpretation status
+
+### Final October update — FT-011
+
+The final controlled candidate retained the FT-010 single-network configuration except for a ten-times-smaller backbone learning rate: 0.00001 for features and 0.0001 for the classifier, with every layer trainable. It reused the locked manifests, full-image VIRIDIS → GE → CLAHE, 224 × 224 input, flip/rotation augmentation, balanced cross-entropy with label smoothing 0.05, batch size 8, AdamW, and the matched scheduler/early-stopping policy. Fresh training meant a new ImageNet-initialized run, not continuation from a smoke or FT-010 checkpoint.
+
+Seed 42 completed nine epochs and selected epoch 5. Macro F1 was 0.8202782987500647, balanced accuracy 0.8173146418282663, and accuracy 0.834096109839817. Normal recall passed its gate, while macro F1, balanced accuracy, Viral recall, and Bacterial recall failed. Consequently seeds 123 and 2026 were not run, FT-004 remains selected, and this tuning phase is closed. A lower backbone rate was a hypothesis motivated by feature-transfer research, not an automatically superior policy or a paper-prescribed optimum.
+
+The full configuration, every exact gate, class metrics, actual history and figures, matched seed comparisons, 10,000-resample paired proxy-group bootstrap, hardware protection, interrupted-smoke history, full-run telemetry-write pause and recovery, and numbered research references are in [the complete FT-011 report](FT011_Final_Report_20261013.md). The original frozen FT-004 selection hash remains unchanged. Its [portable package](../../artifacts/ft004/README.md) copies only the three selected seed-42 checkpoints, not a new model or nine-network deployment. The website is unchanged; independent external evaluation is the next research phase.
 
 FT-001 and FT-003 completed without exceeding the 224 x 224 reference. FT-002 through FT-005 showed that the available PSPNet and U-Net ROI artifacts had class-dependent feasibility failures and were correctly stopped before they could bias classifier training. FT-006 increased Viral recall but reduced overall balance. FT-007 produced the highest label-smoothed seed-42 single-network result, and FT-010 confirmed that configuration across all three seeds at 85.029% mean macro F1. FT-009A established that most remaining mistakes were Viral/Bacterial; FT-009B then increased Viral recall to 75.336% but did not meet its overall macro-F1 advancement gate. FT-004 remains the highest fully three-seed-confirmed system at 85.305% mean macro F1 and is now frozen as the final validation-selected research model. Its paired-bootstrap improvement over the original pipeline excludes zero, while its small advantage over FT-010 does not. FT-010 is therefore the simpler statistically competitive alternative, and FT-009B is the higher-Viral-recall alternative. No new selected model inherits the earlier locked-test result; independent external evaluation remains required.

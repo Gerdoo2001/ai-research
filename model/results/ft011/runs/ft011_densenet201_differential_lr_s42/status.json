@@ -1,0 +1,20 @@
+{
+  "batch": 110,
+  "best_epoch": 5,
+  "best_validation_macro_f1": 0.8202782987500647,
+  "checkpoint": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\ft011\\runs\\ft011_densenet201_differential_lr_s42\\last_checkpoint.pt",
+  "elapsed_seconds": 4185.314313999377,
+  "epoch": 9,
+  "learning_rates": {
+    "backbone": 5e-06,
+    "classifier": 5e-05
+  },
+  "phase": "completed",
+  "protocol_hash": "7a667b9dc65b94ecb89f38e87ef85490c44ab329d1a517b994f966ee4056cee4",
+  "run_id": "ft011_densenet201_differential_lr_s42",
+  "seed": 42,
+  "smoke_execution_only": false,
+  "status": "completed",
+  "total_batches": 110,
+  "updated_at": "2026-10-13T15:04:07+08:00"
+}

@@ -1,0 +1,83 @@
+{
+  "accuracy": 0.8638443935926774,
+  "balanced_accuracy": 0.8507499938072187,
+  "best_epoch": 10,
+  "brier_score": 0.21995703342036557,
+  "cohen_kappa": 0.7837047573889679,
+  "configuration_hash": "d39fa041fab58fa14fbd1b3f96c53def36b1c4d04bbf5c03af22533dca4f2245",
+  "confusion_matrix": [
+    [
+      233,
+      3,
+      1
+    ],
+    [
+      4,
+      149,
+      70
+    ],
+    [
+      0,
+      41,
+      373
+    ]
+  ],
+  "expected_calibration_error": 0.042459812716581835,
+  "inference": {
+    "batch_size": 1,
+    "hardware": "cuda",
+    "host_to_device_transfer_included": false,
+    "input_size": 224,
+    "latency_ms_per_image": 48.646800000096846,
+    "measured_runs": 20,
+    "preprocessing_included": false,
+    "throughput_images_per_second": 20.556336696309092,
+    "warmup_runs": 5
+  },
+  "log_loss": 0.402748586111269,
+  "loss": 0.40274304056058485,
+  "macro_f1": 0.8563107953930739,
+  "macro_precision": 0.8650777261159631,
+  "macro_recall": 0.8507499938072187,
+  "manifest_version": "three_class_seed42_3b815cf769c8",
+  "matthews_correlation_coefficient": 0.7852492762795376,
+  "model_file_size_bytes": 219115384,
+  "parameter_count": 18098691,
+  "peak_gpu_memory_bytes": 1112218624,
+  "per_class": {
+    "Bacterial": {
+      "f1": 0.8694638694638694,
+      "pr_auc": 0.8840242958804819,
+      "precision": 0.8400900900900901,
+      "recall": 0.9009661835748792,
+      "roc_auc": 0.927916929216551,
+      "specificity": 0.8456521739130435,
+      "support": 414
+    },
+    "Normal": {
+      "f1": 0.9831223628691983,
+      "pr_auc": 0.9970221388590615,
+      "precision": 0.9831223628691983,
+      "recall": 0.9831223628691983,
+      "roc_auc": 0.9979068550497123,
+      "specificity": 0.9937205651491365,
+      "support": 237
+    },
+    "Viral": {
+      "f1": 0.7163461538461539,
+      "pr_auc": 0.7661633709965572,
+      "precision": 0.772020725388601,
+      "recall": 0.6681614349775785,
+      "roc_auc": 0.8824437050966777,
+      "specificity": 0.9324116743471582,
+      "support": 223
+    }
+  },
+  "pr_auc_macro": 0.8824032685787002,
+  "roc_auc_ovr_macro": 0.9360891631209803,
+  "run_id": "fine_tuning_densenet201_viridis_ge_clahe_label_smoothing005_s42",
+  "split": "validation",
+  "trainable_parameter_count": 18098691,
+  "training_duration_seconds": 7714.5202699,
+  "weighted_f1": 0.8612165151781856
+}

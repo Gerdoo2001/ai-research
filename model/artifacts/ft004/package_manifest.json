@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "system": "FT-004",
+  "source_frozen_selection_sha256": "bbb65ee1202b2c34490cdb1047339795e5751f2c71edf6626d1b1f235acea57b",
+  "files": {
+    "member_1_viridis_ge_clahe_s42.pt": {
+      "sha256": "266c2d66841a8013a92628fd364b9b9d9ef614100f44999711e5993624385e40",
+      "size_bytes": 219114296
+    },
+    "member_1_viridis_ge_clahe_s42_config.json": {
+      "sha256": "38aa224f4809ac7cfd599adf6aa2071c854873e739544df25ad5d7d49bc1077d",
+      "size_bytes": 1231
+    },
+    "member_2_viridis_ge_s42.pt": {
+      "sha256": "b1e1c9445ff799fb634a2e8cd795ddf05f5fef1c56aae6779b63efff3e1551c9",
+      "size_bytes": 219114296
+    },
+    "member_2_viridis_ge_s42_config.json": {
+      "sha256": "9d91a137a3eb50f9c4a331937959bc8d662f351e23662de3fd6c79762dff57af",
+      "size_bytes": 1209
+    },
+    "member_3_ge_s42.pt": {
+      "sha256": "b13383f573bea5ede2ae226161753f764cd8cba148a02d2f9665b7d1a079d74a",
+      "size_bytes": 219114232
+    },
+    "member_3_ge_s42_config.json": {
+      "sha256": "0d1ae120f62f46365e39a8a564dd4269b34893fcb060d3b3707c1ddd9faac022",
+      "size_bytes": 1175
+    },
+    "source_frozen_selection.json": {
+      "sha256": "bbb65ee1202b2c34490cdb1047339795e5751f2c71edf6626d1b1f235acea57b",
+      "size_bytes": 6842
+    },
+    "selection.json": {
+      "sha256": "252c0ee94ce22c240fd438b76580a4d424a325f3ccf21d7b0bcccf1c99e8d5c7",
+      "size_bytes": 8637
+    }
+  }
+}

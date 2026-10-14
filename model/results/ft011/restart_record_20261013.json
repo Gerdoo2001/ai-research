@@ -1,0 +1,19 @@
+{
+  "recorded_at": "2026-10-13T13:49:00+08:00",
+  "user_clarification": "The protocol document's ongoing label was not evidence of a previously running FT-011 full candidate. Start the controlled candidate fresh.",
+  "full_candidate_runs_completed": 0,
+  "fresh_start_definition": "Fresh ImageNet DenseNet-201 and seed-matched newly initialized classifier; not an FT-010 checkpoint and not a wholly random network.",
+  "interrupted_smoke_archive": "model/results/ft011/interrupted_checks/20261013_1349",
+  "previous_smoke_last_observation": "2026-10-13T13:43:25+08:00, epoch 1, batch 1 of 2, cooling",
+  "termination_cause": "Not recorded. Process absence was verified; no overheating termination is inferred.",
+  "previous_check_outcome": "Actual low-RAM protective pause and complete checkpoint exercised. Successful 120-second cooling/resume cycle and complete smoke were not verified.",
+  "technical_repeat": "Repeat the identical limited smoke check in a new namespace after archiving all earlier smoke and monitoring outputs. Full candidate starts fresh only after smoke verification.",
+  "archived_checkpoint_sha256": "b44c35dca1c7b073962cbc8e2252a499fc350ce088b43a2479a8c5fff98d5f16",
+  "repeated_smoke_verified_at": "2026-10-13T13:52:09+08:00",
+  "simulated_protection_resume_verified": true,
+  "full_seed42_started_at": "2026-10-13T13:52:14+08:00",
+  "frozen_protocol_unchanged": true,
+  "protocol_hash": "7a667b9dc65b94ecb89f38e87ef85490c44ab329d1a517b994f966ee4056cee4",
+  "incumbent_remains": "FT-004",
+  "live_website_changed": false
+}

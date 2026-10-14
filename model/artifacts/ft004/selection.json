@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "selection_id": "FINAL-VALIDATION-SELECTED-FT004-ENSEMBLE-S42",
+  "status": "frozen_validation_selected_research_model",
+  "frozen_at": "2026-08-13T14:12:03+08:00",
+  "selection_basis": "highest mean validation macro F1 among fully three-seed-confirmed finalists",
+  "primary_metric": "macro_f1",
+  "selection_split": "validation",
+  "validation_rows": 874,
+  "class_order": [
+    "Normal",
+    "Viral",
+    "Bacterial"
+  ],
+  "deployable_member_count": 3,
+  "deployable_seed": 42,
+  "deployable_seed_reason": "Seed 42 is the original predeclared reference seed used to define FT-004; it was not chosen retrospectively from the three confirmation scores.",
+  "inference_rule": {
+    "method": "equal arithmetic mean of three class-probability vectors",
+    "formula": "p_final = (p_member_1 + p_member_2 + p_member_3) / 3",
+    "prediction": "argmax(p_final) in class order [Normal, Viral, Bacterial]",
+    "learned_ensemble_weights": false,
+    "threshold_tuning": false
+  },
+  "fixed_shared_configuration": {
+    "input_size": 224,
+    "weights": "ImageNet initialization",
+    "optimizer": "AdamW",
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0001,
+    "batch_size": 8,
+    "loss": "balanced class-weighted cross-entropy",
+    "maximum_epochs": 12,
+    "early_stopping_patience": 4,
+    "training_augmentation": "horizontal flip p=0.5 and rotation +/-5 degrees"
+  },
+  "members": [
+    {
+      "member_order": 1,
+      "run_id": "staged_densenet201_pseudo_color_then_histogram_equalization_then_clahe_s42",
+      "architecture": "densenet201",
+      "preprocessing": "VIRIDIS -> Global Histogram Equalization (GE) -> CLAHE",
+      "seed": 42,
+      "best_epoch": 6,
+      "validation_macro_f1": 0.8529359483533887,
+      "configuration_path": "member_1_viridis_ge_clahe_s42_config.json",
+      "configuration_sha256": "38aa224f4809ac7cfd599adf6aa2071c854873e739544df25ad5d7d49bc1077d",
+      "configuration_hash_recorded": "ef029d89d066687af73d2973be80caf5b16bb3d648000f617b77a73306ab2691",
+      "checkpoint_path": "member_1_viridis_ge_clahe_s42.pt",
+      "checkpoint_sha256": "266c2d66841a8013a92628fd364b9b9d9ef614100f44999711e5993624385e40",
+      "checkpoint_size_bytes": 219114296,
+      "validation_predictions_path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\runs\\staged_densenet201_pseudo_color_then_histogram_equalization_then_clahe_s42\\predictions.csv",
+      "validation_predictions_sha256": "10c2cd4466049389ee51f495e8c0c7176616ae7ac03a38b4174edc3307491007",
+      "source_checkpoint_path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\runs\\staged_densenet201_pseudo_color_then_histogram_equalization_then_clahe_s42\\best_checkpoint.pt",
+      "source_configuration_path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\runs\\staged_densenet201_pseudo_color_then_histogram_equalization_then_clahe_s42\\config.json",
+      "configuration_hash_paths": {
+        "manifest_dir": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\data_manifests",
+        "results_dir": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\runs"
+      }
+    },
+    {
+      "member_order": 2,
+      "run_id": "staged_densenet201_pseudo_color_then_histogram_equalization_s42",
+      "architecture": "densenet201",
+      "preprocessing": "VIRIDIS -> Global Histogram Equalization (GE)",
+      "seed": 42,
+      "best_epoch": 6,
+      "validation_macro_f1": 0.8458998408903646,
+      "configuration_path": "member_2_viridis_ge_s42_config.json",
+      "configuration_sha256": "9d91a137a3eb50f9c4a331937959bc8d662f351e23662de3fd6c79762dff57af",
+      "configuration_hash_recorded": "97eb64a33c60894c859692f87e9acabb535ef86697878f9063830d0b2aab658f",
+      "checkpoint_path": "member_2_viridis_ge_s42.pt",
+      "checkpoint_sha256": "b1e1c9445ff799fb634a2e8cd795ddf05f5fef1c56aae6779b63efff3e1551c9",
+      "checkpoint_size_bytes": 219114296,
+      "validation_predictions_path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\runs\\staged_densenet201_pseudo_color_then_histogram_equalization_s42\\predictions.csv",
+      "validation_predictions_sha256": "3682a1bf8a1bc45e37880494eb5263d5a06c3f2887051a426e80087808746dbb",
+      "source_checkpoint_path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\runs\\staged_densenet201_pseudo_color_then_histogram_equalization_s42\\best_checkpoint.pt",
+      "source_configuration_path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\runs\\staged_densenet201_pseudo_color_then_histogram_equalization_s42\\config.json",
+      "configuration_hash_paths": {
+        "manifest_dir": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\data_manifests",
+        "results_dir": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\runs"
+      }
+    },
+    {
+      "member_order": 3,
+      "run_id": "ablation_densenet201_histogram_equalization_s42",
+      "architecture": "densenet201",
+      "preprocessing": "Global Histogram Equalization (GE)",
+      "seed": 42,
+      "best_epoch": 6,
+      "validation_macro_f1": 0.844714031735541,
+      "configuration_path": "member_3_ge_s42_config.json",
+      "configuration_sha256": "0d1ae120f62f46365e39a8a564dd4269b34893fcb060d3b3707c1ddd9faac022",
+      "configuration_hash_recorded": "34b95e1f554f0ef2a4efa9e88c20bf5d3bd93ae8e135c72ef3b18b086c39c988",
+      "checkpoint_path": "member_3_ge_s42.pt",
+      "checkpoint_sha256": "b13383f573bea5ede2ae226161753f764cd8cba148a02d2f9665b7d1a079d74a",
+      "checkpoint_size_bytes": 219114232,
+      "validation_predictions_path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\runs\\ablation_densenet201_histogram_equalization_s42\\predictions.csv",
+      "validation_predictions_sha256": "06304ca52f0d1889d8e085dba70508d0f624e8d484ec5055d007e090ca8236a0",
+      "source_checkpoint_path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\runs\\ablation_densenet201_histogram_equalization_s42\\best_checkpoint.pt",
+      "source_configuration_path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\runs\\ablation_densenet201_histogram_equalization_s42\\config.json",
+      "configuration_hash_paths": {
+        "manifest_dir": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\data_manifests",
+        "results_dir": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\runs"
+      }
+    }
+  ],
+  "three_seed_confirmation": {
+    "seeds": [
+      42,
+      123,
+      2026
+    ],
+    "summary_path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\ensemble_confirmation\\summary.json",
+    "summary_sha256": "a4dfaad151a3c8066613507c0af813a88462dd2ee6dfd28ed833639f6fa1e0a0",
+    "mean_macro_f1": 0.8530516857750923,
+    "sample_std_macro_f1": 0.014483777566055388,
+    "mean_accuracy": 0.8627002288329519,
+    "mean_balanced_accuracy": 0.8492846583463107,
+    "mean_viral_recall": 0.6651718983557549,
+    "prediction_paths": {
+      "42": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\ensemble_confirmation\\ensemble_predictions_s42.csv",
+      "123": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\ensemble_confirmation\\ensemble_predictions_s123.csv",
+      "2026": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\ensemble_confirmation\\ensemble_predictions_s2026.csv"
+    }
+  },
+  "locked_test_accessed_for_this_selection": false,
+  "historical_test_boundary": "The previously opened locked-test metrics belong only to the earlier DenseNet-201 + GE configuration and are not transferred to FT-004. FT-004 remains validation-selected and requires genuinely independent external evaluation for an unbiased final performance claim.",
+  "intended_use": "research comparison and prototype demonstration; not clinical diagnosis",
+  "publication": {
+    "created_at": "2026-10-13T11:22:30.247009+00:00",
+    "source_frozen_selection": "source_frozen_selection.json",
+    "source_frozen_selection_sha256": "bbb65ee1202b2c34490cdb1047339795e5751f2c71edf6626d1b1f235acea57b",
+    "checkpoint_paths_relative_to": "this selection file's directory",
+    "configuration_hash_path_context": "original absolute strings are retained only to verify historical config hashes; inference does not read research manifests",
+    "checkpoints_byte_identical": true,
+    "embedded_checkpoint_configurations_changed": false,
+    "research_use_only": true,
+    "independent_external_evaluation_completed": false
+  }
+}

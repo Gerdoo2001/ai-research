@@ -1,0 +1,6 @@
+{
+  "timestamp_utc": "2026-10-13T06:16:40.124+00:00",
+  "event": "checkpoint_saved_cooling",
+  "checkpoint_path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\ft011\\runs\\ft011_densenet201_differential_lr_s42\\last_checkpoint.pt",
+  "checkpoint_bytes": 223919098
+}

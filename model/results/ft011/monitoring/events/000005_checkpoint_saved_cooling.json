@@ -1,0 +1,6 @@
+{
+  "timestamp_utc": "2026-10-13T05:50:02.246+00:00",
+  "event": "checkpoint_saved_cooling",
+  "checkpoint_path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\ft011\\smoke\\last_checkpoint.pt",
+  "checkpoint_bytes": 78604750
+}

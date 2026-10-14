@@ -1,0 +1,516 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-13T07:04:14.529276+00:00",
+  "terminal_status": null,
+  "decision": "retain FT-004",
+  "terminal_decision_complete": true,
+  "closed_tuning_phase": true,
+  "screening_passed": false,
+  "screening_gates": [
+    {
+      "basis": "FT010 seed42",
+      "metric": "macro_f1",
+      "operator": ">=",
+      "threshold": 0.8613107953930739,
+      "observed": 0.8202782987500647,
+      "difference": -0.04103249664300912,
+      "passed": false
+    },
+    {
+      "basis": "FT010 seed42",
+      "metric": "balanced_accuracy",
+      "operator": ">=",
+      "threshold": 0.8507499938072187,
+      "observed": 0.8173146418282663,
+      "difference": -0.03343535197895242,
+      "passed": false
+    },
+    {
+      "basis": "FT010 seed42",
+      "metric": "viral_recall",
+      "operator": ">=",
+      "threshold": 0.6681614349775785,
+      "observed": 0.5829596412556054,
+      "difference": -0.08520179372197312,
+      "passed": false
+    },
+    {
+      "basis": "FT010 seed42",
+      "metric": "normal_recall",
+      "operator": ">=",
+      "threshold": 0.9831223628691983,
+      "observed": 0.9873417721518988,
+      "difference": 0.0042194092827004814,
+      "passed": true
+    },
+    {
+      "basis": "FT010 seed42",
+      "metric": "bacterial_recall",
+      "operator": ">=",
+      "threshold": 0.9009661835748792,
+      "observed": 0.8816425120772947,
+      "difference": -0.019323671497584516,
+      "passed": false
+    }
+  ],
+  "replacement_gates": [],
+  "completed_seeds": [
+    42
+  ],
+  "three_seed_confirmation_completed": false,
+  "runs": {
+    "42": {
+      "accuracy": 0.834096109839817,
+      "balanced_accuracy": 0.8173146418282663,
+      "best_epoch": 5,
+      "brier_score": 0.23574456643986105,
+      "cohen_kappa": 0.7358377297844888,
+      "configuration_hash": "d39fa041fab58fa14fbd1b3f96c53def36b1c4d04bbf5c03af22533dca4f2245",
+      "confusion_matrix": [
+        [
+          234,
+          2,
+          1
+        ],
+        [
+          10,
+          130,
+          83
+        ],
+        [
+          4,
+          45,
+          365
+        ]
+      ],
+      "expected_calibration_error": 0.019371154533016726,
+      "inference": {
+        "batch_size": 1,
+        "latency_ms_per_image": 21.89868506975472,
+        "measured_runs": 20,
+        "preprocessing_included": false,
+        "throughput_images_per_second": 45.66484228686159,
+        "warmup_runs": 5
+      },
+      "interruptions": [
+        {
+          "at": "2026-10-13T14:16:39+08:00",
+          "decision": {
+            "action": "pause",
+            "critical_overheat": false,
+            "disk_reserve_bytes": 1610612736,
+            "heartbeat_age_seconds": 0.17200000025331974,
+            "overheat": false,
+            "reasons": [
+              "Required monitoring unavailable: gpu_temperature_c",
+              "Required monitoring unavailable: gpu_utilization_percent",
+              "Required monitoring unavailable: gpu_vram_used_bytes",
+              "Required monitoring unavailable: gpu_vram_total_bytes",
+              "Required monitoring unavailable: gpu_thermal_throttling",
+              "Required monitoring unavailable: ram_total_bytes",
+              "Required monitoring unavailable: ram_available_bytes",
+              "Required monitoring unavailable: disk_free_bytes",
+              "Required monitoring unavailable: ac_connected",
+              "Monitoring log/sample failure: [WinError 5] Access is denied: 'C:\\\\Users\\\\JOHN MARK\\\\Code\\\\ai-research-main\\\\model\\\\results\\\\ft011\\\\monitoring\\\\telemetry_status.json.tmp' -> 'C:\\\\Users\\\\JOHN MARK\\\\Code\\\\ai-research-main\\\\model\\\\results\\\\ft011\\\\monitoring\\\\telemetry_status.json'"
+            ],
+            "warnings": []
+          },
+          "epoch": 4,
+          "hardware": {
+            "actual_overheat_events": 0,
+            "checkpoint_bytes": 268435456,
+            "complete_checkpoint_path": null,
+            "cooling_pauses": 2,
+            "cooling_started_monotonic": null,
+            "disk_reserve_bytes": 1610612736,
+            "monitoring_gaps": 0,
+            "overheat_events": 0,
+            "pause_active": true,
+            "peaks": {
+              "cpu_utilization_percent": 48.29147797447509,
+              "gpu_temperature_c": 48.0,
+              "gpu_utilization_percent": 100.0,
+              "gpu_vram_used_bytes": 1291845632,
+              "ram_used_bytes": 15360393216
+            },
+            "policy": {
+              "checkpoint_copies_reserved": 2,
+              "continuous_cooling_seconds": 120.0,
+              "disk_additional_reserve_bytes": 1073741824,
+              "gpu_critical_c": 92.0,
+              "gpu_pause_c": 84.0,
+              "gpu_resume_c": 75.0,
+              "gpu_warning_c": 80.0,
+              "hardware_shutdown_c": 100.0,
+              "hardware_slowdown_c": 97.0,
+              "hardware_target_c": 87.0,
+              "heartbeat_max_age_seconds": 6.0,
+              "ram_pause_available_bytes": 1073741824,
+              "ram_resume_available_bytes": 2147483648,
+              "ram_warning_available_bytes": 2147483648,
+              "sample_interval_seconds": 2.0,
+              "vram_pause_fraction": 0.98,
+              "vram_resume_fraction": 0.92,
+              "vram_warning_fraction": 0.95
+            },
+            "reading": {
+              "errors": [
+                "Monitoring log/sample failure: [WinError 5] Access is denied: 'C:\\\\Users\\\\JOHN MARK\\\\Code\\\\ai-research-main\\\\model\\\\results\\\\ft011\\\\monitoring\\\\telemetry_status.json.tmp' -> 'C:\\\\Users\\\\JOHN MARK\\\\Code\\\\ai-research-main\\\\model\\\\results\\\\ft011\\\\monitoring\\\\telemetry_status.json'"
+              ],
+              "monotonic_time": 5176483.312
+            },
+            "sample_sequence": 688,
+            "simulated_pause_events": 1,
+            "terminal_stop": false,
+            "thermal_throttle_samples": 0,
+            "timestamp_utc": "2026-10-13T06:16:39.575+00:00",
+            "training": {
+              "backbone_lr": 1e-05,
+              "batch": 50,
+              "classifier_lr": 0.0001,
+              "elapsed_seconds": 1462.0843368005008,
+              "epoch": 4,
+              "phase": "running:train",
+              "seed": 42,
+              "total_batches": 510
+            }
+          },
+          "phase": "train"
+        }
+      ],
+      "log_loss": 0.4065850666207584,
+      "loss": 0.40658201396601695,
+      "macro_f1": 0.8202782987500647,
+      "macro_precision": 0.8303097528625735,
+      "macro_recall": 0.8173146418282663,
+      "matthews_correlation_coefficient": 0.7386210970775753,
+      "model_file_size_bytes": 219236476,
+      "parameter_count": 18098691,
+      "peak_gpu_memory_bytes": 1112218112,
+      "per_class": {
+        "Normal": {
+          "precision": 0.9435483870967742,
+          "recall": 0.9873417721518988,
+          "specificity": 0.978021978021978,
+          "f1": 0.9649484536082474,
+          "support": 237,
+          "roc_auc": 0.9988010783670819,
+          "pr_auc": 0.9967966032113774
+        },
+        "Viral": {
+          "precision": 0.7344632768361582,
+          "recall": 0.5829596412556054,
+          "specificity": 0.9278033794162827,
+          "f1": 0.65,
+          "support": 223,
+          "roc_auc": 0.875186846038864,
+          "pr_auc": 0.7502617597325666
+        },
+        "Bacterial": {
+          "precision": 0.8129175946547884,
+          "recall": 0.8816425120772947,
+          "specificity": 0.8173913043478261,
+          "f1": 0.8458864426419467,
+          "support": 414,
+          "roc_auc": 0.9234063222012183,
+          "pr_auc": 0.8788841168086959
+        }
+      },
+      "pr_auc_macro": 0.8753141599175467,
+      "protocol_hash": "7a667b9dc65b94ecb89f38e87ef85490c44ab329d1a517b994f966ee4056cee4",
+      "roc_auc_ovr_macro": 0.9324647488690547,
+      "run_id": "ft011_densenet201_differential_lr_s42",
+      "smoke_execution_only": false,
+      "split": "validation",
+      "trainable_parameter_count": 18098691,
+      "training_duration_seconds": 4185.139188299887,
+      "wall_duration_seconds": 4310.720489740372,
+      "weighted_f1": 0.8281919573900693
+    }
+  },
+  "aggregate": {
+    "macro_f1": {
+      "mean": 0.8202782987500647,
+      "sample_std": null,
+      "values_by_seed": {
+        "42": 0.8202782987500647
+      }
+    },
+    "accuracy": {
+      "mean": 0.834096109839817,
+      "sample_std": null,
+      "values_by_seed": {
+        "42": 0.834096109839817
+      }
+    },
+    "balanced_accuracy": {
+      "mean": 0.8173146418282663,
+      "sample_std": null,
+      "values_by_seed": {
+        "42": 0.8173146418282663
+      }
+    },
+    "normal_recall": {
+      "mean": 0.9873417721518988,
+      "sample_std": null,
+      "values_by_seed": {
+        "42": 0.9873417721518988
+      }
+    },
+    "viral_recall": {
+      "mean": 0.5829596412556054,
+      "sample_std": null,
+      "values_by_seed": {
+        "42": 0.5829596412556054
+      }
+    },
+    "bacterial_recall": {
+      "mean": 0.8816425120772947,
+      "sample_std": null,
+      "values_by_seed": {
+        "42": 0.8816425120772947
+      }
+    }
+  },
+  "bootstrap": {
+    "iterations": 10000,
+    "random_seed": 20261013,
+    "seeds": [
+      42
+    ],
+    "paired_unit": {
+      "unit": "derived split_group_id proxy cluster",
+      "group_count": 228,
+      "repeated_image_group_count": 181,
+      "strata": {
+        "Normal": 109,
+        "Viral,Bacterial": 92,
+        "Viral": 25,
+        "Bacterial": 2
+      },
+      "method": "sample the original number of groups with replacement within each class stratum; retain every image from each sampled group",
+      "mixed_label_group_rule": "if present, stratify intact mixed-label groups by their class-membership tuple",
+      "limitation": "Identifiers are derived filename/hash groups, not verified patient IDs. Proxy clustering does not establish patient independence. Resampled image counts may vary because group sizes vary."
+    },
+    "seed_handling": "calculate metric independently for each fixed seed, then arithmetic mean; no cross-seed probability averaging",
+    "interpretation_boundary": "Validation sample uncertainty for the observed seeds. This is not independent external validation or proof of population-level random-seed performance.",
+    "comparisons": [
+      {
+        "candidate": "FT011",
+        "comparator": "FT010",
+        "metrics": {
+          "macro_f1": {
+            "point_difference": -0.036032496643009115,
+            "bootstrap_mean_difference": -0.03603834503401355,
+            "bootstrap_standard_error": 0.010858933328387915,
+            "ci_95_percentile": [
+              -0.05733804083684372,
+              -0.014989255493926702
+            ],
+            "bootstrap_probability_difference_above_zero": 0.0003
+          },
+          "accuracy": {
+            "point_difference": -0.029748283752860427,
+            "bootstrap_mean_difference": -0.029764278766757326,
+            "bootstrap_standard_error": 0.010392674887120928,
+            "ci_95_percentile": [
+              -0.0502185898586269,
+              -0.009389671361502372
+            ],
+            "bootstrap_probability_difference_above_zero": 0.0014
+          },
+          "balanced_accuracy": {
+            "point_difference": -0.03343535197895242,
+            "bootstrap_mean_difference": -0.03339432344596408,
+            "bootstrap_standard_error": 0.01015457578645324,
+            "ci_95_percentile": [
+              -0.05359080743282192,
+              -0.013719160646724023
+            ],
+            "bootstrap_probability_difference_above_zero": 0.0003
+          },
+          "normal_recall": {
+            "point_difference": 0.0042194092827004814,
+            "bootstrap_mean_difference": 0.0041967316114584746,
+            "bootstrap_standard_error": 0.004214454860996857,
+            "ci_95_percentile": [
+              0.0,
+              0.013392857142857206
+            ],
+            "bootstrap_probability_difference_above_zero": 0.6301
+          },
+          "viral_recall": {
+            "point_difference": -0.08520179372197312,
+            "bootstrap_mean_difference": -0.08520836519845193,
+            "bootstrap_standard_error": 0.02456128476462168,
+            "ci_95_percentile": [
+              -0.1351379042977403,
+              -0.03895923520923525
+            ],
+            "bootstrap_probability_difference_above_zero": 0.0
+          },
+          "bacterial_recall": {
+            "point_difference": -0.019323671497584516,
+            "bootstrap_mean_difference": -0.019171336750898806,
+            "bootstrap_standard_error": 0.016929794406035998,
+            "ci_95_percentile": [
+              -0.053117782909930744,
+              0.012854298624546158
+            ],
+            "bootstrap_probability_difference_above_zero": 0.1097
+          }
+        }
+      },
+      {
+        "candidate": "FT011",
+        "comparator": "FT004",
+        "metrics": {
+          "macro_f1": {
+            "point_difference": -0.04924930932811611,
+            "bootstrap_mean_difference": -0.04901469259412572,
+            "bootstrap_standard_error": 0.013064731437474816,
+            "ci_95_percentile": [
+              -0.0747533187781141,
+              -0.023418379234607923
+            ],
+            "bootstrap_probability_difference_above_zero": 0.0002
+          },
+          "accuracy": {
+            "point_difference": -0.04347826086956519,
+            "bootstrap_mean_difference": -0.04335538284971737,
+            "bootstrap_standard_error": 0.012327398550506245,
+            "ci_95_percentile": [
+              -0.06800502809819572,
+              -0.01963130037290991
+            ],
+            "bootstrap_probability_difference_above_zero": 0.0001
+          },
+          "balanced_accuracy": {
+            "point_difference": -0.048614110382510844,
+            "bootstrap_mean_difference": -0.048255037519874935,
+            "bootstrap_standard_error": 0.012643715281527496,
+            "ci_95_percentile": [
+              -0.0731876637092545,
+              -0.02362797954634427
+            ],
+            "bootstrap_probability_difference_above_zero": 0.0001
+          },
+          "normal_recall": {
+            "point_difference": 0.0042194092827004814,
+            "bootstrap_mean_difference": 0.00418115259770605,
+            "bootstrap_standard_error": 0.007389130242224298,
+            "ci_95_percentile": [
+              -0.00885054080629303,
+              0.019920318725099584
+            ],
+            "bootstrap_probability_difference_above_zero": 0.5993
+          },
+          "viral_recall": {
+            "point_difference": -0.12107623318385652,
+            "bootstrap_mean_difference": -0.12004206066145086,
+            "bootstrap_standard_error": 0.03348827442188674,
+            "ci_95_percentile": [
+              -0.18571569734613214,
+              -0.05607476635514019
+            ],
+            "bootstrap_probability_difference_above_zero": 0.0
+          },
+          "bacterial_recall": {
+            "point_difference": -0.02898550724637683,
+            "bootstrap_mean_difference": -0.028904204495879982,
+            "bootstrap_standard_error": 0.017513000424828652,
+            "ci_95_percentile": [
+              -0.06527582037740327,
+              0.0026890876329436434
+            ],
+            "bootstrap_probability_difference_above_zero": 0.0337
+          }
+        }
+      }
+    ]
+  },
+  "artifact_hashes": [
+    {
+      "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\ft011\\protocol.json",
+      "sha256": "1d2549682798cb78bb5fdcf05ba66e6b82288134393228253b6438a7993a335e",
+      "size_bytes": 38018
+    },
+    {
+      "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\ft011\\runs\\ft011_densenet201_differential_lr_s42\\metrics.json",
+      "sha256": "6abec68b8fc03776e0df6948275ab45343ed64713762f553002c24fe23b67183",
+      "size_bytes": 6072
+    },
+    {
+      "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\ft011\\runs\\ft011_densenet201_differential_lr_s42\\predictions.csv",
+      "sha256": "f4eb039fef0357eaf20162e3f699bfbcec2544a8e753aadcf65904c011096709",
+      "size_bytes": 123007
+    },
+    {
+      "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\ft011\\runs\\ft011_densenet201_differential_lr_s42\\history.csv",
+      "sha256": "2abd67d9cf2d3b2185e8eca843e49f0d1422f70c6cef5b0a337735afae1bfba4",
+      "size_bytes": 2414
+    },
+    {
+      "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\ft011\\runs\\ft011_densenet201_differential_lr_s42\\status.json",
+      "sha256": "7ace5133a03591807bce6aba45ad2ea069c8e03c339e18e0c5dff12e1959683f",
+      "size_bytes": 693
+    },
+    {
+      "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\ft011\\runs\\ft011_densenet201_differential_lr_s42\\config.json",
+      "sha256": "6bfedbaeb95b1653a09b465cdde13fac8ade77f5f84d206142931fae72892941",
+      "size_bytes": 1452
+    },
+    {
+      "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\ft011\\runs\\ft011_densenet201_differential_lr_s42\\candidate_configuration.json",
+      "sha256": "202f75a2fc2fd90167df9aab17cdab87241c30e2f19ce7d4605e954f932b7bcf",
+      "size_bytes": 1877
+    },
+    {
+      "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\ft011\\runs\\ft011_densenet201_differential_lr_s42\\optimizer_groups.json",
+      "sha256": "9ff6b35f2ade6081979ca8b5e2179e64752ed723bd4bd7d257a6dd9e3217a502",
+      "size_bytes": 32567
+    },
+    {
+      "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\ft011\\runs\\ft011_densenet201_differential_lr_s42\\scheduler_initial.json",
+      "sha256": "828a6d2b8dfe9df1f7cbfd10ae884dcf59ae4b1f27f0c26b5424b450a68e833e",
+      "size_bytes": 371
+    },
+    {
+      "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\ft011\\runs\\ft011_densenet201_differential_lr_s42\\initialization.json",
+      "sha256": "7bcddb3d07ead3bd8233e0b1dbbf246299ac5acbbb1204039ae8340dc8b236a4",
+      "size_bytes": 253
+    },
+    {
+      "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\ft011\\runs\\ft011_densenet201_differential_lr_s42\\best_checkpoint.pt",
+      "sha256": "40f9069aa8fbd93cf5b00b61c089934c1777efc3584cf4676eb59335765698ec",
+      "size_bytes": 219236476
+    }
+  ],
+  "locked_test_accessed": false,
+  "live_website_changed": false,
+  "frozen_incumbent": {
+    "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\final_ft004_ensemble\\frozen_selection.json",
+    "sha256": "bbb65ee1202b2c34490cdb1047339795e5751f2c71edf6626d1b1f235acea57b",
+    "size_bytes": 6842
+  },
+  "selected_deployment_seed": 42,
+  "selected_candidate_checkpoint": null,
+  "interpretation_boundary": "Validation findings only. Confirmation metrics are averaged separately per seed. Seed42 deployment is predeclared, not retrospectively chosen.",
+  "next_step": "independent evaluation of the frozen system",
+  "output_directory": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\ft011\\analysis\\20261013T070414529276Z",
+  "selected_package": {
+    "system": "FT004",
+    "frozen_selection": {
+      "path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\final_ft004_ensemble\\frozen_selection.json",
+      "sha256": "bbb65ee1202b2c34490cdb1047339795e5751f2c71edf6626d1b1f235acea57b",
+      "size_bytes": 6842
+    }
+  },
+  "graphs": [
+    "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\ft011\\analysis\\20261013T070414529276Z\\seed_42_training_curves.png",
+    "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\ft011\\analysis\\20261013T070414529276Z\\seed_42_learning_rates.png",
+    "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\ft011\\analysis\\20261013T070414529276Z\\seed_42_confusion_matrix.png",
+    "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\ft011\\analysis\\20261013T070414529276Z\\matched_seed_model_comparison.png"
+  ],
+  "report_path": "C:\\Users\\JOHN MARK\\Code\\ai-research-main\\model\\results\\ft011\\analysis\\20261013T070414529276Z\\FT011_Final_Report.md"
+}

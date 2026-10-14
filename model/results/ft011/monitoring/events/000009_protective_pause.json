@@ -1,0 +1,24 @@
+{
+  "timestamp_utc": "2026-10-13T06:16:39.571+00:00",
+  "event": "protective_pause",
+  "decision": {
+    "action": "pause",
+    "reasons": [
+      "Required monitoring unavailable: gpu_temperature_c",
+      "Required monitoring unavailable: gpu_utilization_percent",
+      "Required monitoring unavailable: gpu_vram_used_bytes",
+      "Required monitoring unavailable: gpu_vram_total_bytes",
+      "Required monitoring unavailable: gpu_thermal_throttling",
+      "Required monitoring unavailable: ram_total_bytes",
+      "Required monitoring unavailable: ram_available_bytes",
+      "Required monitoring unavailable: disk_free_bytes",
+      "Required monitoring unavailable: ac_connected",
+      "Monitoring log/sample failure: [WinError 5] Access is denied: 'C:\\\\Users\\\\JOHN MARK\\\\Code\\\\ai-research-main\\\\model\\\\results\\\\ft011\\\\monitoring\\\\telemetry_status.json.tmp' -> 'C:\\\\Users\\\\JOHN MARK\\\\Code\\\\ai-research-main\\\\model\\\\results\\\\ft011\\\\monitoring\\\\telemetry_status.json'"
+    ],
+    "warnings": [],
+    "critical_overheat": false,
+    "overheat": false,
+    "heartbeat_age_seconds": 0.17200000025331974,
+    "disk_reserve_bytes": 1610612736
+  }
+}

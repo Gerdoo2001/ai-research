@@ -2,3 +2,31 @@
 *.keras filter=lfs diff=lfs merge=lfs -text
 *.png filter=lfs diff=lfs merge=lfs -text
 *.zip filter=lfs diff=lfs merge=lfs -text
+
+# Locked manifests must retain the byte representation used by their frozen SHA-256.
+model/data_manifests/*.csv text eol=lf
+
+# Publish only the three frozen FT-004 research checkpoints with Git LFS.
+model/artifacts/ft004/*.pt filter=lfs diff=lfs merge=lfs -text
+# Artifact JSON digests include exact bytes and must survive cross-platform checkout.
+model/artifacts/ft004/*.json -text
+model/results/ft011/** -text
+model/src/multiclass/config.py text eol=crlf
+model/src/multiclass/data.py text eol=crlf
+model/src/multiclass/evaluation.py text eol=crlf
+model/src/multiclass/metrics.py text eol=crlf
+model/src/multiclass/models.py text eol=crlf
+model/src/multiclass/preprocessing.py text eol=crlf
+model/src/multiclass/trainer.py text eol=crlf
+model/scripts/analyze_ft011.py text eol=lf
+model/scripts/run_ft011.py text eol=lf
+model/src/multiclass/ft011_safety.py text eol=lf
+model/src/multiclass/ft011_training.py text eol=lf
+# Comparator records referenced by the frozen FT-011 protocol retain exact bytes.
+model/results/runs/*densenet201_viridis_ge_clahe_label_smoothing005_s*/*.json -text
+model/results/runs/*densenet201_viridis_ge_clahe_label_smoothing005_s*/*.csv -text
+model/results/ensemble_confirmation/*.json -text
+model/results/ensemble_confirmation/*.csv -text
+model/results/final_ft004_ensemble/*.json -text
+model/configs/final_ft004_ensemble.json -text
+model/data_manifests/*.json -text

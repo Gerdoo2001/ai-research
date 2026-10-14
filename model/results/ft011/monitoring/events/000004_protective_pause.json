@@ -1,0 +1,16 @@
+{
+  "timestamp_utc": "2026-10-13T05:50:02.030+00:00",
+  "event": "protective_pause",
+  "decision": {
+    "action": "pause",
+    "reasons": [
+      "GPU temperature 84.0C >= pause threshold 84.0C"
+    ],
+    "warnings": [],
+    "critical_overheat": false,
+    "overheat": true,
+    "heartbeat_age_seconds": 0.875,
+    "disk_reserve_bytes": 1610612736,
+    "simulated": true
+  }
+}

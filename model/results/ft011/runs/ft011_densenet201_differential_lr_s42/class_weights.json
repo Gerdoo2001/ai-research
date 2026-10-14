@@ -1,0 +1,14 @@
+{
+  "balanced_class_weights": [
+    1.2295626401901245,
+    1.30766761302948,
+    0.703243613243103
+  ],
+  "class_order": [
+    "Normal",
+    "Viral",
+    "Bacterial"
+  ],
+  "definition": "N / (K * per-class training count)",
+  "label_smoothing": 0.05
+}

@@ -1,0 +1,23 @@
+{
+  "_last_lr": [
+    1e-05,
+    0.0001
+  ],
+  "best": -Infinity,
+  "cooldown": 0,
+  "cooldown_counter": 0,
+  "eps": 1e-08,
+  "factor": 0.5,
+  "last_epoch": 0,
+  "min_lrs": [
+    0,
+    0
+  ],
+  "mode": "max",
+  "mode_worse": -Infinity,
+  "num_bad_epochs": 0,
+  "patience": 2,
+  "threshold": 0.0001,
+  "threshold_mode": "rel",
+  "verbose": false
+}

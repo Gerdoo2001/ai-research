@@ -1,5 +1,13 @@
 # Development Log
 
+## 2026-10-14 — documentation and selected-model publication
+
+- Updated the original native FT-011 Google Doc in place using revision-guarded edits; preserved its existing citation table and source chip. Added the actual completed results, failed screening gates, skipped confirmation seeds, recovery disclosures and retained FT-004 decision.
+- Produced updated full-journal, complete fine-tuning and standalone FT-011 Word reports, rendered and visually reviewed every final page. Historical dated reports were retained. Native Google Docs versions were imported into the existing research Drive folder, then read back for outcomes, black text, table counts and image counts; direct links are in `model/docs/README.md`.
+- Packaged the three original FT-004 seed-42 checkpoints byte for byte with relative inference paths, original configuration provenance and SHA-256 verification. Git LFS carries the 657,342,824 checkpoint bytes. The website and legacy binary inference were not changed.
+- Added portable inference/release tests; the full 109-test suite passed. A real three-member CPU forward pass on an artificial image passed; this is an execution check, not a clinical or dataset evaluation.
+- Added scoped Git attributes to preserve frozen evidence bytes, locked manifest LF, legacy frozen-source CRLF and new FT-011 source LF across checkouts. No data assignments or frozen training semantics changed.
+
 Append-only. Corrections are added as new entries; prior entries are not removed.
 
 ## 2026-07-16T16:55:00+08:00 - Phase 0 initiated
@@ -261,3 +269,16 @@ Append-only. Corrections are added as new entries; prior entries are not removed
 - **Validation performed:** Stage gates, subprocess return codes, per-run status, and consolidation consistency checks passed.
 - **Outcome:** Source immutability, tests, and final consolidation passed; completion-gated final report generation is authorized from actual artifacts.
 - **Next step:** Generate and structurally verify the final Markdown, final DOCX, and final progressive DOCX.
+
+## 2026-10-13T15:04:15+08:00 - FT-011 terminal evidence and documentation update
+
+- **Objective:** Execute the final fixed FT-011 learning-rate comparison and document its terminal decision against the recovered full-precision controls.
+- **Evidence inspected:** FT-011 protocol, final decision, seed-42 metrics/history/status and initialization, frozen FT-004 selection, timestamped protection events, final telemetry summary, and preserved interrupted smoke records.
+- **Implementation:** Added the bounded FT-011 runner, full batch-state recovery trainer, device-derived safety watchdog, visible live monitor, exact-gate analysis and 10,000-resample paired proxy-cluster bootstrap. Backbone/classifier parameter groups are disjoint and cover all trainable parameters; both rates are logged. The recovered ImageNet initialization, pipeline and runtime configuration were preserved except for the intended initial backbone learning rate.
+- **Source/data repair:** Restored locked manifest CSV line endings to their original LF bytes and original hashes; assignments and labels did not change. Preserved prior smoke outputs before repeating the identical execution check.
+- **Protection findings:** Initial smoke RAM pause and subsequent unexplained process disappearance are archived under `model/results/ft011/interrupted_checks/20261013_1349`. The fresh protected smoke passed at 13:52:09. The full run's required telemetry-file replacement failed with Windows access denial at 14:16:39; safe-boundary checkpoint recovery and a 122.547-second continuous healthy interval permitted resume at 14:18:45. This recorded monitoring interruption must not be hidden by the aggregate `monitoring_gaps` counter of zero. Actual overheating and thermal throttling were zero, with peak GPU temperature 51 C. CPU temperature was unavailable; automatic fan control and hardware protections were preserved.
+- **Outcome:** Seed 42 completed through epoch 9 with epoch 5 selected by the unchanged checkpoint rule. Macro F1 0.8202782987500647, accuracy 0.834096109839817, balanced accuracy 0.8173146418282663, Viral recall 0.5829596412556054. Four screening gates failed; seeds 123 and 2026 were not run. Final decision: retain FT-004 and close this tuning phase.
+- **Documentation changes:** Replaced stale `CURRENT_STATUS.md` facts and appended terminal records to `TRAINING_JOURNAL.md`, `DEVELOPMENT_LOG.md` and `DECISION_LOG.md`. Historical entries remain intact.
+- **Selected system:** The unchanged frozen FT-004 package contains three original seed-42 DenseNet-201 checkpoints using VIRIDIS -> GE -> CLAHE, VIRIDIS -> GE, and GE, with equal probability averaging and Normal/Viral/Bacterial argmax.
+- **Interpretation boundary:** The matched bootstrap comparisons describe validation uncertainty for the observed seed 42 and derived filename/hash clusters. They are not independent external validation or verified patient-level independence. No test data was used for FT-011 tuning and the live website was unchanged.
+- **Next step:** Independently evaluate the frozen FT-004 system; no further parameter search is authorized by this terminal experiment.

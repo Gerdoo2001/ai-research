@@ -38923,3 +38923,40 @@ No three-class runs have been queued or started. Training events will be appende
 - **Per-class recall:** {"Bacterial": 0.9057971014492754, "Normal": 0.9704641350210971, "Viral": 0.6502242152466368}
 - **Best checkpoint:** C:\Users\JOHN MARK\Code\ai-research-main\model\results\runs\confirmation_densenet201_viridis_ge_clahe_label_smoothing005_s2026\best_checkpoint.pt
 - **Status:** completed
+
+## 2026-10-13T15:04:15+08:00 - FT-011 terminal controlled experiment: retain FT-004
+
+FT-011 completed one full candidate run at seed 42, starting from fresh ImageNet DenseNet-201 weights and seed-matched classifier initialization. The only intended configuration change from FT-010 was backbone initial learning rate 0.00001; the classifier initial rate remained 0.0001. The candidate retained full-image VIRIDIS -> GE -> CLAHE, 224 x 224 input, all trainable layers, label smoothing 0.05 with balanced class-weighted cross-entropy, AdamW weight decay 0.0001, batch size 8 and the locked 4,076 training/874 validation cases. Horizontal flip p=0.5, rotation +/-5 degrees, normalization, preprocessing order, AMP, batch-normalization behavior, data ordering, scheduler and minimum-delta selection rule remained matched to the recovered control.
+
+- **Run ID:** `ft011_densenet201_differential_lr_s42`.
+- **Protocol hash:** `7a667b9dc65b94ecb89f38e87ef85490c44ab329d1a517b994f966ee4056cee4`.
+- **Candidate configuration hash:** `d39fa041fab58fa14fbd1b3f96c53def36b1c4d04bbf5c03af22533dca4f2245`.
+- **Completion:** Epoch 9/12 through early stopping; selected within-run checkpoint epoch 5.
+- **Active training duration:** 4,185.139188299887 seconds; full-run wall duration 4,310.720489740372 seconds.
+- **Accuracy:** 0.834096109839817.
+- **Balanced accuracy:** 0.8173146418282663.
+- **Macro F1:** 0.8202782987500647.
+- **Normal / Viral / Bacterial recall:** 0.9873417721518988 / 0.5829596412556054 / 0.8816425120772947.
+- **Best checkpoint SHA-256:** `40f9069aa8fbd93cf5b00b61c089934c1777efc3584cf4676eb59335765698ec`.
+- **PyTorch peak GPU allocation:** 1,112,218,112 bytes. Sampled total device VRAM peak is separately recorded as 1,356,857,344 bytes in the shared monitoring stream.
+- **Inference:** 21.89868506975472 ms/image at batch 1, 20 measured runs after 5 warmups; preprocessing excluded.
+
+| Fixed screening metric | Observed | Required full-precision threshold | Pass? |
+| --- | ---: | ---: | --- |
+| Macro F1 | 0.8202782987500647 | >= 0.8613107953930739 | No |
+| Balanced accuracy | 0.8173146418282663 | >= 0.8507499938072187 | No |
+| Viral recall | 0.5829596412556054 | >= 0.6681614349775785 | No |
+| Normal recall | 0.9873417721518988 | >= 0.9831223628691983 | Yes |
+| Bacterial recall | 0.8816425120772947 | >= 0.9009661835748792 | No |
+
+Four failed screening gates caused the required terminal stop. Seeds 123 and 2026 were not run; FT-011 has no three-seed confirmation, sample standard deviation or evaluated replacement gates. The tuning phase is closed and the final decision is **retain FT-004**.
+
+Protection evidence is part of the run record. The first smoke attempt paused when available RAM fell below 1 GiB; it later disappeared without a recorded cause and was preserved under `model/results/ft011/interrupted_checks/20261013_1349`. A fresh protected smoke completed at 13:52:09 after an explicitly simulated pause, full-state checkpoint recovery and at least two continuous healthy minutes. The full candidate then started fresh from ImageNet, not from the smoke checkpoint.
+
+At 14:16:39 the full run paused at a safe batch boundary because Windows denied an atomic replacement of the required telemetry-status file. Complete model, optimizer, scheduler, scaler, RNG, early-stopping, pending augmented batch and sampler state were saved. The run resumed at 14:18:45 after 122.547 continuously healthy seconds. One real required-monitoring interruption is documented even though the aggregate `monitoring_gaps` field is zero. Actual overheating and thermal throttling are both zero; shared peak GPU temperature is 51 C. The monitoring stream contains one simulated smoke pause and two total pauses, including the full-run monitoring interruption. CPU temperature was explicitly unavailable.
+
+The 10,000-resample paired bootstrap uses the matched seed-42 validation cases and intact derived proxy clusters. FT-011 minus FT-010 macro-F1 difference is -0.036032496643009115, with 95% percentile interval [-0.05733804083684372, -0.014989255493926702]. FT-011 minus FT-004 seed-42 ensemble macro-F1 difference is -0.04924930932811611, with interval [-0.0747533187781141, -0.023418379234607923]. These are matched single-seed comparisons, not FT-011 three-seed estimates. The 228 clusters are derived filename/hash groups; they do not verify patient independence or external performance.
+
+FT-004 remains the frozen three-member DenseNet-201 seed-42 ensemble. Its three-seed mean validation macro F1 is 0.8530516857750923, accuracy 0.8627002288329519, balanced accuracy 0.8492846583463107 and Viral recall 0.6651718983557549. Deployment averages probabilities from the VIRIDIS -> GE -> CLAHE, VIRIDIS -> GE, and GE members before Normal/Viral/Bacterial argmax. It contains three seed-42 networks, not the nine networks used across robustness evaluations.
+
+Authoritative evidence: `model/results/ft011/final_decision.json`, the seed-42 run directory, final telemetry summary, and `model/results/ft011/analysis/20261013T070414529276Z/FT011_Final_Report.md`. No locked-test images or metrics were used for FT-011; the live website was unchanged. Next step: independent evaluation of the frozen FT-004 system.
